@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ config.title }}</title>
+<meta name="description" content="{{ config.description }}">
+<style>
+  :root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.5; }
+  body { margin: 0 auto; max-width: 42rem; padding: 32px 16px; }
+  h1 { font-size: 2rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>{{ section.title }}</h1>
+  {{ section.content | safe }}
+</main>
+</body>
+</html>
