@@ -19,10 +19,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - id: pages
+        uses: actions/configure-pages@v5
       - uses: taiki-e/install-action@v2
         with:
           tool: zola
-      - run: zola build
+      # Build for the address Pages serves: the github.io project path now,
+      # the custom domain once it is set in the repository's settings.
+      - env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: zola build --base-url "$BASE_URL"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
@@ -33,6 +39,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/configure-pages@v5
       - id: deployment
         uses: actions/deploy-pages@v4
