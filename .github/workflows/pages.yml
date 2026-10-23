@@ -103,7 +103,7 @@ jobs:
             status=1
           fi
           exit "$status"
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: public
   deploy:
