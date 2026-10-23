@@ -7,7 +7,5 @@ generate_feeds = false
 minify_html = true
 
 [markdown]
-highlight_code = true
-highlight_theme = "css"
 external_links_target_blank = false
 smart_punctuation = true
