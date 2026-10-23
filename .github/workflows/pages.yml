@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -18,29 +16,80 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: read # configure-pages reads the Pages settings
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - id: pages
         uses: actions/configure-pages@v5
       # Pinned so a new Zola release cannot change the build unseen.
-      # Dependabot does not update this version; bump it by hand.
-      - uses: taiki-e/install-action@v2
+      # Dependabot updates the action's SHA but not the Zola version;
+      # bump that by hand.
+      - uses: taiki-e/install-action@a4d3f3f761dcd95cce1b72cb61cb6d1963438177 # v2.87.30
         with:
           tool: zola@0.23.6
+          fallback: none
       # Build for the address Pages serves: the github.io project path now,
       # the custom domain once it is set in the repository's settings.
       - env:
           BASE_URL: ${{ steps.pages.outputs.base_url }}
         run: zola build --base-url "$BASE_URL"
+      # The plan allows no scripts and no third-party loads on this site.
+      # minify_html drops attribute quotes, so the patterns allow both forms.
+      # Absolute URLs under the site's own base URL are same-site and pass.
+      - name: Check that no page runs a script or loads from another site
+        env:
+          SITE: ${{ steps.pages.outputs.base_url }}
+        run: |
+          set -o pipefail
+          # grep, but "no match" is not a failure; a real error still is.
+          g() { grep "$@" || [ "$?" -eq 1 ]; }
+          test -f public/index.html || { echo '::error::public/index.html is missing'; exit 1; }
+          status=0
+          scripts=$(g -rIli '<script' public)
+          if [ -n "$scripts" ]; then
+            printf '%s\n' "$scripts"
+            echo '::error::the files above contain <script'
+            status=1
+          fi
+          # One "file<TAB>URL" line per src= or srcset=, loading <link> href,
+          # url() and @import; keep the absolute URLs not under this site.
+          external=$(
+            {
+              g -rIoiE "src(set)?[[:space:]]*=[[:space:]]*[\"']?[^\"' >]+" public \
+                | sed -E "s/^([^:]*):[^=]*=[[:space:]]*[\"']?/\1\t/" &&
+              g -rIoiE '<link[^>]*>' public \
+                | g -iE "rel[[:space:]]*=[[:space:]]*(\"[^\"]*|'[^']*|)(stylesheet|icon|preload|prefetch|preconnect|manifest)" \
+                | sed -nE "s/^([^:]*):.*href[[:space:]]*=[[:space:]]*[\"']?([^\"' >]+).*/\1\t\2/Ip" &&
+              g -rIoiE "(url\(|@import)[[:space:]]*(url\()?[[:space:]]*[\"']?[^\"') ;]+" public \
+                | sed -E "s/^([^:]*):(url\(|@import)[[:space:]]*(url\()?[[:space:]]*[\"']?/\1\t/I"
+            } | awk -F '\t' -v site="${SITE%/}/" '
+                  { u = tolower($2) }
+                  u ~ /^(https?:)?\/\// && index(u, tolower(site)) != 1'
+          )
+          if [ -n "$external" ]; then
+            printf '%s\n' "$external"
+            echo '::error::the files above load something from another site'
+            status=1
+          fi
+          exit "$status"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
   deploy:
     needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment comes from this workflow
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
