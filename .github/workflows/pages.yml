@@ -3,15 +3,21 @@ name: Pages
 on:
   push:
     branches: [main]
+  # Builds and checks only; the deploy job skips pull requests. This gives
+  # Dependabot's pull requests a build.
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
 
+# Deploys share one group, so a deploy that has started finishes and a newer
+# run waits for it. Each pull request has its own group, so its builds never
+# queue behind or displace a deploy, and a newer push cancels the older build.
 concurrency:
-  group: pages
-  # Let a deploy that has started finish; a newer run waits for it.
-  cancel-in-progress: false
+  group: pages-${{ github.event_name == 'pull_request' && github.ref || 'deploy' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
@@ -38,10 +44,21 @@ jobs:
       - env:
           BASE_URL: ${{ steps.pages.outputs.base_url }}
         run: zola build --base-url "$BASE_URL"
-      # The plan allows no scripts and no third-party loads on this site.
-      # minify_html drops attribute quotes, so the patterns allow both forms.
-      # Absolute URLs under the site's own base URL are same-site and pass.
-      - name: Check that no page runs a script or loads from another site
+      # Checks the built pages for accidents against the plan's rule of no
+      # scripts and no third-party loads. It fails on a <script tag, an
+      # on...= event-handler attribute, a javascript: attribute value, and an
+      # absolute URL outside the site's base URL in src= or srcset=, in the
+      # href of a <link> whose rel names stylesheet, icon, preload, prefetch,
+      # preconnect or manifest, or in a CSS url() or @import. Quoted and
+      # unquoted attributes both count (minify_html drops quotes). This
+      # catches accidents, not adversaries; the reviewers do the latter.
+      # Known limits: srcset candidates after the first; CSS image-set();
+      # poster=, object data=, base href=, ping= and SVG image href=; meta
+      # refresh; entity-encoded URLs; a tag split across lines; src= or
+      # srcset= after a / instead of whitespace or a quote. It also reports
+      # src= followed by an off-site URL in page text, and a same-site URL
+      # written protocol-relative (//host/...).
+      - name: Check for scripts, event handlers and common off-site loads
         env:
           SITE: ${{ steps.pages.outputs.base_url }}
         run: |
@@ -50,20 +67,29 @@ jobs:
           g() { grep "$@" || [ "$?" -eq 1 ]; }
           test -f public/index.html || { echo '::error::public/index.html is missing'; exit 1; }
           status=0
-          scripts=$(g -rIli '<script' public)
-          if [ -n "$scripts" ]; then
-            printf '%s\n' "$scripts"
-            echo '::error::the files above contain <script'
-            status=1
-          fi
-          # One "file<TAB>URL" line per src= or srcset=, loading <link> href,
-          # url() and @import; keep the absolute URLs not under this site.
+          # report <what> <grep pattern arguments>: list the files that match.
+          report() {
+            what=$1
+            shift
+            hits=$(g -rIli "$@" public)
+            if [ -n "$hits" ]; then
+              printf '%s\n' "$hits"
+              echo "::error::the files above contain $what"
+              status=1
+            fi
+          }
+          report '<script' -F '<script'
+          report 'an on...= event handler' -E "<[a-z][^>]*[[:space:]/\"']on[a-z]+[[:space:]]*="
+          report 'a javascript: attribute value' -E "<[a-z][^>]*=[[:space:]]*[\"']?[[:space:]]*javascript:"
+          # One "file<TAB>URL" line per src= or srcset= (first candidate only),
+          # loading <link> href, url() and @import; keep the absolute URLs not
+          # under this site.
           external=$(
             {
-              g -rIoiE "src(set)?[[:space:]]*=[[:space:]]*[\"']?[^\"' >]+" public \
+              g -rIoiE "(^|[[:space:]\"'])src(set)?[[:space:]]*=[[:space:]]*[\"']?[^\"' >]+" public \
                 | sed -E "s/^([^:]*):[^=]*=[[:space:]]*[\"']?/\1\t/" &&
               g -rIoiE '<link[^>]*>' public \
-                | g -iE "rel[[:space:]]*=[[:space:]]*(\"[^\"]*|'[^']*|)(stylesheet|icon|preload|prefetch|preconnect|manifest)" \
+                | g -iE "rel[[:space:]]*=[[:space:]]*(\"[^\"]*|'[^']*|[^\"' >]*)(stylesheet|icon|preload|prefetch|preconnect|manifest)" \
                 | sed -nE "s/^([^:]*):.*href[[:space:]]*=[[:space:]]*[\"']?([^\"' >]+).*/\1\t\2/Ip" &&
               g -rIoiE "(url\(|@import)[[:space:]]*(url\()?[[:space:]]*[\"']?[^\"') ;]+" public \
                 | sed -E "s/^([^:]*):(url\(|@import)[[:space:]]*(url\()?[[:space:]]*[\"']?/\1\t/I"
@@ -82,6 +108,7 @@ jobs:
           path: public
   deploy:
     needs: build
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
