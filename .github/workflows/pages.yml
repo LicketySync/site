@@ -31,7 +31,7 @@ jobs:
         with:
           persist-credentials: false
       - id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       # Pinned so a new Zola release cannot change the build unseen.
       # Dependabot updates the action's SHA but not the Zola version;
       # bump that by hand.
