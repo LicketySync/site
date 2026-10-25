@@ -39,28 +39,57 @@ jobs:
         with:
           tool: zola@0.23.6
           fallback: none
-      # Build for the address Pages serves: the github.io project path now,
-      # the custom domain once it is set in the repository's settings.
-      - env:
-          BASE_URL: ${{ steps.pages.outputs.base_url }}
-        run: zola build --base-url "$BASE_URL"
-      # Checks the built pages for accidents against the plan's rule of no
-      # scripts and no third-party loads. It fails on a <script tag, an
-      # on...= event-handler attribute, a javascript: attribute value, and an
-      # absolute URL outside the site's base URL in src= or srcset=, in the
-      # href of a <link> whose rel names stylesheet, icon, preload, prefetch,
-      # preconnect or manifest, or in a CSS url() or @import. Quoted and
-      # unquoted attributes both count (minify_html drops quotes). This
-      # catches accidents, not adversaries; the reviewers do the latter.
-      # Known limits: srcset candidates after the first; CSS image-set();
-      # poster=, object data=, base href=, ping= and SVG image href=; meta
-      # refresh; entity-encoded URLs; a tag split across lines; src= or
-      # srcset= after a / instead of whitespace or a quote. It also reports
-      # src= followed by an off-site URL in page text, and a same-site URL
-      # written protocol-relative (//host/...).
-      - name: Check for scripts, event handlers and common off-site loads
+      # Build for the address Pages serves, the custom domain set in the
+      # repository's Pages settings, and only over HTTPS. configure-pages
+      # gives that address a plain-HTTP scheme until "Enforce HTTPS" is
+      # ticked there, so this step makes it https:// and fails the job on a
+      # base URL that then does not start with https://, or that has a
+      # space or control character in it. The check below gets the same
+      # URL from this step's output.
+      - id: build
+        shell: bash
         env:
-          SITE: ${{ steps.pages.outputs.base_url }}
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          base_url=${BASE_URL/#http:\/\//https://}
+          if [[ $base_url != https://?* || $base_url == *[![:graph:]]* ]]; then
+            echo '::error::the base URL from configure-pages is not https://'
+            printf 'base_url: %q\n' "$BASE_URL"
+            exit 1
+          fi
+          echo "base_url=$base_url" >> "$GITHUB_OUTPUT"
+          zola build --base-url "$base_url"
+      # Checks the built pages for accidents against the plan's rule of no
+      # scripts and no third-party loads, and the owner's rule of HTTPS
+      # only. It fails on a <script tag, an on...= event-handler attribute,
+      # a javascript: attribute value, any http: followed by / or \ (any
+      # case) in any text file, and an absolute URL outside the site's base
+      # URL in src= or srcset=, in the href of a <link> whose rel names
+      # stylesheet, icon, preload, prefetch, preconnect or manifest, or in
+      # a CSS url() or @import. The one http: allowed is an XML namespace
+      # name: the value of an xmlns= or xmlns:prefix= attribute, such as
+      # the sitemap's xmlns for www.sitemaps.org/schemas/sitemap/0.9, a
+      # string the sitemap protocol fixes. A namespace name is an
+      # identifier that nothing fetches. Docs write loopback addresses
+      # without a scheme (127.0.0.1:PORT/...), following the owner's rule
+      # of "no protocol or https://". Quoted and unquoted attributes both
+      # count (minify_html drops quotes). This catches accidents, not
+      # adversaries; the reviewers do the latter. Known limits: srcset
+      # candidates after the first; CSS image-set(); poster=, object data=,
+      # base href=, ping= and SVG image href=; meta refresh; entity-encoded
+      # URLs; a raw tab or newline inside a URL, which browsers drop (so
+      # ht<TAB>tp:// passes); http: with no slash after it (http:x), which
+      # browsers also read as plain HTTP; files grep treats as binary (-I),
+      # which are never scanned; a tag split across lines; src= or srcset=
+      # after a / instead of whitespace or a quote; any xmlns value passes,
+      # on any tag or in page text, as nothing tells a namespace name from
+      # another URL. It also reports src= followed by an off-site URL in
+      # page text, http:/ or http:\ in page text, and a same-site URL
+      # written protocol-relative (//host/...).
+      - name: Check for scripts, event handlers, plain HTTP and common off-site loads
+        shell: bash
+        env:
+          SITE: ${{ steps.build.outputs.base_url }}
         run: |
           set -o pipefail
           # grep, but "no match" is not a failure; a real error still is.
@@ -81,6 +110,20 @@ jobs:
           report '<script' -F '<script'
           report 'an on...= event handler' -E "<[a-z][^>]*[[:space:]/\"']on[a-z]+[[:space:]]*="
           report 'a javascript: attribute value' -E "<[a-z][^>]*=[[:space:]]*[\"']?[[:space:]]*javascript:"
+          # Plain HTTP: one match per http: followed by / or \, taking in the
+          # xmlns= or xmlns:prefix= attribute in front of it when there is
+          # one, so a match that starts with a space or quote is a namespace
+          # name and is dropped. -h leaves the file names out of that
+          # decision (a name could pass for an attribute); the second grep
+          # only shows where.
+          ns="[[:space:]\"']xmlns(:[[:alpha:]_][[:alnum:]._-]*)?[[:space:]]*=[[:space:]]*[\"']?"
+          http="($ns)?[Hh][Tt][Tt][Pp]:[/\\][^\"'[:space:]<>]*"
+          plain=$(g -rhIoE "$http" public | g -vE "^$ns")
+          if [ -n "$plain" ]; then
+            g -rIoE "$http" public | g -vE "^[^:]*:$ns"
+            echo '::error::the files above contain a plain-HTTP (http:) URL'
+            status=1
+          fi
           # One "file<TAB>URL" line per src= or srcset= (first candidate only),
           # loading <link> href, url() and @import; keep the absolute URLs not
           # under this site.
