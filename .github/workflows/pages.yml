@@ -1,9 +1,9 @@
 # Every action is pinned by full commit SHA, GitHub's own included, since a
 # tag can be moved, with the release tag on that commit in a comment, which
-# Dependabot reads to keep the pin current: the pinning rule of every
-# workflow in the project (the owner's decision of 2026-10-25, "CI tools -
-# pin."; core's ci.yml states it in full, and core's ci/pinned-actions.sh
-# checks the form when run on this directory).
+# Dependabot rewrites when it moves the pin: the pinning rule of every workflow
+# in the project (the owner's decisions of 2026-10-25, "CI tools - pin." and
+# "Stay current"; in full in core's .github/workflows/ci.yml header). Core's
+# ci/pinned-actions.sh checks the form when given this directory.
 name: Pages
 
 on:
@@ -41,7 +41,7 @@ jobs:
       # Pinned so a new Zola release cannot change the build unseen.
       # Dependabot updates the action's SHA but not the Zola version;
       # bump that by hand.
-      - uses: taiki-e/install-action@1e29709c0ec63babbe8f266397a465f29a825f91 # v2.87.31
+      - uses: taiki-e/install-action@8cca0918f8471c33515202b73f56ab27f2bed283 # v2.87.29
         with:
           tool: zola@0.23.6
           fallback: none

@@ -1,6 +1,14 @@
+# Version updates wait 7 days after a release (the owner's "Stay current" rule
+# of 2026-10-25, in the project's CLAUDE.md, against supply-chain attacks);
+# cooldown does not apply to security updates, which come at once (GitHub's
+# Dependabot options reference, "cooldown"). The actions are pinned by commit
+# with the release tag in a comment, which Dependabot rewrites when it moves
+# the pin (core's .github/workflows/ci.yml header).
 version: 2
 updates:
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
