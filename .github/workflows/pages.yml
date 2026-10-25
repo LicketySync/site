@@ -1,3 +1,9 @@
+# Every action is pinned by full commit SHA, GitHub's own included, since a
+# tag can be moved, with the release tag on that commit in a comment, which
+# Dependabot reads to keep the pin current: the pinning rule of every
+# workflow in the project (the owner's decision of 2026-10-25, "CI tools -
+# pin."; core's ci.yml states it in full, and core's ci/pinned-actions.sh
+# checks the form when run on this directory).
 name: Pages
 
 on:
@@ -27,15 +33,15 @@ jobs:
       contents: read
       pages: read # configure-pages reads the Pages settings
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - id: pages
-        uses: actions/configure-pages@v6
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       # Pinned so a new Zola release cannot change the build unseen.
       # Dependabot updates the action's SHA but not the Zola version;
       # bump that by hand.
-      - uses: taiki-e/install-action@a4d3f3f761dcd95cce1b72cb61cb6d1963438177 # v2.87.30
+      - uses: taiki-e/install-action@1e29709c0ec63babbe8f266397a465f29a825f91 # v2.87.31
         with:
           tool: zola@0.23.6
           fallback: none
@@ -146,7 +152,7 @@ jobs:
             status=1
           fi
           exit "$status"
-      - uses: actions/upload-pages-artifact@v5
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: public
   deploy:
@@ -162,4 +168,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
