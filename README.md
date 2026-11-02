@@ -13,8 +13,9 @@ preconnect or manifest `<link>`, or in a CSS `url()` or `@import`. It catches
 accidents, not every way a page can load something. The browser client is *not*
 here; it is published from the `web` repository at https://licketysync.app.
 
-Pages planned: Home, Features, Screenshots (captured in CI from the real app),
-Download, Compare, Docs, Limitations, Releases, Contribute. MPL-2.0 for the
-site's code; CC BY 4.0 for its prose.
+Pages: Home, Privacy, and Risks (the risks of using Lickety-Sync). Planned:
+Features, Screenshots (captured in CI from the real app), Download, Compare,
+Docs, Limitations, Releases, Contribute. MPL-2.0 for the site's code; CC BY 4.0
+for its prose.
 
 Build locally: `zola serve`.

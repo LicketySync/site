@@ -10,3 +10,7 @@ without being able to read it.
 
 **Status:** in development; nothing to download yet. The source and the design
 specifications are on [GitHub](https://github.com/LicketySync).
+
+Before you rely on it, read the [risks of using Lickety-Sync](@/risks.md): what
+each key holder can see, the one-year clock rule, and when deleted files can
+come back.
