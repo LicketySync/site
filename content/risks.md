@@ -18,10 +18,13 @@ keeps. A **fingerprint** is a short hash that identifies one record. A
 **storage device** is a device that holds only a folder's sealed key. A
 **cleanup** is a signed list, sent by a device with the write key, of records
 that storage devices should forget. A **relay** is a device that passes
-encrypted traffic between two devices that cannot reach each other. Your own
-devices may relay for each other; no other relay is used unless you turn it
-on. The **archive** is where a device keeps the files that other devices'
-changes replaced or deleted.
+encrypted traffic between two devices that cannot reach each other, without
+being able to read it. Every relay is a public one, which may belong to anyone.
+No relay is used, and your devices relay for no one, unless you turn that on.
+Any of your computers can be set up as a public relay, with limits on rate and
+open connections, and a minimum transfer rate below which a connection can be
+dropped (the owner's decision, 2026-11-03). The **archive** is where a device
+keeps the files that other devices' changes replaced or deleted.
 
 ## Holding a key is the access
 
@@ -153,11 +156,11 @@ nothing; this is everything they can see:
 - the size class of each record's encrypted details, rounded up to a power of
   two (256, 512, 1 024 or 2 048 bytes and up), which says only whether its
   name, its pieces and the devices that wrote it together are small or large
-  (a design choice the owner has yet to review);
+  (the owner's decision, 2026-11-02);
 - which records were cleaned up together, and so how many files a deleted
   folder held; and, from some cleanups, that certain records were folder
-  deletions, or deletions more than a year old (a design choice the owner has
-  yet to review);
+  deletions, or deletions more than a year old (the owner's decision,
+  2026-11-02);
 - when each record arrives and from which device, which usually shows who
   wrote it, and so the times and rate of activity;
 - the folder's ID, and the device IDs, device names and clocks (to the day) of
@@ -213,9 +216,12 @@ and then.
 - With the opt-in internet discovery (the DHT), anyone who ever knew the
   folder's ID, past key holders and relays the folder used included, can watch
   which addresses announce it, day by day.
-- A relay sees both devices' addresses and the folder's ID, but not what
-  passes through it. Your own devices may relay for each other; no other relay
-  is used unless you turn it on.
+- A relay, which may be anyone's device, sees both devices' addresses and the
+  folder's ID, but not what passes through it. No relay is used, and your
+  devices relay for no one, unless you turn that on. Any of your computers can
+  be set up as a public relay, with limits on rate and open connections, and a
+  minimum transfer rate below which a connection can be dropped (the owner's
+  decision, 2026-11-03).
 - Someone watching the network sees which addresses talk, when and how much,
   but not what.
 - Connections over the WebSocket fallback, used on locked-down networks, use
