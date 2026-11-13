@@ -275,9 +275,8 @@ What you control:
   on. Any computer can be set up as a public relay, never a phone, with limits
   on rate and open connections and a minimum transfer rate (the owner's
   decisions, 2026-11-03 and 2026-11-04). Such a computer also coordinates hole
-  punches, within the same limits (the project's reading of the owner's words,
-  not yet reviewed by the owner). Others use it for hole punching only through a
-  folder set to the fourth level with its public-relays switch on.
+  punches, within the same limits. Others use it for hole punching only through
+  a folder set to the fourth level with its public-relays switch on.
 - Acting as a hole-punch coordinator is off unless you turn it on, on computers
   only (the owner's decisions, 2026-11-08 and 2026-11-10). A phone can be helped
   by a coordinator but never helps.
@@ -330,8 +329,7 @@ connected clients used as relays without the operator's consent."
 
 What to do: leave relays and coordinating off unless you want them. Turn on
 relaying only on a computer whose connection you are content to share, with
-limits you set; it then coordinates punches too (the project's reading of the
-owner's words, not yet reviewed by the owner). If you do not want your device
+limits you set; it then coordinates punches too. If you do not want your device
 to ask for punches, set a folder's hole punching to "never"; asking is on by
 default, through devices that share a folder.
 
