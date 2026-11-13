@@ -1,6 +1,6 @@
 +++
-title = "Lickety-Sync: your folders, in sync"
-description = "Lickety-Sync keeps your folders in sync across your devices and with the people you choose: device to device, encrypted, with no account and no company server. In development; nothing to download yet."
+title = "LicketySync: your folders, in sync"
+description = "LicketySync keeps your folders in sync across your devices and with the people you choose: device to device, encrypted, with no account and no company server. In development; nothing to download yet."
 +++
 
 <section class="hero">
@@ -10,7 +10,7 @@ description = "Lickety-Sync keeps your folders in sync across your devices and w
 
 # Your folders, in sync. <em>Lickety-split.</em>
 
-Lickety-Sync keeps a folder the same on all your devices, and with the people
+LicketySync keeps a folder the same on all your devices, and with the people
 you choose. Your devices sync with each other, so there's no account to make,
 no cloud to trust and no server you didn't turn on.
 
@@ -120,7 +120,7 @@ already had.
 
 ## Still being built
 
-Lickety-Sync is in development, and there's nothing to download yet. Here's
+LicketySync is in development, and there's nothing to download yet. Here's
 where things stand:
 
 - **Now:** the design is written down in detail, and the heart of it is
@@ -130,7 +130,7 @@ where things stand:
 - **After that:** finding each other across the internet, apps for computers
   and phones, and a version that runs in your web browser.
 
-Lickety-Sync is open source, under the Mozilla Public License 2.0. The code
+LicketySync is open source, under the Mozilla Public License 2.0. The code
 and the design specifications are on
 [GitHub](https://github.com/LicketySync).
 

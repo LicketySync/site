@@ -1,9 +1,9 @@
 +++
 title = "Features"
-description = "What Lickety-Sync will do, and in what order, in plain words."
+description = "What LicketySync will do, and in what order, in plain words."
 +++
 
-Nothing on this page ships yet: Lickety-Sync is still being built, and there's
+Nothing on this page ships yet: LicketySync is still being built, and there's
 nothing to download. Here's what it will do, and roughly in what order. We
 won't promise dates.
 
@@ -44,7 +44,7 @@ but a relay, when one is needed and relays are on.
 With finding devices on your local network on, as setup will suggest,
 computers on the same home or office network will find each other and sync,
 with no internet needed.
-Lickety-Sync will keep track of where every file stands: in sync, or still on
+LicketySync will keep track of where every file stands: in sync, or still on
 its way.
 
 <p class="status">Coming next</p>
@@ -250,7 +250,7 @@ the browser version, and a one-time file link, will carry your addresses.
 
 ## Built in from the start
 
-These are how Lickety-Sync is designed, so every feature above has them.
+These are how LicketySync is designed, so every feature above has them.
 
 - **Encrypted everywhere.** Every connection is encrypted, and files and their
   names are encrypted before they leave a device.

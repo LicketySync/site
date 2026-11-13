@@ -5,7 +5,7 @@ description = "What setup will suggest, and for each choice what it gives you, w
 
 {{ <illustration src="setting-up-switches.svg" alt="A laptop showing three switches, two on and one off, and beside it a folder with the same three switches, all on: the folder starts from the device’s settings and changes one." width={360} height={200} /> }}
 
-There's nothing to set up yet: Lickety-Sync is still being built. Here's what
+There's nothing to set up yet: LicketySync is still being built. Here's what
 setup will suggest about how your devices find and reach each other, and what
 each setting means. Say yes to one question, and setup is done,
 lickety-split.
@@ -30,7 +30,7 @@ on [Act as a relay](#act-as-a-relay) or
 [Help run the public trackers](#help-run-the-public-trackers), and they will
 turn on [Act as a hole-punch coordinator](#act-as-a-hole-punch-coordinator)
 only for the devices you share a folder with. And until you answer, nothing is
-on: Lickety-Sync contacts nothing you didn't turn on.
+on: LicketySync contacts nothing you didn't turn on.
 
 ## What stays the same, whatever you choose
 
@@ -65,7 +65,7 @@ no internet needed.
 - {{ <lead_in text="What you get:" /> }} devices on one network find each other
   without anyone typing anything in.
 - {{ <lead_in text="What it costs and shows:" /> }} anyone on that network, a
-  café's say, can see that your device runs Lickety-Sync and how many folders
+  café's say, can see that your device runs LicketySync and how many folders
   it offers. Anyone who has had or seen one of a folder's keys can tell that
   the folder is there, and which devices on the network hold it. Anyone else
   there can still tell which devices share a folder, without learning which.
@@ -112,7 +112,7 @@ devices behind home routers get through.
 {% <more summary="What a device that connects to yours learns"> %}
 
 Before any folder opens, a device that connects to yours learns your network ID
-and your device ID, your device's public key, what your copy of Lickety-Sync
+and your device ID, your device's public key, what your copy of LicketySync
 supports and its limits, and, from how long a check takes, roughly how many
 folders it holds. It learns your device's name only once the two of you open a
 folder together, and which folders you hold only if it holds a key to one of
@@ -126,13 +126,13 @@ them.
 
 Your device can ask your home router to open one port for it, a numbered door
 that lets other devices reach yours, for a limited time, and close it again
-when Lickety-Sync stops.
+when LicketySync stops.
 
 - {{ <lead_in text="What you get:" /> }} other devices can reach yours directly
   more often, so you'll need hole punching and relays less.
 - {{ <lead_in text="What it costs and shows:" /> }} while the port is open,
   anyone on the internet can reach it and learn that your device runs
-  Lickety-Sync, and what any device that reaches yours learns
+  LicketySync, and what any device that reaches yours learns
   ([Connect directly across the internet?](#connect-directly-across-the-internet)).
   Never your files, without a key.
 - {{ <lead_in text="The setting:" /> }} in the recommended settings. It belongs
@@ -183,7 +183,7 @@ invite that carries your addresses, learn which coordinators your device uses.
 Someone else who tries to punch through learns at most that your device is
 online, and which device it is. A device that is let in for a punch can make
 yours send a few tiny bursts of traffic to public addresses it picks;
-Lickety-Sync limits how many. Phones never coordinate, though they can be
+LicketySync limits how many. Phones never coordinate, though they can be
 helped.
 
 {% </more> %}
@@ -252,7 +252,7 @@ More on [How devices find each other](@/finding-each-other.md#relays).
 {{ <illustration src="setting-up-tor.svg" alt="" width={120} height={96} /> }}
 
 Tor is a network run by volunteers that passes connections through several
-computers in turn. Lickety-Sync plans to support it later. Like most of the
+computers in turn. LicketySync plans to support it later. Like most of the
 others, it will be a setting for your whole device that each folder can
 change. What it
 gives, costs and shows will be on this page once it's designed.

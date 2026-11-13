@@ -1,4 +1,4 @@
-# Lickety-Sync — site
+# LicketySync — site
 
 The documentation site, built with Zola and published with GitHub Pages at
 https://licketysync.com. The site is HTTPS-only: Pages enforces HTTPS, the
@@ -16,7 +16,7 @@ wide table scrolls in its own box and never makes a phone's page scroll. The
 browser client is *not* here; it is published from the `web` repository at
 https://licketysync.app.
 
-The site is Lickety-Sync's manual. Its pages and their reading order, the tone
+The site is LicketySync's manual. Its pages and their reading order, the tone
 guide, the truth rule, the illustrations each page needs and the building
 blocks for authors are in [`PLAN.md`](PLAN.md). The theme is in `templates/`
 and `static/style.css`, with system fonts, a light and a dark theme, and no

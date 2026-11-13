@@ -7,7 +7,7 @@ Short answers first. Each one links to the page with the whole story.
 
 ## The basics
 
-### What is Lickety-Sync?
+### What is LicketySync?
 
 It keeps a folder the same on all your devices, and with the people you
 choose. Your devices sync with each other, so there's no account and no
@@ -121,7 +121,7 @@ files, roughly how big, and when and from which device they change. See
 Nobody can read your files or their names without a write or read key, but
 some things show. Anyone watching the network, and any relay you use, sees
 which addresses talk, when and how much; with local network discovery on,
-people there can see that your device runs Lickety-Sync; and, with the local
+people there can see that your device runs LicketySync; and, with the local
 network or public trackers on, anyone who has had or seen one of a folder's
 keys can tell where it's offered. Someone
 running a storage device who knows some of the folder's files, or got files
@@ -147,7 +147,7 @@ connect, but it never helps others as a relay or a hole-punch coordinator. See
 
 ### Will my company's network block it?
 
-It might. Lickety-Sync connects device to device, and some networks don't
+It might. LicketySync connects device to device, and some networks don't
 allow that. If your workplace has rules about tools like this,
 [For IT and privacy reviewers](@/for-reviewers.md) is written for the people
 who check them.

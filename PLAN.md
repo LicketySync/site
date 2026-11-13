@@ -1,13 +1,13 @@
 # The site plan
 
 This is the plan for licketysync.com, for the people and agents who write and
-review its pages. The site is Lickety-Sync's manual: friendly enough for
+review its pages. The site is LicketySync's manual: friendly enough for
 anyone, with enough detail for the people who need it, such as an IT team
 checking it against company policy or a reader with privacy concerns of their
 own.
 
 The product line, a guide for authors rather than text to quote on the site:
-Lickety-Sync is safe, easy and reliable; simple to use, private by default and
+LicketySync is safe, easy and reliable; simple to use, private by default and
 trivial to share. Every page should leave it true. Where the facts and the
 product line pull apart, the facts win (see the truth rule).
 
@@ -19,7 +19,7 @@ the contents on Home. A new page goes into that list in its place.
 
 | # | Page | File | What it is for | Who it is for |
 | --- | --- | --- | --- | --- |
-| – | Home | `_index.md` | What Lickety-Sync is, why you'd want it, that your files and their names are private by default and it's easy to share, that it's still being built, and where to go next. | Everyone, on a first visit |
+| – | Home | `_index.md` | What LicketySync is, why you'd want it, that your files and their names are private by default and it's easy to share, that it's still being built, and where to go next. | Everyone, on a first visit |
 | 1 | How it works | `how-it-works.md` | Folders, keys and devices that sync with each other: no account, and no server you didn't turn on. | Anyone curious, before trying it |
 | 2 | Setting up | `setting-up.md` | What the guided setup will suggest, and each choice with what it gives you, what it costs, and what it shows to whom. | Someone setting it up (once there is something to set up) |
 | 3 | Sharing | `sharing.md` | Files and their names private by default; sharing with people; the three kinds of key; sharing more widely, when both sides use public trackers; removing someone means making new keys. | Anyone sharing a folder |
@@ -31,8 +31,8 @@ the contents on Home. A new page goes into that list in its place.
 | 9 | Questions and answers | `faq.md` | Short answers to common questions, each linking to the page with the details. | Everyone |
 | 10 | Glossary | `glossary.md` | Short definitions of the words the manual uses. | Everyone, looked up rather than read |
 
-Home and all ten pages are written in the new voice. Nothing is published
-until the owner has seen the whole site.
+Home and all ten pages are written, in the voice of the tone guide below.
+A change to the site is published only after the owner has seen it.
 
 ### What each page covers
 
@@ -58,8 +58,8 @@ until the owner has seen the whole site.
   the public trackers (server mode). Coordinating comes in two kinds: for the
   devices of the person's own shared folders only, and for anyone who reaches
   the device. For each: what it gives you, what it costs, what it shows and to
-  whom, and what setup will suggest. Setup's defaults are the owner's decision
-  (Q-4 to Q-6): nothing is on before setup's answer; setup asks once and
+  whom, and what setup will suggest. Setup's defaults are these: nothing is
+  on before setup's answer; setup asks once and
   suggests the recommended settings, which are finding devices on the local
   network, asking the router to open a port, public trackers (client mode
   only), hole punching at the fourth "Who may help with a hole punch?" level
@@ -131,7 +131,7 @@ until the owner has seen the whole site.
   sealed key who knows some of the folder's files can, in time, test whether
   other files they have are in it (threat-model.md §5, "To a sealed peer";
   keys.md §3.2). What a peer-to-peer program cannot hide (that your device
-  runs Lickety-Sync, its address, who talks to whom and when). What each kind
+  runs LicketySync, its address, who talks to whom and when). What each kind
   of party sees, in a short table. That deleted and replaced files stay in the
   archive of every device that can read the folder and had them, for as long
   as that device's archive keeps them (30 days unless its person changes it),
@@ -178,7 +178,7 @@ this manual.
 - **Keep the essentials visible.** Everything a reader needs to decide or act
   stays on the page. Reviewer-level numbers and edge cases go behind a `more`
   (see "Building blocks") or on the page for IT and privacy reviewers.
-- **No owner quotes, no dated decisions, no "reviewed by" notes.** The site
+- **No quoted or dated decisions, no "reviewed by" notes.** The site
   says what is true, not who decided it or when. The history lives in the
   repositories and the plan.
 - **Never techy for its own sake.** Use a technical word only where the reader
@@ -230,7 +230,7 @@ this manual.
   keys can find, every day, the internet addresses of the devices that offer
   it; people with no key cannot tell which folder an address offers. And with
   finding devices on the local network on, anyone on your network can see that
-  your device runs Lickety-Sync, anyone who knows a folder can confirm it is
+  your device runs LicketySync, anyone who knows a folder can confirm it is
   there, and anyone there can replay a device's announcement to see which
   devices answer it, and so which of them hold that folder.
 - **Defaults and settings are named.** When a claim depends on a setting, say

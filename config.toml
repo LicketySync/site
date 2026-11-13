@@ -1,6 +1,6 @@
 base_url = "https://licketysync.com"
-title = "Lickety-Sync"
-description = "Lickety-Sync keeps your folders in sync across your devices and with the people you choose: device to device, encrypted, with no account and no company server. In development; nothing to download yet."
+title = "LicketySync"
+description = "LicketySync keeps your folders in sync across your devices and with the people you choose: device to device, encrypted, with no account and no company server. In development; nothing to download yet."
 compile_sass = false
 build_search_index = false
 generate_feeds = false

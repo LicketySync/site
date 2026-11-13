@@ -57,7 +57,7 @@ keeps those.
 
 ### Device
 
-A computer, phone or web browser running Lickety-Sync. Any device that connects
+A computer, phone or web browser running LicketySync. Any device that connects
 to it learns its [network ID](@/glossary.md#network-id) and
 [device ID](@/glossary.md#device-id); its name, which you choose, shows only to
 the devices it opens a folder with.
@@ -162,7 +162,7 @@ The network your devices share at home or at work, such as your Wi-Fi.
 
 Devices announcing themselves on the local network, so the others find them
 with nobody typing anything. While it's on, anyone on that network can see
-that a device runs Lickety-Sync. See
+that a device runs LicketySync. See
 [Setting up](@/setting-up.md#find-devices-on-your-local-network).
 
 ### Network ID
@@ -185,7 +185,7 @@ sync with.
 ### Peer to peer
 
 Devices connecting to each other directly, rather than through a company's
-server. Lickety-Sync is peer to peer.
+server. LicketySync is peer to peer.
 
 ### Port
 
@@ -258,13 +258,13 @@ change travels to the others.
 
 ### Telemetry
 
-Reports a program sends home about how you use it. The Lickety-Sync programs
+Reports a program sends home about how you use it. The LicketySync programs
 you install send none.
 
 ### Tor
 
 A network run by volunteers that passes connections through several computers
-in turn. Lickety-Sync plans to support it later.
+in turn. LicketySync plans to support it later.
 
 ### Unlinking
 

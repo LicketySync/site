@@ -56,11 +56,11 @@ public relays and, on computers, helping the devices you share a folder with
 punch through; what follows says what each shows if you take them.
 
 - **That you use it.** Anyone on your local network can see that your device
-  runs Lickety-Sync, and anyone who knows a folder can confirm it's offered
+  runs LicketySync, and anyone who knows a folder can confirm it's offered
   there. Anyone there, even knowing nothing, can replay an announcement to
   learn which devices answer it, and so which hold that folder.
 - **An open port.** While your router keeps a port open for your device, anyone
-  on the internet can reach it and learn that your device runs Lickety-Sync,
+  on the internet can reach it and learn that your device runs LicketySync,
   its network ID and roughly how many folders it holds.
 - **Your address**, to every device of your folders, to anyone who gets an
   invite that carries it, to the helpers your device talks to and, if your
@@ -91,9 +91,9 @@ If you take the recommended settings:
 | A relay | Both devices' addresses and network IDs, when they talk and how much. Not which folder, nor any file. |
 | A hole-punch coordinator, which helps two devices connect directly | That two devices are connecting, and when; their addresses and network IDs. Not which folder, any key or any file. With the recommended settings, it can be a stranger's public relay. |
 | Public trackers (the DHT) | The addresses that offer a folder, to anyone who has had or seen one of its keys; to anyone else, one device's announcements day after day, but not which folder. |
-| Your local network | That your device runs Lickety-Sync; whether a folder they know is offered there, and, by replaying an announcement, which devices hold it. Not contents, names or keys. |
+| Your local network | That your device runs LicketySync; whether a folder they know is offered there, and, by replaying an announcement, which devices hold it. Not contents, names or keys. |
 | Anyone watching the internet | Which addresses talk, when and how much. Not what they say, or which folder. |
-| Anyone on the internet, while your router's port is open | That your device runs Lickety-Sync, its network ID and roughly how many folders it holds. Not which folders. |
+| Anyone on the internet, while your router's port is open | That your device runs LicketySync, its network ID and roughly how many folders it holds. Not which folders. |
 | A device that connects to yours with no key | Your address and network ID, and roughly how many folders it holds. Not which folders, or your device's name. |
 | Us | No telemetry and no account. We run no server for syncing; licketysync.app will see who loads the browser version. |
 

@@ -67,7 +67,7 @@ spots a folder of its own connects.
 
 {{ <illustration src="finding-local.svg" alt="A home router with Wi-Fi waves in the middle, and a laptop, a phone and a desktop computer around it, each sending out little ripples as it announces itself." width={440} height={260} /> }}
 
-- **Anyone on the network** sees that your device runs Lickety-Sync, its
+- **Anyone on the network** sees that your device runs LicketySync, its
   address and how many folders it announces, and can tell the announcements
   all come from one device.
 - **Anyone who knows a folder** (anyone who has ever had or seen one of its
@@ -78,7 +78,7 @@ spots a folder of its own connects.
   devices answer, and so which ones share that folder, with their network
   IDs. They can tell which folder only if they know it.
 
-Lickety-Sync trusts no network, not even your home one: it treats every
+LicketySync trusts no network, not even your home one: it treats every
 network like a café's.
 
 ## Through addresses they already know
@@ -209,11 +209,11 @@ devices' encrypted connection runs through it, end to end.
 
 ## Your router may open a door
 
-Setup will also suggest letting Lickety-Sync ask your home router to open one
+Setup will also suggest letting LicketySync ask your home router to open one
 port for it, a numbered door that lets other devices reach yours directly, for
 a limited time. It's a setting for the whole device. While the port is open,
 anyone on the internet can reach it and learn that your device runs
-Lickety-Sync, and its network ID. Without a key, that and what any connection
+LicketySync, and its network ID. Without a key, that and what any connection
 shows is all they get.
 
 ## What setup will suggest

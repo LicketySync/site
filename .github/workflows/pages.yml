@@ -1,9 +1,9 @@
 # Every action is pinned by full commit SHA, GitHub's own included, since a
 # tag can be moved, with the release tag on that commit in a comment, which
 # Dependabot rewrites when it moves the pin: the pinning rule of every workflow
-# in the project (the owner's decisions of 2026-10-25, "CI tools - pin." and
-# "Stay current"; in full in core's .github/workflows/ci.yml header). Core's
-# ci/pinned-actions.sh checks the form when given this directory.
+# in the project (CI tools are pinned and kept current; in full in core's
+# .github/workflows/ci.yml header). Core's ci/pinned-actions.sh checks the
+# form when given this directory.
 name: Pages
 
 on:
@@ -66,7 +66,7 @@ jobs:
           echo "base_url=$base_url" >> "$GITHUB_OUTPUT"
           zola build --base-url "$base_url"
       # Checks the built pages for accidents against the plan's rule of no
-      # scripts and no third-party loads, and the owner's rule of HTTPS
+      # scripts and no third-party loads, and the project's rule of HTTPS
       # only. It fails on a <script tag, an on...= event-handler attribute,
       # a javascript: attribute value, any http: followed by / or \ (any
       # case) in any text file, and an absolute URL outside the site's base
@@ -77,8 +77,8 @@ jobs:
       # the sitemap's xmlns for www.sitemaps.org/schemas/sitemap/0.9, a
       # string the sitemap protocol fixes. A namespace name is an
       # identifier that nothing fetches. Docs write loopback addresses
-      # without a scheme (127.0.0.1:PORT/...), following the owner's rule
-      # of "no protocol or https://". Quoted and unquoted attributes both
+      # without a scheme (127.0.0.1:PORT/...), following the project's rule
+      # of no scheme or https://. Quoted and unquoted attributes both
       # count (minify_html drops quotes). This catches accidents, not
       # adversaries; the reviewers do the latter. Known limits: srcset
       # candidates after the first; CSS image-set(); poster=, object data=,

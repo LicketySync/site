@@ -1,4 +1,4 @@
-/* Lickety-Sync site theme. MPL-2.0.
+/* LicketySync site theme. MPL-2.0.
    Warm and playful: cream paper, ink outlines, rounded everything.
    System fonts only; nothing here loads from anywhere else.
    Contrast (WCAG 2), the lowest ratio of each pair, rounded down,
@@ -236,7 +236,6 @@ main { display: block; flex: 1 0 auto; padding-block: 2.5rem 4.5rem; }
 .brand:hover { color: var(--text); }
 .brand svg { width: 2.5rem; height: 2.5rem; flex: none; transition: transform 0.25s ease; }
 .brand:hover svg { transform: rotate(-12deg) scale(1.05); }
-.brand .dash { color: var(--accent); }
 
 .logo-tile { fill: var(--coral); }
 .logo-arrows {

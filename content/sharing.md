@@ -26,7 +26,7 @@ them. Some helpers that setup will suggest do see your addresses:
   pick from; either way, you'll be able to change any of it later.
 - **Your local network may see a little.** If you take the recommended
   settings, or turn it on yourself, anyone on your local network can see that your
-  device runs Lickety-Sync, and anyone who knows a folder can confirm it's
+  device runs LicketySync, and anyone who knows a folder can confirm it's
   there.
   [How devices find each other](@/finding-each-other.md#on-your-local-network)
   says what else it shows.
@@ -106,7 +106,7 @@ device that gets the read key can open the copy it already holds.
 - Anyone who holds a key can pass it on, to anyone, as often as they like,
   without asking you.
 - Keys don't expire. They work for as long as the folder exists.
-- Lickety-Sync keeps no list of who holds which key, and nothing proves who
+- LicketySync keeps no list of who holds which key, and nothing proves who
   changed what. Each change names the device it came from, as that device
   claims, but someone with the write key can claim to be any device.
 
@@ -133,7 +133,7 @@ for a leak is a new folder, as below.
 - **The write key also comes as 24 words**, for writing down. They look like
   a cryptocurrency wallet's recovery phrase, and programs that hunt for those
   will take them for one, so keep them as secret, and type them into nothing
-  but Lickety-Sync.
+  but LicketySync.
 
 {% <more summary="More about keys and invites"> %}
 
@@ -201,7 +201,7 @@ will go like this:
    keeps the files, and the archive once there is one, as ordinary files.
 4. **Share again.** On one device, share that copy as a new folder, with
    brand-new keys.
-5. **Hand out the new key** yourself, the safe way. Lickety-Sync won't send
+5. **Hand out the new key** yourself, the safe way. LicketySync won't send
    it for you.
 6. **Join** the new folder on each of the others, over its own copy. Matching
    files aren't downloaded again, and a file that differs is kept as a

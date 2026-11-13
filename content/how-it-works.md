@@ -1,9 +1,9 @@
 +++
 title = "How it works"
-description = "Folders, keys and devices that sync with each other: how Lickety-Sync works with no account and no server you didn’t turn on."
+description = "Folders, keys and devices that sync with each other: how LicketySync works with no account and no server you didn’t turn on."
 +++
 
-Lickety-Sync keeps a folder the same on every device that holds one of its
+LicketySync keeps a folder the same on every device that holds one of its
 keys. The devices talk to each other directly, so there's no account to
 make, no copy in somebody's cloud and no server you didn't turn on.
 
@@ -58,7 +58,7 @@ wrong clock.
 ## When two changes collide
 
 Edit a file on your laptop while someone edits it on their computer, before
-the two have synced, and Lickety-Sync keeps both: one stays as the file, and
+the two have synced, and LicketySync keeps both: one stays as the file, and
 the other appears beside it as a **conflict copy**. Nothing is merged, and
 nothing is thrown away.
 
@@ -107,7 +107,7 @@ the number of files, not with how often they change.
 
 ## Where it stands
 
-None of this ships yet: today Lickety-Sync is a written design and a
+None of this ships yet: today LicketySync is a written design and a
 simulator that tests it on many simulated devices.
 [Features](@/features.md#where-things-stand) has what's coming.
 

@@ -4,10 +4,10 @@ description = "Where your risks are, how they would show up, how much they matte
 +++
 
 We'd rather you hear about the trade-offs from us. Here are the risks in
-Lickety-Sync's design, the big ones first, each with how much it matters and
+LicketySync's design, the big ones first, each with how much it matters and
 what to do. There's nothing to download yet, so this is about the design.
 
-{{ <illustration src="risks-umbrella.svg" alt="An umbrella keeping the rain off a folder, with a few drops falling around it: Lickety-Sync is built to have your files’ back." width={360} height={240} /> }}
+{{ <illustration src="risks-umbrella.svg" alt="An umbrella keeping the rain off a folder, with a few drops falling around it: LicketySync is built to have your files’ back." width={360} height={240} /> }}
 
 ## The short version
 
@@ -203,7 +203,7 @@ browser extensions will be able to check.
 
 Anyone watching the network sees which addresses talk, and if you take the
 recommended settings, anyone on your local network, or who reaches the port
-your router opens, can see that your device runs Lickety-Sync, and anyone who has had or
+your router opens, can see that your device runs LicketySync, and anyone who has had or
 seen a folder's key can find the addresses that offer it.
 [Privacy](@/privacy.md#what-no-peer-to-peer-program-can-hide) says what else
 shows, and [How devices find each other](@/finding-each-other.md) what each way
@@ -334,7 +334,7 @@ old one goes to the archive.
 
 {% <more summary="A version replaced by mistake"> %}
 
-- Two machines that run from one copy of a device’s Lickety-Sync data, such as
+- Two machines that run from one copy of a device’s LicketySync data, such as
   clones of one disk image.
 - A device restored from a backup while its clock reads earlier than its last
   change before the backup.

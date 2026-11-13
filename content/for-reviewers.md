@@ -1,9 +1,9 @@
 +++
 title = "For IT and privacy reviewers"
-description = "What Lickety-Sync contacts, what it stores and where, its cryptography in brief and its licences: the details a review needs."
+description = "What LicketySync contacts, what it stores and where, its cryptography in brief and its licences: the details a review needs."
 +++
 
-This page is for people checking Lickety-Sync against a policy: IT teams,
+This page is for people checking LicketySync against a policy: IT teams,
 compliance and privacy reviewers. It's more precise than the rest of the
 manual, holds the numbers and mechanisms the other pages leave out, and cites
 the threat model's numbered requirements (TM-1 to TM-43) so you can look each
@@ -55,7 +55,7 @@ or PCP), when the person takes the recommended settings or turns it on. The
 device
 maps only its one listening port, for a bounded lease, and removes the mapping
 at exit (TM-26). While the port is open, anyone on the internet can reach it
-and learn that the device runs Lickety-Sync, and what anyone who completes a
+and learn that the device runs LicketySync, and what anyone who completes a
 connection learns ([What each party sees](#what-each-party-sees)).
 
 **What is on, before and after setup.** Nothing is on before the person answers
@@ -260,7 +260,7 @@ In short:
 - **A storage device**: see
   [What a storage device sees](#what-a-storage-device-sees).
 - **The local network**, once finding devices there is on, as setup will
-  suggest: that a device runs Lickety-Sync and its port; a confirmation that a known folder is announced
+  suggest: that a device runs LicketySync and its port; a confirmation that a known folder is announced
   there, or that a device already met is announcing. Anyone there, knowing
   nothing, can replay a captured announcement from their own address and learn
   from who dials back which devices hold the folder it names, along with their
@@ -274,7 +274,7 @@ In short:
   address, or by the stable identifiers it publishes with its announcements:
   the key that signs its address record and a persisted node ID (TM-24).
 - **Anyone on the internet, while the router's port is open**: that the device
-  runs Lickety-Sync, by connecting to the port, and so what anyone who
+  runs LicketySync, by connecting to the port, and so what anyone who
   completes a connection learns (next).
 - **Anyone who completes a connection**, with no key: the device's address,
   network ID and device ID, the protocols and limits it offers, and, from how
@@ -556,7 +556,7 @@ vulnerability.
 
 ## Licences
 
-The code of Lickety-Sync and of this site, the logo included, is under the
+The code of LicketySync and of this site, the logo included, is under the
 [Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/). This
 site's words and illustrations are under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
