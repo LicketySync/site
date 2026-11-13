@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .paper { fill: #FFFFFF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .none { fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+    }
+  </style>
+  <g class="ink">
+    <rect class="paper" x="10" y="10" width="40" height="52" rx="7"/>
+    <path class="none" d="M19 24H40M19 33H40M19 42H30"/>
+    <g transform="rotate(40 48 40)">
+      <rect class="sun" x="42" y="18" width="12" height="34" rx="2"/>
+      <path class="coral" d="M42 18V14A6 6 0 0 1 54 14V18Z"/>
+      <path class="paper" d="M42 52L48 62L54 52Z"/>
+    </g>
+  </g>
+  <path class="sun" transform="translate(60 12)" d="M0-8Q1.6-1.6 8 0Q1.6 1.6 0 8Q-1.6 1.6-8 0Q-1.6-1.6 0-8Z"/>
+  <circle class="mint" cx="8" cy="64" r="4"/>
+</svg>

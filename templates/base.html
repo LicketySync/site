@@ -3,23 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>{% block title %}{{ config.title }}{% endblock title %}</title>
-<meta name="description" content="{{ config.description }}">
-<style>
-  :root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.5; }
-  body { margin: 0 auto; max-width: 42rem; padding: 32px 16px; }
-  h1 { font-size: 2rem; }
-  footer { margin-top: 48px; font-size: 0.875rem; }
-</style>
+<meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+<link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
+<link rel="icon" href="{{ get_url(path='favicon.svg') }}" type="image/svg+xml">
 </head>
 <body>
-<main>
+<a class="skip" href="#main">Skip to the content</a>
+{#- The manual's pages, in reading order with their menu labels, come
+    from `[extra] manual` in config.toml. The list is built once and shown
+    twice: as pills on wide screens and in the Menu on a phone. -#}
+{%- set here = "" %}{% if page %}{% set here = page.relative_path %}{% endif %}
+{%- set nav_list -%}
+<ul class="nav-list">
+{%- for item in config.extra.manual %}
+<li><a href="{{ get_url(path='@/' ~ item.path) }}"{% if item.path == here %} aria-current="page"{% endif %}>{{ item.nav }}</a></li>
+{%- endfor %}
+</ul>
+{%- endset %}
+{%- set logo -%}
+<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect class="logo-tile" x="2" y="2" width="36" height="36" rx="11"/><path class="logo-arrows" d="M10.6 16.6A10 10 0 0 1 29.4 16.6M31.1 11.9L29.4 16.6L25.1 14.1M29.4 23.4A10 10 0 0 1 10.6 23.4M8.9 28.1L10.6 23.4L14.9 25.9"/></svg>
+{%- endset %}
+<header class="site-header">
+{% block ribbon -%}
+<div class="ribbon"><p class="wrap">Lickety-Sync is still being built, and there’s nothing to download yet. <a href="{{ get_url(path='@/features.md') }}">See what’s coming</a></p></div>
+{%- endblock ribbon %}
+<div class="wrap bar">
+<a class="brand" href="{{ get_url(path='@/_index.md') }}">{{ logo | safe }}<span>Lickety<span class="dash">-</span>Sync</span></a>
+<details class="menu">
+<summary><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5h14M3 10h14M3 15h14"/></svg>Menu</summary>
+<nav aria-label="The manual">{{ nav_list | safe }}</nav>
+</details>
+</div>
+<nav class="wrap nav-wide" aria-label="The manual">{{ nav_list | safe }}</nav>
+</header>
+<main id="main">
 {% block content %}{% endblock content %}
 </main>
-<footer>
-  <a href="{{ get_url(path="@/_index.md") }}">Home</a> ·
-  <a href="{{ get_url(path="@/privacy.md") }}">Privacy</a> ·
-  <a href="{{ get_url(path="@/risks.md") }}">Risks</a>
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<p class="footer-brand">{{ logo | safe }}<span><strong>Lickety-Sync</strong><br>Your folders, in sync. It’s got your back.</span></p>
+<nav aria-label="About this site">
+<ul class="footer-links">
+<li><a href="{{ get_url(path='@/_index.md') }}">Home</a></li>
+<li><a href="{{ get_url(path='@/privacy.md') }}">Privacy</a></li>
+<li><a href="{{ get_url(path='@/risks.md') }}">Risks</a></li>
+<li><a href="https://github.com/LicketySync">Source on GitHub</a></li>
+</ul>
+</nav>
+<p class="fine">This site has no scripts, no cookies and no analytics: see <a href="{{ get_url(path='@/privacy.md') }}">this site’s privacy</a>. Words and illustrations on this site are under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, and its code, the logo included, under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL 2.0</a>.</p>
+</div>
 </footer>
 </body>
 </html>

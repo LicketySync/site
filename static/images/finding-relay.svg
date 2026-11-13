@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 220" width="480" height="220">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .sky { fill: #9CC9FF; }
+    .old { fill: #EDE3D6; }
+    .dot { fill: #2A2135; }
+    .fixdot { fill: #2A2135; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
+    .wire { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0.5 9; }
+    .line { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .no { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .t1 { stroke: #E8553D; }
+    .t2 { stroke: #14857E; }
+    .t3 { stroke: #2A2135; }
+    .fix { stroke: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .screen { fill: #24344A; }
+      .old { fill: #4A3F57; }
+      .dot { fill: #F7EFE5; }
+      .t1 { stroke: #FF8E77; }
+      .t2 { stroke: #7ED9CF; }
+      .t3 { stroke: #F7EFE5; }
+    }
+  </style>
+  <ellipse class="blob" cx="240" cy="198" rx="224" ry="16"/>
+  <g class="mint"><circle cx="24" cy="40" r="5"/></g>
+  <g class="coral"><circle cx="460" cy="44" r="5"/></g>
+  <path class="trail t2" d="M146 128C168 112 184 108 202 110"/>
+  <path class="trail t2" d="M282 110C304 106 322 112 340 126"/>
+  <g class="ink">
+    <rect class="paper" x="30" y="102" width="100" height="68" rx="8"/>
+    <rect class="screen" x="39" y="111" width="82" height="50" rx="4" stroke="none"/>
+    <path class="sun" d="M60 125.7Q60 121.7 64 121.7H73.3L77.3 126.3H96Q100 126.3 100 130.3V145.7Q100 149.7 96 149.7H64Q60 149.7 60 145.7Z"/>
+    <rect class="paper" x="18" y="170" width="124" height="10" rx="5"/>
+    <rect class="paper" x="356" y="86" width="96" height="59.5" rx="7.7"/>
+    <rect class="screen" x="363.7" y="93.7" width="80.6" height="44.2" rx="3.8" stroke="none"/>
+    <path class="paper" d="M394.4 145.5L391.5 158H416.5L413.6 145.5Z"/>
+    <path class="none" d="M381 159H427"/>
+    <rect class="paper" x="208" y="54" width="68" height="132" rx="12"/>
+    <path class="none" d="M222 80H262M222 96H262"/>
+  </g>
+  <g class="ink thin">
+    <circle class="mint" cx="242" cy="172" r="5"/>
+    <g transform="translate(212 112) rotate(-6 30 20.4)"><rect class="sky" x="0" y="0" width="60" height="40.8" rx="4.8"/><path class="none fix" d="M3.6 4.1L30 23.7L56.4 4.1"/><path class="none" d="M21.9 23V16.1A8.1 8.1 0 0 1 38.1 16.1V23"/><rect class="sun" x="15" y="21.8" width="30" height="23.1" rx="5.8"/><circle class="fixdot" cx="30" cy="33.4" r="2.1" stroke="none"/></g>
+  </g>
+  <g class="sun">
+    <path class="sun" transform="translate(170 46) scale(0.8)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path class="sun" transform="translate(318 40) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+</svg>

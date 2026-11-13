@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Page not found · {{ config.title }}{% endblock title %}
+{% block content %}
+<div class="prose-wrap notfound">
+<div class="illustration"><img src="{{ get_url(path='images/lost-folder.svg') }}" alt="" width="280" height="200"></div>
+<h1>Whoops! This page ran off.</h1>
+<p>We couldn’t find the page you asked for. The link may be old, or it may have a typo.</p>
+<p><a class="button button-primary" href="{{ get_url(path='@/_index.md') }}">Back to the home page</a></p>
+</div>
+{% endblock content %}

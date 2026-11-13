@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 220" width="440" height="220">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .sky { fill: #9CC9FF; }
+    .old { fill: #EDE3D6; }
+    .dot { fill: #2A2135; }
+    .fixdot { fill: #2A2135; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
+    .wire { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0.5 9; }
+    .line { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .no { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .t1 { stroke: #E8553D; }
+    .t2 { stroke: #14857E; }
+    .t3 { stroke: #2A2135; }
+    .fix { stroke: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .screen { fill: #24344A; }
+      .old { fill: #4A3F57; }
+      .dot { fill: #F7EFE5; }
+      .t1 { stroke: #FF8E77; }
+      .t2 { stroke: #7ED9CF; }
+      .t3 { stroke: #F7EFE5; }
+    }
+  </style>
+  <ellipse class="blob" cx="220" cy="196" rx="200" ry="16"/>
+  <g class="mint"><circle cx="420" cy="40" r="5"/></g>
+  <g class="coral"><circle cx="20" cy="60" r="5"/></g>
+  <g class="ink">
+    <path class="old" d="M36 91.1Q36 78.3 48.8 78.3H78.7L91.5 93.2H151.2Q164 93.2 164 106V155.1Q164 167.9 151.2 167.9H48.8Q36 167.9 36 155.1Z"/>
+  </g>
+  <g class="ink thin">
+    <g transform="translate(64 186) rotate(8)"><path class="old" d="M8 -4H40A4 4 0 0 1 44 0A4 4 0 0 1 40 4H38V11H31V4H28V9H22V4H8Z"/><circle class="old" r="12"/><circle class="paper" cx="-3" r="4"/></g>
+    <path class="none" d="M126 188H138M118 200H128"/>
+  </g>
+  <path class="trail t2" d="M184 122C214 102 240 100 262 110"/>
+  <g class="ink thin"><path class="none" d="M254 98L266 111L250 118"/></g>
+  <g class="ink">
+    <path class="sun" d="M280 75.1Q280 62.3 292.8 62.3H322.7L335.5 77.2H395.2Q408 77.2 408 90V139.1Q408 151.9 395.2 151.9H292.8Q280 151.9 280 139.1Z"/>
+  </g>
+  <g class="ink thin">
+    <g transform="translate(318 180) rotate(-12)"><path class="coral" d="M8 -4H40A4 4 0 0 1 44 0A4 4 0 0 1 40 4H38V11H31V4H28V9H22V4H8Z"/><circle class="coral" r="12"/><circle class="paper" cx="-3" r="4"/></g>
+  </g>
+  <g class="sun">
+    <path class="sun" transform="translate(420 112) scale(0.9)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path class="sun" transform="translate(266 40) scale(0.7)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path class="sun" transform="translate(392 186) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+</svg>

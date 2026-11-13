@@ -1,5 +1,19 @@
 {% extends "base.html" %}
+{% block title %}{{ section.title }}{% endblock title %}
+{% block description %}{% if section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}{% endblock description %}
+{#- Home says it is in development in its own words, so no ribbon. #}
+{% block ribbon %}{% endblock ribbon %}
 {% block content %}
-  <h1>{{ section.title }}</h1>
-  {{ section.content | safe }}
+<div class="wrap home">
+{{ section.content | safe }}
+<section class="panel" aria-labelledby="where-next">
+<h2 id="where-next">Where to next</h2>
+<p>The manual, in reading order. Start at the top, or jump to what you need.</p>
+<ol class="cards contents-list">
+{%- for item in config.extra.manual %}{% set p = get_page(path=item.path) %}
+<li class="card"><a class="card-link" href="{{ p.permalink }}">{{ p.title }}</a>{% if p.description %}<p>{{ p.description }}</p>{% endif %}</li>
+{%- endfor %}
+</ol>
+</section>
+</div>
 {% endblock content %}

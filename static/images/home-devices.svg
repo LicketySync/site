@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
+    .t1 { stroke: #E8553D; }
+    .t2 { stroke: #14857E; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .screen { fill: #24344A; }
+      .t1 { stroke: #FF8E77; }
+      .t2 { stroke: #7ED9CF; }
+    }
+  </style>
+  <path class="blob" d="M236 24C334 16 448 72 452 172C456 278 366 340 248 338C126 336 24 292 28 184C32 86 138 32 236 24Z"/>
+  <g class="mint"><circle cx="92" cy="104" r="6"/><circle cx="452" cy="268" r="5"/></g>
+  <g class="coral"><circle cx="300" cy="28" r="5"/><circle cx="64" cy="300" r="6"/></g>
+  <g class="sun">
+    <path transform="translate(118 74)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path transform="translate(430 44) scale(0.7)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path transform="translate(250 312) scale(0.8)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+  <path class="trail t1" d="M178 134C210 82 268 60 314 74"/>
+  <path class="trail t2" d="M204 226C228 250 242 258 258 262"/>
+  <path class="trail t1" d="M422 124C456 148 458 186 432 206"/>
+  <g class="ink">
+    <rect class="paper" x="44" y="146" width="152" height="104" rx="12"/>
+    <rect class="screen" x="58" y="160" width="124" height="76" rx="6" stroke="none"/>
+    <path class="sun" transform="translate(90 176)" d="M0 8Q0 2 6 2H20L26 9H54Q60 9 60 15V38Q60 44 54 44H6Q0 44 0 38Z"/>
+    <rect class="paper" x="26" y="250" width="188" height="16" rx="8"/>
+    <rect class="paper" x="322" y="34" width="92" height="150" rx="18"/>
+    <rect class="screen" x="332" y="52" width="72" height="114" rx="8" stroke="none"/>
+    <path class="none" d="M360 43H376"/>
+    <path class="sun" transform="translate(338 88)" d="M0 8Q0 2 6 2H20L26 9H54Q60 9 60 15V38Q60 44 54 44H6Q0 44 0 38Z"/>
+    <rect class="paper" x="266" y="212" width="170" height="104" rx="12"/>
+    <rect class="screen" x="280" y="226" width="142" height="76" rx="6" stroke="none"/>
+    <path class="sun" transform="translate(321 242)" d="M0 8Q0 2 6 2H20L26 9H54Q60 9 60 15V38Q60 44 54 44H6Q0 44 0 38Z"/>
+    <path class="paper" d="M340 316L334 334H368L362 316Z"/>
+    <path class="none" d="M318 336H384"/>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M213 79L201 84M216 90L199 97M220 101L209 106"/>
+    <path class="coral" transform="translate(222 70) rotate(-18)" d="M0 5Q0 1 4 1H13L17 6H36Q40 6 40 10V26Q40 30 36 30H4Q0 30 0 26Z"/>
+    <path class="none" d="M226 247V241A7 7 0 0 1 240 241V247"/>
+    <rect class="sun" x="220" y="246" width="26" height="20" rx="5"/>
+    <circle cx="233" cy="256" r="1.5" fill="#2A2135" stroke="none"/>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 96" width="120" height="96">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .screen { fill: #E3F0FF; }
+    .sky { fill: #9CC9FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .dot { fill: #2A2135; }
+    .none { fill: none; }
+    .fixed { stroke: #2A2135; }
+    .fixed-dot { fill: #2A2135; }
+    .trail { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 0.5 8; }
+    .t1 { stroke: #E8553D; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .screen { fill: #24344A; }
+      .dot { fill: #F7EFE5; }
+      .t1 { stroke: #FF8E77; }
+    }
+  </style>
+  <path class="sun" transform="translate(14 20) scale(0.55)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  <circle class="mint" cx="110" cy="14" r="3.5"/>
+  <circle class="coral" cx="38" cy="88" r="3.5"/>
+  <g class="ink thin">
+    <circle class="sky" cx="64" cy="72" r="14"/>
+    <ellipse class="none fixed" cx="64" cy="72" rx="6" ry="14"/>
+    <path class="none fixed" d="M50 72H78"/>
+  </g>
+  <path class="trail t1" d="M26 36C40 12 86 12 98 28"/>
+  <g class="ink">
+    <rect class="paper" x="6" y="40" width="34" height="24" rx="4"/>
+    <rect class="screen" x="10" y="44" width="26" height="16" rx="2" stroke="none"/>
+    <rect class="paper" x="2" y="64" width="42" height="8" rx="4"/>
+    <rect class="paper" x="90" y="34" width="22" height="42" rx="6"/>
+    <rect class="screen" x="94" y="40" width="14" height="28" rx="2.5" stroke="none"/>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M58 15V12A5 5 0 0 1 68 12V15"/>
+    <rect class="sun" x="55" y="14" width="16" height="12" rx="3.5"/>
+    <circle class="fixed-dot" cx="63" cy="20" r="1.6" stroke="none"/>
+  </g>
+</svg>

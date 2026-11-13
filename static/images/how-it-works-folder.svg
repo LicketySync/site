@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="560" height="360">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .sky { fill: #9CC9FF; }
+    .old { fill: #EDE3D6; }
+    .dot { fill: #2A2135; }
+    .fixdot { fill: #2A2135; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
+    .wire { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0.5 9; }
+    .line { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .no { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .t1 { stroke: #E8553D; }
+    .t2 { stroke: #14857E; }
+    .t3 { stroke: #2A2135; }
+    .fix { stroke: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .screen { fill: #24344A; }
+      .old { fill: #4A3F57; }
+      .dot { fill: #F7EFE5; }
+      .t1 { stroke: #FF8E77; }
+      .t2 { stroke: #7ED9CF; }
+      .t3 { stroke: #F7EFE5; }
+    }
+  </style>
+  <path class="blob" d="M282 18C404 12 544 70 546 182C548 292 440 348 288 346C138 344 16 298 16 188C16 82 160 24 282 18Z"/>
+  <g class="mint"><circle cx="48" cy="96" r="6"/><circle cx="536" cy="262" r="5"/></g>
+  <g class="coral"><circle cx="420" cy="30" r="5"/><circle cx="40" cy="330" r="6"/></g>
+  <g class="sun">
+    <path class="sun" transform="translate(150 52) scale(1.0)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path class="sun" transform="translate(504 96) scale(0.7)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path class="sun" transform="translate(282 330) scale(0.8)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+  <path class="trail t1" d="M176 182C188 140 206 110 230 92"/>
+  <path class="trail t2" d="M334 92C362 108 392 138 412 172"/>
+  <path class="trail t1" d="M226 300C262 318 300 318 346 300"/>
+  <g class="ink thin">
+    <path class="paper" stroke-dasharray="7 9" d="M252 232A15 15 0 0 1 254 202A22 22 0 0 1 294 191A20 20 0 0 1 312 232Z"/>
+  </g>
+  <circle class="no t1" cx="282" cy="214" r="42"/>
+  <path class="no t1" d="M252 184L312 244"/>
+  <g class="ink">
+    <rect class="paper" x="48" y="190" width="160" height="108.8" rx="12.8"/>
+    <rect class="screen" x="62.4" y="204.4" width="131.2" height="80" rx="6.4" stroke="none"/>
+    <path class="sun" d="M98 229.4Q98 223.4 104 223.4H118L124 230.4H152Q158 230.4 158 236.4V259.4Q158 265.4 152 265.4H104Q98 265.4 98 259.4Z"/>
+    <rect class="paper" x="28.8" y="298.8" width="198.4" height="16" rx="8"/>
+    <rect class="paper" x="242" y="18" width="80" height="131.2" rx="16"/>
+    <rect class="screen" x="250.8" y="34" width="62.4" height="99.2" rx="7.2" stroke="none"/>
+    <path class="none" d="M274 26H290"/>
+    <path class="sun" d="M256 72.9Q256 67.7 261.2 67.7H273.3L278.5 73.8H302.8Q308 73.8 308 79V98.9Q308 104.1 302.8 104.1H261.2Q256 104.1 256 98.9Z"/>
+    <rect class="paper" x="372" y="184" width="140" height="128" rx="14"/>
+    <rect class="screen" x="386" y="198" width="112" height="64" rx="7" stroke="none"/>
+    <path class="sun" d="M416 218.9Q416 213.7 421.2 213.7H433.3L438.5 219.8H462.8Q468 219.8 468 225V244.9Q468 250.1 462.8 250.1H421.2Q416 250.1 416 244.9Z"/>
+    <path class="none" d="M392 280H462M392 296H462"/>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M436.8 232.5V228A5.2 5.2 0 0 1 447.2 228V232.5"/><rect class="sun" x="432.2" y="231.8" width="19.5" height="15" rx="3.8"/><circle class="fixdot" cx="442" cy="239.2" r="1.4" stroke="none"/>
+    <circle class="mint" cx="486" cy="280" r="5"/><circle class="sun" cx="486" cy="296" r="5"/>
+  </g>
+  <g class="ink thin">
+    <g transform="translate(66 162) rotate(-24)"><path class="coral" d="M8 -4H40A4 4 0 0 1 44 0A4 4 0 0 1 40 4H38V11H31V4H28V9H22V4H8Z"/><circle class="coral" r="12"/><circle class="paper" cx="-3" r="4"/></g>
+    <g transform="translate(350 44) rotate(-18)"><path class="sky" d="M8 -4H40A4 4 0 0 1 44 0A4 4 0 0 1 40 4H38V11H31V4H28V9H22V4H8Z"/><circle class="sky" r="12"/><circle class="paper" cx="-3" r="4"/></g>
+    <g transform="translate(432 336) rotate(-8)"><path class="mint" d="M8 -4H40A4 4 0 0 1 44 0A4 4 0 0 1 40 4H38V11H31V4H28V9H22V4H8Z"/><circle class="mint" r="12"/><circle class="paper" cx="-3" r="4"/></g>
+  </g>
+</svg>

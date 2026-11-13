@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90" width="120" height="90">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .sky { fill: #9CC9FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .none { fill: none; }
+    .fixed { stroke: #2A2135; }
+    .fixed-dot { fill: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+    }
+  </style>
+  <path class="sun" transform="translate(100 14) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  <circle class="mint" cx="10" cy="20" r="3.5"/>
+  <g class="ink">
+    <path class="paper" d="M36 34V10H60L68 18V34"/>
+    <path class="none" d="M60 10V18H68"/>
+    <rect class="coral" x="22" y="42" width="66" height="40" rx="6"/>
+    <rect class="sun" x="16" y="30" width="78" height="14" rx="5"/>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M42 18H54M42 25H62"/>
+    <rect class="paper fixed" x="44" y="54" width="22" height="7" rx="3.5"/>
+    <circle class="paper" cx="92" cy="68" r="14"/>
+    <path class="none" d="M92 60V68L98 72"/>
+  </g>
+</svg>

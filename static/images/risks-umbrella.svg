@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" width="360" height="240">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .sky { fill: #9CC9FF; }
+    .none { fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+    }
+  </style>
+  <path class="blob" d="M182 18C266 14 340 60 342 128C344 196 276 228 184 226C92 224 18 196 18 124C18 62 98 22 182 18Z"/>
+  <g class="mint"><circle cx="54" cy="66" r="5"/><circle cx="320" cy="206" r="5"/></g>
+  <g class="coral"><circle cx="300" cy="40" r="5"/><circle cx="42" cy="200" r="4"/></g>
+  <g class="sun">
+    <path transform="translate(318 104) scale(0.8)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path transform="translate(70 30) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+  <g class="ink thin">
+    <path class="sky" transform="translate(40 116)" d="M0-10Q7 0 7 5A7 7 0 0 1-7 5Q-7 0 0-10Z"/>
+    <path class="sky" transform="translate(82 168)" d="M0-10Q7 0 7 5A7 7 0 0 1-7 5Q-7 0 0-10Z"/>
+    <path class="sky" transform="translate(286 156)" d="M0-10Q7 0 7 5A7 7 0 0 1-7 5Q-7 0 0-10Z"/>
+    <path class="sky" transform="translate(326 66) scale(0.8)" d="M0-10Q7 0 7 5A7 7 0 0 1-7 5Q-7 0 0-10Z"/>
+    <path class="sky" transform="translate(112 22) scale(0.8)" d="M0-10Q7 0 7 5A7 7 0 0 1-7 5Q-7 0 0-10Z"/>
+  </g>
+  <g class="ink">
+    <path class="none" d="M180 112V206Q180 220 166 220Q154 220 154 208"/>
+    <path class="coral" d="M68 116A112 80 0 0 1 292 116Q264 100 236 116Q208 100 180 116Q152 100 124 116Q96 100 68 116Z"/>
+    <path class="sun" d="M180 38Q148 70 124 116Q152 100 180 116Q208 100 236 116Q212 70 180 38Z"/>
+    <circle class="paper" cx="180" cy="34" r="5"/>
+    <path class="mint" d="M136 150Q136 142 144 142H164L172 151H216Q224 151 224 159V190Q224 198 216 198H144Q136 198 136 190Z"/>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M162 170Q166 176 172 170M188 170Q192 176 198 170M170 182Q180 190 190 182"/>
+  </g>
+</svg>

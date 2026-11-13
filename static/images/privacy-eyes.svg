@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 200" width="560" height="200">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .sky { fill: #9CC9FF; }
+    .dot { fill: #2A2135; }
+    .none { fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .screen { fill: #24344A; }
+      .dot { fill: #F7EFE5; }
+    }
+  </style>
+  <g class="blob">
+    <circle cx="70" cy="78" r="58"/>
+    <circle cx="210" cy="78" r="58"/>
+    <circle cx="350" cy="78" r="58"/>
+    <circle cx="490" cy="78" r="58"/>
+  </g>
+  <g class="sun">
+    <path transform="translate(122 24) scale(0.7)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+  <g class="mint"><circle cx="16" cy="140" r="4"/><circle cx="544" cy="24" r="4"/></g>
+  <g class="coral"><circle cx="280" cy="22" r="4"/></g>
+  <g class="ink">
+    <path class="coral" d="M58 70H96A6 6 0 0 1 102 76V80A6 6 0 0 1 96 86H92V96A3 3 0 0 1 89 99H85A3 3 0 0 1 82 96V86H78V92A3 3 0 0 1 75 95H71A3 3 0 0 1 68 92V86H58Z"/>
+    <circle class="coral" cx="46" cy="78" r="18"/>
+    <circle class="paper" cx="41" cy="78" r="5"/>
+    <rect class="mint" x="178" y="50" width="64" height="58" rx="10"/>
+    <path class="none" d="M190 68H220M190 88H220"/>
+    <rect class="paper" x="320" y="56" width="62" height="44" rx="6"/>
+    <path class="none" d="M320 60L351 82L382 60"/>
+    <circle class="coral" cx="351" cy="82" r="7"/>
+    <circle class="screen" cx="484" cy="72" r="20"/>
+    <path class="none" d="M499 87L516 104"/>
+  </g>
+  <g class="dot">
+    <circle cx="232" cy="68" r="3"/>
+    <circle cx="232" cy="88" r="3"/>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M300 66H308M296 78H306M300 90H308"/>
+    <path class="none" d="M474 66Q478 60 486 60"/>
+  </g>
+  <g class="ink thin">
+    <path class="paper" d="M44 168Q70 148 96 168Q70 188 44 168Z"/>
+    <circle class="sky" cx="70" cy="168" r="7"/>
+    <path class="paper" d="M184 168Q210 148 236 168Q210 188 184 168Z"/>
+    <circle class="sky" cx="210" cy="170" r="7"/>
+    <path class="sun" d="M184 168Q210 148 236 168Q210 164 184 168Z"/>
+    <path class="none" d="M324 166Q350 184 376 166M334 172L330 178M350 176V183M366 172L370 178"/>
+    <path class="none" d="M464 166Q490 184 516 166M474 172L470 178M490 176V183M506 172L510 178"/>
+  </g>
+  <circle class="dot" cx="70" cy="168" r="2.5"/>
+</svg>

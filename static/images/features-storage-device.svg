@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90" width="120" height="90">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .none { fill: none; }
+    .fixed { stroke: #2A2135; }
+    .fixed-dot { fill: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .screen { fill: #24344A; }
+    }
+  </style>
+  <path class="sun" transform="translate(104 16) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  <circle class="coral" cx="12" cy="74" r="3.5"/>
+  <g class="ink">
+    <rect class="paper" x="30" y="10" width="46" height="72" rx="8"/>
+  </g>
+  <g class="ink thin">
+    <rect class="screen" x="38" y="20" width="30" height="10" rx="3"/>
+    <rect class="screen" x="38" y="35" width="30" height="10" rx="3"/>
+    <rect class="screen" x="38" y="50" width="30" height="10" rx="3"/>
+    <circle class="mint" cx="42" cy="71" r="2.6" stroke="none"/>
+    <circle class="sun" cx="50" cy="71" r="2.6" stroke="none"/>
+    <circle class="mint" cx="86" cy="62" r="17"/>
+    <path class="none fixed" d="M75 59Q86 68 97 59M79 64L77 68M86 66V70M93 64L95 68"/>
+  </g>
+</svg>

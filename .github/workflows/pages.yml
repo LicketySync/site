@@ -152,6 +152,47 @@ jobs:
             status=1
           fi
           exit "$status"
+      # Fails on a table that is not in a table box. Pages put each Markdown
+      # table in the table_box component (templates/components.html), a
+      # <div class="table-box" role="region"> that scrolls sideways on its
+      # own, so a wide table never makes the page scroll on a phone. Every
+      # <table tag must come straight after the opening tag of a div whose
+      # class list starts with table-box, with only whitespace between;
+      # quoted and unquoted attributes both count (minify_html drops
+      # quotes), a quoted value may hold ">" (minify_html writes the box's
+      # label that way, and may put it before the class), and newlines count
+      # as whitespace. Known limits: it does not
+      # check the div's role or label, and a <table in a comment or a script
+      # counts like any other.
+      - name: Check that every table is in a table box
+        shell: bash
+        run: |
+          set -o pipefail
+          # grep, but "no match" is not a failure; a real error still is.
+          g() { grep "$@" || [ "$?" -eq 1 ]; }
+          status=0
+          table='<table[[:space:]>]'
+          # The text of a tag's attributes, stepping over quoted values whole,
+          # so a ">" inside one (minify_html writes &gt; as ">") does not end
+          # the tag.
+          attrs="(\"[^\"]*\"|'[^']*'|[^>\"'])*"
+          # class= with table-box first: quoted, with any other classes after
+          # it, or unquoted on its own.
+          class="[[:space:]]class[[:space:]]*=[[:space:]]*(\"table-box([[:space:]][^\"]*)?\"$attrs|'table-box([[:space:]][^']*)?'$attrs|table-box([[:space:]]$attrs)?)"
+          boxed="<div$attrs$class>[[:space:]]*$table"
+          while IFS= read -r -d '' f; do
+            page=$(tr '\n' ' ' < "$f")
+            all=$(printf '%s' "$page" | g -oiE "$table" | wc -l)
+            inbox=$(printf '%s' "$page" | g -oiE "$boxed" | wc -l)
+            if [ "$all" -ne "$inbox" ]; then
+              echo "$f: $all tables, $inbox of them in a table box"
+              status=1
+            fi
+          done < <(g -rIliZE "$table" public)
+          if [ "$status" -ne 0 ]; then
+            echo '::error::the files above have a table outside a table_box'
+          fi
+          exit "$status"
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: public

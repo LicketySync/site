@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90" width="120" height="90">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .sky { fill: #9CC9FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .none { fill: none; }
+    .fixed { stroke: #2A2135; }
+    .fixed-dot { fill: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+    }
+  </style>
+  <circle class="mint" cx="10" cy="80" r="3.5"/>
+  <circle class="coral" cx="112" cy="72" r="3.5"/>
+  <g class="ink">
+    <g transform="rotate(-8 42 48)">
+      <path class="paper" d="M22 14H48L60 26V78Q60 82 56 82H26Q22 82 22 78Z"/>
+      <path class="none" d="M48 14V26H60"/>
+    </g>
+    <g transform="rotate(8 78 48)">
+      <path class="sky" d="M58 14H84L96 26V78Q96 82 92 82H62Q58 82 58 78Z"/>
+      <path class="none" d="M84 14V26H96"/>
+    </g>
+  </g>
+  <g class="ink thin">
+    <g transform="rotate(-8 42 48)"><path class="none" d="M29 40H52M29 50H52M29 60H44"/></g>
+    <g transform="rotate(8 78 48)"><path class="none fixed" d="M65 40H88M65 50H88M65 60H80"/></g>
+  </g>
+  <path class="sun" transform="translate(60 8) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+</svg>

@@ -1,0 +1,55 @@
+{#- Components for page authors (PLAN.md, "Building blocks"). Content is
+    a Tera template too, so a page calls these directly, for example
+    {{ <coming_soon /> }}. Components see only their arguments; the
+    functions, such as get_url, are global. -#}
+
+{#- `alt` and `caption` are plain text and are escaped here: output from a
+    component called in content is not escaped for it. A picture with a
+    caption is a <figure>; one without is a plain block. -#}
+{% component illustration(src, alt, width, height, caption = "", class = "") -%}
+{%- set img -%}<img src="{{ get_url(path='images/' ~ src) }}" alt="{{ alt | escape }}" width="{{ width }}" height="{{ height }}">{%- endset -%}
+{%- if caption -%}
+<figure class="illustration{% if class %} {{ class | escape }}{% endif %}">{{ img | safe }}<figcaption>{{ caption | escape }}</figcaption></figure>
+{%- else -%}
+<div class="illustration{% if class %} {{ class | escape }}{% endif %}">{{ img | safe }}</div>
+{%- endif -%}
+{%- endcomponent illustration %}
+
+{% component coming_soon() -%}
+<div class="note note-soon" role="note"><img src="{{ get_url(path='images/coming-soon.svg') }}" alt="" width="72" height="72"><p><strong>Coming soon.</strong> We’re busy writing this page. Check back in a little while!</p></div>
+{%- endcomponent coming_soon %}
+
+{#- A small label at the start of a line, such as "How bad:" or "What to
+    do:", so each item scans quickly. -#}
+{% component lead_in(text) -%}
+<span class="lead-in">{{ text | escape }}</span>
+{%- endcomponent lead_in %}
+
+{#- A box for a Markdown table that scrolls sideways on its own, so a wide
+    table never makes the page scroll. It is a named region that a keyboard
+    can reach; `label` says what the table holds. -#}
+{% component table_box(label) -%}
+<div class="table-box" role="region" aria-label="{{ label | escape }}" tabindex="0">
+
+{{ body }}
+
+</div>
+{%- endcomponent table_box %}
+
+{#- Detail behind a click: Markdown inside a <details>, with `summary` as
+    the line that opens it. No script. -#}
+{% component more(summary) -%}
+<details class="more"><summary>{{ summary | escape }}</summary><div class="more-body">
+
+{{ body }}
+
+</div></details>
+{%- endcomponent more %}
+
+{% component note() -%}
+<div class="note" role="note"><div>
+
+{{ body }}
+
+</div></div>
+{%- endcomponent note %}

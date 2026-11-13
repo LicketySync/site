@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 260" width="440" height="260">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .sky { fill: #9CC9FF; }
+    .old { fill: #EDE3D6; }
+    .dot { fill: #2A2135; }
+    .fixdot { fill: #2A2135; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
+    .wire { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0.5 9; }
+    .line { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .no { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .t1 { stroke: #E8553D; }
+    .t2 { stroke: #14857E; }
+    .t3 { stroke: #2A2135; }
+    .fix { stroke: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .screen { fill: #24344A; }
+      .old { fill: #4A3F57; }
+      .dot { fill: #F7EFE5; }
+      .t1 { stroke: #FF8E77; }
+      .t2 { stroke: #7ED9CF; }
+      .t3 { stroke: #F7EFE5; }
+    }
+  </style>
+  <path class="blob" d="M220 12C334 8 430 62 432 132C434 206 336 252 222 250C108 248 8 206 8 132C8 60 106 16 220 12Z"/>
+  <g class="ink">
+    <path class="wire t2" d="M220 42L338.8 68.9"/>
+    <path class="wire t2" d="M338.8 68.9L388 134"/>
+    <path class="wire t2" d="M388 134L338.8 199.1"/>
+    <path class="wire t2" d="M338.8 199.1L220 226"/>
+    <path class="wire t2" d="M220 226L101.2 199.1"/>
+    <path class="wire t2" d="M101.2 199.1L52 134"/>
+    <path class="wire t2" d="M52 134L101.2 68.9"/>
+    <path class="wire t2" d="M101.2 68.9L220 42"/>
+    <path class="wire t2" d="M220 42L338.8 199.1"/>
+    <path class="wire t3" d="M338.8 68.9L101.2 199.1"/>
+    <path class="wire t3" d="M388 134L52 134"/>
+    <path class="wire t2" d="M220 226L101.2 68.9"/>
+  </g>
+  <g class="ink thin">
+    <rect class="paper" x="197" y="23.6" width="46" height="29.4" rx="5.5"/><path class="none" d="M220 53V60.4M209.9 61.3H230.1"/>
+    <rect class="paper" x="315.8" y="50.5" width="46" height="29.4" rx="5.5"/><path class="none" d="M338.8 80V87.3M328.7 88.3H348.9"/>
+    <rect class="paper" x="365" y="115.6" width="46" height="29.4" rx="5.5"/><path class="none" d="M388 145V152.4M377.9 153.3H398.1"/>
+    <rect class="paper" x="315.8" y="180.7" width="46" height="29.4" rx="5.5"/><path class="none" d="M338.8 210.1V217.5M328.7 218.4H348.9"/>
+    <rect class="paper" x="197" y="207.6" width="46" height="29.4" rx="5.5"/><path class="none" d="M220 237V244.4M209.9 245.3H230.1"/>
+    <rect class="paper" x="78.2" y="180.7" width="46" height="29.4" rx="5.5"/><path class="none" d="M101.2 210.1V217.5M91.1 218.4H111.3"/>
+    <rect class="paper" x="29" y="115.6" width="46" height="29.4" rx="5.5"/><path class="none" d="M52 145V152.4M41.9 153.3H62.1"/>
+    <rect class="paper" x="78.2" y="50.5" width="46" height="29.4" rx="5.5"/><path class="none" d="M101.2 80V87.3M91.1 88.3H111.3"/>
+  </g>
+  <g class="ink thin">
+    <g transform="translate(279.4 51.5) rotate(16)"><path class="sky" d="M-12 -14H18Q22 -14 22 -10V10Q22 14 18 14H-12L-22 0Z"/><circle class="paper" cx="-12" cy="0" r="3"/><path class="none fix" d="M-3 -5H15M-3 5H9"/></g>
+  </g>
+  <g class="mint"><circle cx="220" cy="134" r="6"/><circle cx="414" cy="30" r="5"/></g>
+  <g class="coral"><circle cx="30" cy="230" r="5"/></g>
+  <g class="sun">
+    <path class="sun" transform="translate(40 40) scale(0.7)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path class="sun" transform="translate(404 234) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+</svg>

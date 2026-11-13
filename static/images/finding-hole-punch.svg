@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="600" height="340">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .sky { fill: #9CC9FF; }
+    .old { fill: #EDE3D6; }
+    .dot { fill: #2A2135; }
+    .fixdot { fill: #2A2135; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
+    .wire { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0.5 9; }
+    .line { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .no { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .t1 { stroke: #E8553D; }
+    .t2 { stroke: #14857E; }
+    .t3 { stroke: #2A2135; }
+    .fix { stroke: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .screen { fill: #24344A; }
+      .old { fill: #4A3F57; }
+      .dot { fill: #F7EFE5; }
+      .t1 { stroke: #FF8E77; }
+      .t2 { stroke: #7ED9CF; }
+      .t3 { stroke: #F7EFE5; }
+    }
+  </style>
+  <ellipse class="blob" cx="300" cy="316" rx="290" ry="18"/>
+  <g class="mint"><circle cx="28" cy="40" r="5"/><circle cx="584" cy="200" r="4"/></g>
+  <g class="coral"><circle cx="570" cy="36" r="5"/></g>
+  <g class="ink">
+    <path class="coral" d="M20 166L119 87L218 166Z"/><rect class="paper" x="34" y="160" width="170" height="146" rx="6"/>
+    <path class="coral" d="M382 166L481 87L580 166Z"/><rect class="paper" x="396" y="160" width="170" height="146" rx="6"/>
+  </g>
+  <g class="ink">
+    <rect class="paper" x="66" y="216" width="86" height="58.5" rx="6.9"/>
+    <rect class="screen" x="73.7" y="223.7" width="70.5" height="43" rx="3.4" stroke="none"/>
+    <path class="sun" d="M92 236.3Q92 232.9 95.4 232.9H103.3L106.7 236.9H122.6Q126 236.9 126 240.3V253.3Q126 256.7 122.6 256.7H95.4Q92 256.7 92 253.3Z"/>
+    <rect class="paper" x="55.7" y="274.5" width="106.6" height="8.6" rx="4.3"/>
+    <rect class="paper" x="440" y="206" width="90" height="55.8" rx="7.2"/>
+    <rect class="screen" x="447.2" y="213.2" width="75.6" height="41.4" rx="3.6" stroke="none"/>
+    <path class="paper" d="M476 261.8L473.3 273.5H496.7L494 261.8Z"/>
+    <path class="none" d="M463.4 274.4H506.6"/>
+  </g>
+  <g class="ink">
+    <rect class="paper" x="254" y="26" width="92" height="57" rx="7.4"/>
+    <rect class="screen" x="261.4" y="33.4" width="77.3" height="42.3" rx="3.7" stroke="none"/>
+    <path class="paper" d="M290.8 83L288 95H312L309.2 83Z"/>
+    <path class="none" d="M277.9 95.9H322.1"/>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M280 54H320M288 46L280 54L288 62M312 46L320 54L312 62"/>
+  </g>
+  <path class="trail t1" d="M262 98C236 124 222 160 214 196"/>
+  <path class="trail t1" d="M338 98C364 124 378 160 386 196"/>
+  <g class="ink thin">
+    <g transform="translate(214 130) rotate(-24 15 10.2)"><rect class="paper" x="0" y="0" width="30" height="20.4" rx="2.4"/><path class="none" d="M1.8 2L15 11.8L28.2 2"/></g>
+    <g transform="translate(356 130) rotate(24 15 10.2)"><rect class="paper" x="0" y="0" width="30" height="20.4" rx="2.4"/><path class="none" d="M1.8 2L15 11.8L28.2 2"/></g>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M216 214V198"/><rect class="paper" x="180" y="214" width="48" height="30" rx="8"/><circle class="mint" cx="193" cy="229" r="3.5" stroke="none"/><circle class="sun" cx="205" cy="229" r="3.5" stroke="none"/>
+    <path class="none" d="M408 214V198"/><rect class="paper" x="372" y="214" width="48" height="30" rx="8"/><circle class="mint" cx="385" cy="229" r="3.5" stroke="none"/><circle class="sun" cx="397" cy="229" r="3.5" stroke="none"/>
+  </g>
+  <path class="line t2" d="M232 236C270 262 330 262 368 236"/>
+  <g class="ink thin">
+    <path class="sun" d="M286 242Q286 239 289 239H296L299 242.5H313Q316 242.5 316 245.5V257Q316 260 313 260H289Q286 260 286 257Z"/>
+    <path class="none" d="M238 220L244 208M246 226L258 220M362 220L356 208M354 226L342 220"/>
+  </g>
+  <g class="sun">
+    <path class="sun" transform="translate(186 52) scale(0.8)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path class="sun" transform="translate(430 70) scale(0.7)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+</svg>

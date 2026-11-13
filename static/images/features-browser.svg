@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90" width="120" height="90">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .none { fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .screen { fill: #24344A; }
+    }
+  </style>
+  <circle class="mint" cx="112" cy="84" r="3.5"/>
+  <g class="ink">
+    <rect class="paper" x="8" y="8" width="104" height="72" rx="8"/>
+    <path class="none" d="M8 26H112"/>
+  </g>
+  <g class="ink thin">
+    <circle class="coral" cx="19" cy="17" r="3" stroke="none"/>
+    <circle class="sun" cx="28" cy="17" r="3" stroke="none"/>
+    <circle class="mint" cx="37" cy="17" r="3" stroke="none"/>
+    <rect class="screen" x="46" y="12" width="56" height="10" rx="5"/>
+    <path class="sun" d="M42 41Q42 37 46 37H55L59 42H74Q78 42 78 46V64Q78 68 74 68H46Q42 68 42 64Z"/>
+  </g>
+  <path class="sun" transform="translate(94 46) scale(0.55)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+</svg>

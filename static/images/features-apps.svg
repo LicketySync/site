@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90" width="120" height="90">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .none { fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .screen { fill: #24344A; }
+    }
+  </style>
+  <path class="sun" transform="translate(84 10) scale(0.55)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  <circle class="mint" cx="10" cy="10" r="3.5"/>
+  <g class="ink">
+    <rect class="paper" x="8" y="20" width="66" height="44" rx="6"/>
+    <rect class="screen" x="14" y="26" width="54" height="32" rx="3" stroke="none"/>
+    <rect class="paper" x="2" y="64" width="78" height="9" rx="4.5"/>
+    <rect class="paper" x="86" y="24" width="28" height="52" rx="7"/>
+    <rect class="screen" x="90" y="31" width="20" height="38" rx="3" stroke="none"/>
+  </g>
+  <g class="ink thin">
+    <path class="sun" d="M29 35Q29 32 32 32H38L41 35H51Q54 35 54 38V48Q54 51 51 51H32Q29 51 29 48Z"/>
+    <path class="sun" d="M92 45Q92 43 94 43H98L100 45H106Q108 45 108 47V55Q108 57 106 57H94Q92 57 92 55Z"/>
+  </g>
+</svg>

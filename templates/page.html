@@ -1,6 +1,40 @@
 {% extends "base.html" %}
 {% block title %}{% if page.title %}{{ page.title }} · {% endif %}{{ config.title }}{% endblock title %}
+{% block description %}{% if page.description %}{{ page.description }}{% else %}{{ config.description }}{% endif %}{% endblock description %}
 {% block content %}
-  {% if page.title %}<h1>{{ page.title }}</h1>{% endif %}
-  {{ page.content | safe }}
+{#- Find this page in the manual's reading order (config.toml), and the
+    pages before and after it. -#}
+{%- set_global prev = "" %}{% set_global next = "" %}{% set_global last = "" %}{% set_global number = 0 %}
+{%- for item in config.extra.manual %}
+{%- if number and next == "" %}{% set_global next = item %}{% endif %}
+{%- if item.path == page.relative_path %}{% set_global number = loop.index %}{% set_global prev = last %}{% endif %}
+{%- set_global last = item %}
+{%- endfor %}
+<article class="prose-wrap">
+<header class="page-head">
+{% if number %}<p class="kicker">The manual · {{ number }} of {{ config.extra.manual | length }}</p>{% endif %}
+{% if page.title %}<h1>{{ page.title }}</h1>{% endif %}
+{% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
+</header>
+{% if page.toc | length > 2 -%}
+<details class="toc"><summary>On this page</summary><ol>
+{%- for h in page.toc %}<li><a href="#{{ h.id }}">{{ h.title }}</a></li>{% endfor -%}
+</ol></details>
+{%- endif %}
+<div class="prose">
+{{ page.content | safe }}
+</div>
+{% if number -%}
+<nav class="pager" aria-label="Previous and next pages">
+{%- if prev != "" %}{% set p = get_page(path=prev.path) %}
+<a class="pager-prev" href="{{ p.permalink }}" rel="prev"><span class="pager-label"><span aria-hidden="true">← </span>Previous</span><span class="pager-title">{{ p.title }}</span></a>
+{%- else %}
+<a class="pager-prev" href="{{ get_url(path='@/_index.md') }}" rel="prev"><span class="pager-label"><span aria-hidden="true">← </span>Back to</span><span class="pager-title">Home</span></a>
+{%- endif %}
+{%- if next != "" %}{% set n = get_page(path=next.path) %}
+<a class="pager-next" href="{{ n.permalink }}" rel="next"><span class="pager-label">Next<span aria-hidden="true"> →</span></span><span class="pager-title">{{ n.title }}</span></a>
+{%- endif %}
+</nav>
+{%- endif %}
+</article>
 {% endblock content %}

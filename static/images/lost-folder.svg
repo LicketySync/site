@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 200" width="280" height="200">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .dot { fill: #2A2135; }
+    .none { fill: none; }
+    /* Lines drawn on the sunshine fill, which stays the same in dark,
+       keep their dark ink. */
+    .face { fill: #2A2135; }
+    .face-line { fill: none; stroke: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .dot { fill: #F7EFE5; }
+    }
+  </style>
+  <ellipse class="blob" cx="150" cy="176" rx="118" ry="16"/>
+  <g class="ink thin">
+    <path class="none" d="M60 92H24M66 112H36M62 132H30"/>
+    <circle class="paper" cx="52" cy="170" r="9"/>
+    <circle class="paper" cx="34" cy="160" r="6"/>
+  </g>
+  <g class="ink">
+    <path class="none" d="M128 150L116 172H104M172 150L186 170L198 166"/>
+    <g transform="rotate(-8 150 104)">
+      <path class="sun" d="M84 64Q84 54 94 54H124L134 66H206Q216 66 216 76V140Q216 150 206 150H94Q84 150 84 140Z"/>
+      <path class="face-line" d="M84 84H216"/>
+      <circle class="face" cx="132" cy="110" r="5" stroke="none"/>
+      <circle class="face" cx="168" cy="110" r="5" stroke="none"/>
+      <path class="face-line" d="M140 128Q150 122 160 128"/>
+    </g>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M226 28Q226 14 240 14Q254 14 254 28Q254 38 240 42V50"/>
+    <circle class="dot" cx="240" cy="62" r="3.5" stroke="none"/>
+  </g>
+  <circle class="mint" cx="34" cy="40" r="6"/>
+  <circle class="coral" cx="266" cy="100" r="5"/>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 260" width="440" height="260">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .sky { fill: #9CC9FF; }
+    .old { fill: #EDE3D6; }
+    .dot { fill: #2A2135; }
+    .fixdot { fill: #2A2135; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
+    .wire { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0.5 9; }
+    .line { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .no { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .t1 { stroke: #E8553D; }
+    .t2 { stroke: #14857E; }
+    .t3 { stroke: #2A2135; }
+    .fix { stroke: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .screen { fill: #24344A; }
+      .old { fill: #4A3F57; }
+      .dot { fill: #F7EFE5; }
+      .t1 { stroke: #FF8E77; }
+      .t2 { stroke: #7ED9CF; }
+      .t3 { stroke: #F7EFE5; }
+    }
+  </style>
+  <path class="blob" d="M220 14C330 10 428 62 430 132C432 206 336 252 222 250C108 248 10 206 10 132C10 60 110 18 220 14Z"/>
+  <g class="mint"><circle cx="30" cy="40" r="5"/></g>
+  <g class="coral"><circle cx="414" cy="226" r="5"/></g>
+  <g class="ink thin">
+    <path class="wire t2" d="M150 150A26 26 0 0 1 150 186M162 140A42 42 0 0 1 162 196"/>
+    <path class="wire t1" d="M306 74A22 22 0 0 0 306 104M294 64A38 38 0 0 0 294 114"/>
+    <path class="wire t2" d="M296 188A26 26 0 0 0 296 224M284 178A42 42 0 0 0 284 234"/>
+  </g>
+  <g class="ink">
+    <path class="none" d="M196 156V118M244 156V118"/>
+    <rect class="paper" x="172" y="154" width="96" height="44" rx="11"/>
+  </g>
+  <g class="ink thin">
+    <circle class="sun" cx="196" cy="114" r="5"/><circle class="sun" cx="244" cy="114" r="5"/>
+    <circle class="mint" cx="194" cy="176" r="4.5"/><circle class="mint" cx="210" cy="176" r="4.5"/><circle class="coral" cx="226" cy="176" r="4.5"/>
+    <path class="none" d="M206 120A20 20 0 0 1 234 120M198 106A34 34 0 0 1 242 106"/>
+    <circle class="dot" cx="220" cy="130" r="3" stroke="none"/>
+  </g>
+  <g class="ink">
+    <rect class="paper" x="40" y="130" width="100" height="68" rx="8"/>
+    <rect class="screen" x="49" y="139" width="82" height="50" rx="4" stroke="none"/>
+    <path class="sun" d="M70 153.7Q70 149.7 74 149.7H83.3L87.3 154.3H106Q110 154.3 110 158.3V173.7Q110 177.7 106 177.7H74Q70 177.7 70 173.7Z"/>
+    <rect class="paper" x="28" y="198" width="124" height="10" rx="5"/>
+    <rect class="paper" x="330" y="40" width="50" height="82" rx="10"/>
+    <rect class="screen" x="335.5" y="50" width="39" height="62" rx="4.5" stroke="none"/>
+    <path class="none" d="M350 45H360"/>
+    <rect class="paper" x="318" y="158" width="90" height="55.8" rx="7.2"/>
+    <rect class="screen" x="325.2" y="165.2" width="75.6" height="41.4" rx="3.6" stroke="none"/>
+    <path class="paper" d="M354 213.8L351.3 225.5H374.7L372 213.8Z"/>
+    <path class="none" d="M341.4 226.4H384.6"/>
+  </g>
+  <g class="sun">
+    <path class="sun" transform="translate(120 52) scale(0.8)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path class="sun" transform="translate(402 140) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+</svg>

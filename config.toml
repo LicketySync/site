@@ -1,6 +1,6 @@
 base_url = "https://licketysync.com"
 title = "Lickety-Sync"
-description = "Sync your folders between your own devices and the people you share with. No central servers, no accounts, every connection encrypted, and only devices holding a folder's keys can sync it."
+description = "Lickety-Sync keeps your folders in sync across your devices and with the people you choose: device to device, encrypted, with no account and no company server. In development; nothing to download yet."
 compile_sass = false
 build_search_index = false
 generate_feeds = false
@@ -9,3 +9,27 @@ minify_html = true
 [markdown]
 external_links_target_blank = false
 smart_punctuation = true
+
+# GitHub draws its heading anchors with JavaScript, so zola check cannot
+# find them; skip anchor checks there so pages can link to spec sections.
+[link_checker]
+skip_anchor_prefixes = ["https://github.com/"]
+
+[extra]
+# The manual's pages in reading order. This list drives the menu, the
+# previous and next links at the foot of each page, and the contents on
+# Home, which shows each page's `description`. `path` is the page's file
+# under content/ and `nav` its label in the menu. A new page is added here,
+# in its place.
+manual = [
+  { path = "how-it-works.md", nav = "How it works" },
+  { path = "setting-up.md", nav = "Setting up" },
+  { path = "sharing.md", nav = "Sharing" },
+  { path = "finding-each-other.md", nav = "Finding devices" },
+  { path = "features.md", nav = "Features" },
+  { path = "privacy.md", nav = "Privacy" },
+  { path = "risks.md", nav = "Risks" },
+  { path = "for-reviewers.md", nav = "For IT & privacy" },
+  { path = "faq.md", nav = "FAQ" },
+  { path = "glossary.md", nav = "Glossary" },
+]

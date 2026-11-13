@@ -10,12 +10,18 @@ or fonts; every page works without JavaScript. The page check, in
 on a `<script` tag, an `on…=` event handler, a `javascript:` attribute value, or
 an off-site URL in `src` or `srcset`, in a stylesheet, icon, preload, prefetch,
 preconnect or manifest `<link>`, or in a CSS `url()` or `@import`. It catches
-accidents, not every way a page can load something. The browser client is *not*
-here; it is published from the `web` repository at https://licketysync.app.
+accidents, not every way a page can load something. A second check fails on a
+table that is not in a `table_box` (`templates/components.html`), so that a
+wide table scrolls in its own box and never makes a phone's page scroll. The
+browser client is *not* here; it is published from the `web` repository at
+https://licketysync.app.
 
-Pages: Home, Privacy, and Risks (the risks of using Lickety-Sync). Planned:
-Features, Screenshots (captured in CI from the real app), Download, Compare,
-Docs, Limitations, Releases, Contribute. MPL-2.0 for the site's code; CC BY 4.0
-for its prose.
+The site is Lickety-Sync's manual. Its pages and their reading order, the tone
+guide, the truth rule, the illustrations each page needs and the building
+blocks for authors are in [`PLAN.md`](PLAN.md). The theme is in `templates/`
+and `static/style.css`, with system fonts, a light and a dark theme, and no
+JavaScript. MPL-2.0 for the site's code; CC BY 4.0 for its prose and its
+illustrations (the SVGs in `static/images/`). The logo and `favicon.svg` are
+not illustrations and stay under MPL-2.0, like the templates.
 
-Build locally: `zola serve`.
+Build locally with Zola 0.23.6, the version the workflow pins: `zola serve`.

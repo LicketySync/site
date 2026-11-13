@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .sky { fill: #9CC9FF; }
+    .old { fill: #EDE3D6; }
+    .dot { fill: #2A2135; }
+    .fixdot { fill: #2A2135; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
+    .wire { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0.5 9; }
+    .line { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .no { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .t1 { stroke: #E8553D; }
+    .t2 { stroke: #14857E; }
+    .t3 { stroke: #2A2135; }
+    .fix { stroke: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .screen { fill: #24344A; }
+      .old { fill: #4A3F57; }
+      .dot { fill: #F7EFE5; }
+      .t1 { stroke: #FF8E77; }
+      .t2 { stroke: #7ED9CF; }
+      .t3 { stroke: #F7EFE5; }
+    }
+  </style>
+  <path class="blob" d="M240 16C362 12 466 70 468 150C470 236 372 290 244 288C116 286 12 236 12 150C12 66 118 20 240 16Z"/>
+  <g class="mint"><circle cx="452" cy="270" r="5"/><circle cx="30" cy="36" r="5"/></g>
+  <g class="coral"><circle cx="470" cy="112" r="4"/><circle cx="18" cy="250" r="5"/></g>
+  <path class="trail t1" d="M183.1 141.7Q156.9 111.1 120.5 97.8"/>
+  <path class="trail t2" d="M174.8 175.8Q127.5 174 83.2 191.9"/>
+  <path class="trail t1" d="M194.4 205.6Q179.1 212.1 178.4 232.4"/>
+  <path class="trail t2" d="M295.7 140.2Q344.2 117.5 382 77.9"/>
+  <path class="trail t1" d="M305.7 173.1Q341.2 187.3 378.7 181.6"/>
+  <path class="trail t2" d="M286.7 204.8Q290.8 228 309.1 237.1"/>
+  <path class="trail t2" d="M208.3 122.4Q203.5 86.5 181 60.2"/>
+  <g class="ink thin">
+    <rect class="paper" x="54" y="54.2" width="52" height="34.3" rx="6.2"/><rect class="paper" x="47.8" y="88.6" width="64.5" height="7.3" rx="3.6"/>
+    <rect class="paper" x="43" y="173.9" width="26" height="44.2" rx="7.3"/><path class="none" d="M52.4 179.6H59.6"/>
+    <rect class="paper" x="128" y="244.4" width="44" height="28.2" rx="5.3"/><path class="none" d="M150 272.6V279.6M140.3 280.5H159.7"/>
+    <rect class="paper" x="392" y="43.6" width="24" height="40.8" rx="6.7"/><path class="none" d="M400.6 48.9H407.4"/>
+    <rect class="paper" x="399" y="167" width="50" height="33" rx="6"/><rect class="paper" x="393" y="200" width="62" height="7" rx="3.5"/>
+    <rect class="paper" x="316" y="248" width="40" height="25.6" rx="4.8"/><path class="none" d="M336 273.6V280M327.2 280.8H344.8"/>
+    <rect class="paper" x="160" y="23" width="20" height="34" rx="5.6"/><path class="none" d="M167.2 27.4H172.8"/>
+  </g>
+  <g class="ink">
+    <path class="sun" d="M190 145.3Q190 135.3 200 135.3H223.3L233.3 147H280Q290 147 290 157V195.3Q290 205.3 280 205.3H200Q190 205.3 190 195.3Z"/>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M276 128Q284 112 296 106"/>
+    <g transform="rotate(-14 312 96)"><path class="sky" d="M300 82H334Q338 82 338 86V106Q338 110 334 110H300L290 96Z"/><circle class="paper" cx="300" cy="96" r="3"/><path class="none fix" d="M310 91H330M310 101H324"/></g>
+  </g>
+  <g class="sun">
+    <path class="sun" transform="translate(250 60) scale(0.7)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path class="sun" transform="translate(440 240) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path class="sun" transform="translate(32 120) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+</svg>

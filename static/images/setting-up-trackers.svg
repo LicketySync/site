@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 96" width="120" height="96">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .screen { fill: #E3F0FF; }
+    .sky { fill: #9CC9FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0.5 6; }
+    .t2 { stroke: #14857E; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .screen { fill: #24344A; }
+      .t2 { stroke: #7ED9CF; }
+    }
+  </style>
+  <path class="trail t2" d="M20 20L60 10L100 20L104 64L60 82L16 64Z"/>
+  <g class="ink thin">
+    <g transform="translate(20 20)"><rect class="sky" x="-10" y="-7" width="20" height="14" rx="3"/><path class="none" d="M0 7V10M-4 10H4"/></g>
+    <g transform="translate(60 10)"><rect class="paper" x="-10" y="-7" width="20" height="14" rx="3"/><path class="none" d="M0 7V10M-4 10H4"/></g>
+    <g transform="translate(100 20)"><rect class="mint" x="-10" y="-7" width="20" height="14" rx="3"/><path class="none" d="M0 7V10M-4 10H4"/></g>
+    <g transform="translate(104 64)"><rect class="paper" x="-10" y="-7" width="20" height="14" rx="3"/><path class="none" d="M0 7V10M-4 10H4"/></g>
+    <g transform="translate(60 82)"><rect class="coral" x="-10" y="-7" width="20" height="14" rx="3"/><path class="none" d="M0 7V10M-4 10H4"/></g>
+    <g transform="translate(16 64)"><rect class="paper" x="-10" y="-7" width="20" height="14" rx="3"/><path class="none" d="M0 7V10M-4 10H4"/></g>
+  </g>
+  <g class="ink">
+    <path class="none" d="M66 53L76 63"/>
+    <circle class="screen" cx="57" cy="44" r="13"/>
+  </g>
+  <path class="sun" transform="translate(57 44) scale(0.65)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+</svg>
