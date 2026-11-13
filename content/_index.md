@@ -12,5 +12,5 @@ without being able to read it.
 specifications are on [GitHub](https://github.com/LicketySync).
 
 Before you rely on it, read the [risks of using Lickety-Sync](@/risks.md): what
-each key holder can see, the one-year clock rule, and when deleted files can
-come back.
+each key holder can see, what relays and hole-punch coordinators learn, and when
+deleted files can come back.
