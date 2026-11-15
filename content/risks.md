@@ -45,9 +45,10 @@ follow [Removing someone](@/sharing.md#removing-someone).
   someone can check whether the folder is on a local network they join, and
   find, through public trackers, the addresses of the devices that offer it.
 - An invite that carries your addresses gives them away, along with the
-  hole-punch coordinators your device uses (the helpers that introduce two
-  devices so they can connect directly). Invites for the browser version, and
-  one-time links for sending a file, will always carry them.
+  hole-punch coordinators your device uses that share no folder with it (the
+  helpers that introduce two devices so they can connect directly). Invites
+  for the browser version, and one-time links for sending a file, will always
+  carry them.
 - The write key can also be shown as 24 words that look just like a
   cryptocurrency wallet’s recovery phrase, so programs that hunt for wallet
   phrases will take them too. Keep them as secret as a wallet phrase, and type
@@ -248,11 +249,12 @@ both devices' addresses, never your files.
   allows. Setup will suggest the widest setting, so a stranger's public relay
   can help, and on computers it will suggest helping the devices you share a
   folder with, never anyone else; the devices it helps then pass your
-  computer's address and network ID on to the devices they share folders
-  with. Every helper used learns that your two
-  devices are connecting and when, and their addresses, never file data.
-- The devices you share folders with, and anyone who gets an invite with your
-  addresses, learn which coordinators your device uses.
+  computer's address and network ID on to the other devices of the folders
+  you share with them, never in an invite. Every helper used learns that your
+  two devices are connecting and when, and their addresses, never file data.
+- The devices you share folders with learn which coordinators your device
+  uses, and anyone who gets an invite with your addresses learns those that
+  share no folder with it.
 - A person you left behind can still punch through to your device until the old
   folder is unlinked on it, or while they share another folder with it.
 - In a few unusual setups a punch can reach a private network; a device yours

@@ -89,7 +89,8 @@ your device's addresses too, if you add them (an invite meant for the browser
 version always does), and you'll be able to type in an address yourself. So
 the devices you share a folder with, and anyone who gets an invite with your
 addresses, learn your device's addresses, its network ID and which
-hole-punch coordinators it uses (below).
+hole-punch coordinators it uses (an invite names only those that share no
+folder with it; below).
 
 ## Through public trackers (the DHT)
 
@@ -152,9 +153,13 @@ another coordinator, uses a relay if relays are on, or waits.
   a phone never does; a public relay coordinates too. On computers, the
   recommended settings will turn on helping the devices you share a folder
   with, never anyone else. When your computer helps a device, that device
-  passes your computer's address and network ID on to the devices it shares
-  folders with, and puts them in its invites. So people you don't know can
-  learn them, and ask your computer for a punch.
+  passes your computer's address and network ID on to devices it shares
+  folders with, so people you don't know can learn them and ask your computer
+  for a punch. When it helps only the devices you share a folder with, they
+  name it only to the other devices of the folders you share, never in an
+  invite; but anyone who holds one of those folders' keys is one of those
+  devices. When it helps anyone, a device it helps that shares no folder with
+  it can also put it in its invites.
 - **Only a device you share a folder with**, or one that first proves it
   holds a key to one of your folders, can punch through to you. Anyone else
   learns at most that your device is online, and what any connection shows.

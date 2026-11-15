@@ -23,10 +23,11 @@ Setup will ask once, and suggest the recommended settings:
 - on computers, helping the devices you share a folder with punch through;
 - public relays.
 
-Say yes, and they'll be on. Say no, and setup will show you the settings, so
-you can pick each one yourself. Either way, you'll be able to turn any of them
-off before a folder starts to sync. The recommended settings will never turn
-on [Act as a relay](#act-as-a-relay) or
+Say yes, and they'll be on. Say no, and setup will show you the settings, each
+at its default (on for the recommended settings, off for the rest), so you can
+pick each one yourself; nothing is on until you confirm them. Either way,
+you'll be able to turn any of them off before a folder starts to sync. The
+recommended settings will never turn on [Act as a relay](#act-as-a-relay) or
 [Help run the public trackers](#help-run-the-public-trackers), and they will
 turn on [Act as a hole-punch coordinator](#act-as-a-hole-punch-coordinator)
 only for the devices you share a folder with. And until you answer, nothing is
@@ -46,11 +47,12 @@ on: LicketySync contacts nothing you didn't turn on.
 
 ## Your device's settings, and each folder's
 
-Your answers will become your device's settings. Each new folder starts with
-them, and you'll be able to change most of them for one folder: public
-trackers on for photos you're giving away, say, and off for everything else. A
-folder syncs only over the connections its own settings allow, and your other
-folders carry on.
+Your answers will become your device's settings. Each new folder starts from
+them, and you'll be able to change most of them for one folder, as you make or
+join it or later: public trackers on for photos you're giving away, say, and
+off for everything else. A setting you leave alone keeps following your
+device's. A folder syncs only over the connections its own settings allow, and
+your other folders carry on.
 
 A few more settings belong to the whole device only: asking your router to open
 a port, and [helping others](#helping-others).
@@ -178,8 +180,9 @@ the ones before it:
 When your device can't be reached directly, it keeps a small standing
 connection with up to three coordinators, so each of them knows your network
 ID and that your device can be reached through it, for as long as that
-connection lasts. The devices you share folders with, and anyone you give an
-invite that carries your addresses, learn which coordinators your device uses.
+connection lasts. The devices you share folders with learn which coordinators
+your device uses, and anyone you give an invite that carries your addresses
+learns those that share no folder with it.
 Someone else who tries to punch through learns at most that your device is
 online, and which device it is. A device that is let in for a punch can make
 yours send a few tiny bursts of traffic to public addresses it picks;
@@ -284,18 +287,21 @@ devices are strangers. A computer that relays also helps with hole punches.
 
 Your computer helps two devices start a hole punch by passing a few small
 messages, never files. When your computer helps a device, that device passes
-your computer's address and network ID on to the devices it shares folders
-with, and puts them in its invites. So people you don't know can learn them,
-and ask your computer for a punch.
+your computer's address and network ID on to devices it shares folders with,
+so people you don't know can learn them and ask your computer for a punch.
 
 {% <more summary="Acting as a coordinator, in full"> %}
 
 It will come in two kinds:
 
 - **For the devices you share a folder with.** The recommended settings will
-  turn this on, on computers.
+  turn this on, on computers. Your computer helps only those devices, and a
+  device it helps names it only to the devices of the folders you share, never
+  in an invite; but anyone who holds one of those folders' keys is one of
+  them.
 - **For anyone who reaches your computer.** Off unless you turn it on; the
-  recommended settings never will.
+  recommended settings never will. A device it helps that shares no folder
+  with it can also name it in its invites.
 
 Either way, it uses far less of your connection than a relay. Every device it
 connects to is told that it helps, and it learns what any coordinator learns.
@@ -313,5 +319,14 @@ it only asks.
 ## Changing your mind
 
 You'll be able to change any of these later for your whole device, and most of
-them for one folder. [How devices find each other](@/finding-each-other.md) has the
-pictures, and [Privacy](@/privacy.md#who-sees-what) sums up who sees what.
+them for one folder. A reset button will put every setting back to its default:
+the recommended settings for your device, and your device's settings for each
+folder. You'll be able to see first whether each default is on or off.
+
+Later versions will ask before they turn on more. If one adds a setting, or
+changes a recommended setting so that it allows more, that setting is off until
+you answer; a change that allows less applies at once, and the release will
+say so. A setting you've turned on or off yourself stays as you set it.
+
+[How devices find each other](@/finding-each-other.md) has the pictures, and
+[Privacy](@/privacy.md#who-sees-what) sums up who sees what.

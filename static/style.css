@@ -235,16 +235,7 @@ main { display: block; flex: 1 0 auto; padding-block: 2.5rem 4.5rem; }
 }
 .brand:hover { color: var(--text); }
 .brand svg { width: 2.5rem; height: 2.5rem; flex: none; transition: transform 0.25s ease; }
-.brand:hover svg { transform: rotate(-12deg) scale(1.05); }
-
-.logo-tile { fill: var(--coral); }
-.logo-arrows {
-  fill: none;
-  stroke: #2A2135;
-  stroke-width: 3.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+.brand:hover svg { transform: translateX(0.2rem) scale(1.05); }
 
 .nav-list {
   list-style: none;

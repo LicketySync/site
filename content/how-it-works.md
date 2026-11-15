@@ -7,7 +7,7 @@ LicketySync keeps a folder the same on every device that holds one of its
 keys. The devices talk to each other directly, so there's no account to
 make, no copy in somebody's cloud and no server you didn't turn on.
 
-{{ <illustration src="how-it-works-folder.svg" alt="A laptop, a phone and a home server, each showing the same yellow folder, the home server’s with a padlock on it, and a key beside each. They are joined to each other by direct lines, and in the middle is a crossed-out cloud: there’s no cloud copy of the folder." width={560} height={360} /> }}
+{{ <illustration src="how-it-works-folder.svg" alt="A laptop, a phone and a home server, each showing the same yellow folder, the home server’s with a padlock on it, and a key beside each. They are joined to each other by direct lines, with Zippy, the smiling folder, dashing along one, and in the middle is a crossed-out cloud: there’s no cloud copy of the folder." width={560} height={360} /> }}
 
 ## A folder, its keys and your devices
 

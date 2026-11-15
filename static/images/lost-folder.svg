@@ -9,11 +9,14 @@
     .mint { fill: #8EDCC8; }
     .dot { fill: #2A2135; }
     .none { fill: none; }
-    /* Lines drawn on the sunshine fill, which stays the same in dark,
-       keep their dark ink. */
-    .face { fill: #2A2135; }
-    .face-line { fill: none; stroke: #2A2135; }
+    /* Zippy, the folder from the logo. Its outline turns light in dark, as
+       ink on the page does; its face, and the line between its back and
+       front, sit on fills that stay the same, so they keep dark ink. */
+    .zip { stroke: #2A2135; }
+    .zip-face { fill: #2A2135; }
+    .zip-line { stroke: #2A2135; }
     @media (prefers-color-scheme: dark) {
+      .zip { stroke: #F7EFE5; }
       .ink { stroke: #F7EFE5; }
       .paper { fill: #2D2536; }
       .blob { fill: #342A3F; }
@@ -28,13 +31,6 @@
   </g>
   <g class="ink">
     <path class="none" d="M128 150L116 172H104M172 150L186 170L198 166"/>
-    <g transform="rotate(-8 150 104)">
-      <path class="sun" d="M84 64Q84 54 94 54H124L134 66H206Q216 66 216 76V140Q216 150 206 150H94Q84 150 84 140Z"/>
-      <path class="face-line" d="M84 84H216"/>
-      <circle class="face" cx="132" cy="110" r="5" stroke="none"/>
-      <circle class="face" cx="168" cy="110" r="5" stroke="none"/>
-      <path class="face-line" d="M140 128Q150 122 160 128"/>
-    </g>
   </g>
   <g class="ink thin">
     <path class="none" d="M226 28Q226 14 240 14Q254 14 254 28Q254 38 240 42V50"/>
@@ -42,4 +38,14 @@
   </g>
   <circle class="mint" cx="34" cy="40" r="6"/>
   <circle class="coral" cx="266" cy="100" r="5"/>
+  <g transform="translate(150 96) rotate(-8) scale(0.56)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="skewX(-10)" stroke-width="7.5">
+      <path class="coral" d="M-78 99A30 30 0 0 1-108 69V-75A24 24 0 0 1-84-99H-32C-20-99-13-94-7-86L2-74C6-68 11-65 19-65H78A30 30 0 0 1 108-35V69A30 30 0 0 1 78 99Z"/>
+      <rect class="sun zip-line" x="-108" y="-29" width="216" height="128" rx="30"/>
+      <path class="zip" d="M-78 99A30 30 0 0 1-108 69V-75A24 24 0 0 1-84-99H-32C-20-99-13-94-7-86L2-74C6-68 11-65 19-65H78A30 30 0 0 1 108-35V69A30 30 0 0 1 78 99Z"/>
+      <circle class="zip-face" cx="2" cy="23" r="14" stroke="none"/>
+      <circle class="zip-face" cx="56" cy="23" r="14" stroke="none"/>
+      <path class="zip-line" stroke-width="9" d="M6 58Q17 50 28 58T50 58"/>
+    </g>
+  </g>
 </svg>

@@ -1,4 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
-  <rect x="2" y="2" width="36" height="36" rx="11" fill="#FF7A5C"/>
-  <path d="M10.6 16.6A10 10 0 0 1 29.4 16.6M31.1 11.9L29.4 16.6L25.1 14.1M29.4 23.4A10 10 0 0 1 10.6 23.4M8.9 28.1L10.6 23.4L14.9 25.9" fill="none" stroke="#2A2135" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- LicketySync's logo, Zippy the Folder Buddy, simplified for small sizes: no smile, two speed lines, a bolder outline. -->
+  <rect width="512" height="512" rx="104" fill="#9CC9FF"/>
+  <g transform="translate(257 261) scale(1.13) translate(-257 -261)">
+    <g fill="none" stroke="#2A2135" stroke-linecap="round" stroke-width="40">
+      <path d="M118 224H156"/>
+      <path d="M104 300H156"/>
+    </g>
+    <g transform="translate(304 261) skewX(-10) translate(-304 -261)" stroke="#2A2135" stroke-width="26" stroke-linejoin="round">
+      <path fill="#FF7A5C" d="M226 360A30 30 0 0 1 196 330V186A24 24 0 0 1 220 162H272C284 162 291 167 297 175L306 187C310 193 315 196 323 196H382A30 30 0 0 1 412 226V330A30 30 0 0 1 382 360Z"/>
+      <rect x="196" y="236" width="216" height="124" rx="30" fill="#FFC94A"/>
+      <circle cx="310" cy="290" r="20" fill="#2A2135" stroke="none"/>
+      <circle cx="364" cy="290" r="20" fill="#2A2135" stroke="none"/>
+    </g>
+  </g>
 </svg>

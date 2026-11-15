@@ -12,7 +12,14 @@
     .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
     .t1 { stroke: #E8553D; }
     .t2 { stroke: #14857E; }
+    /* Zippy, the folder from the logo. Its outline turns light in dark, as
+       ink on the page does; its face, and the line between its back and
+       front, sit on fills that stay the same, so they keep dark ink. */
+    .zip { stroke: #2A2135; }
+    .zip-face { fill: #2A2135; }
+    .zip-line { stroke: #2A2135; }
     @media (prefers-color-scheme: dark) {
+      .zip { stroke: #F7EFE5; }
       .ink { stroke: #F7EFE5; }
       .paper { fill: #2D2536; }
       .blob { fill: #342A3F; }
@@ -48,10 +55,19 @@
     <path class="none" d="M318 336H384"/>
   </g>
   <g class="ink thin">
-    <path class="none" d="M213 79L201 84M216 90L199 97M220 101L209 106"/>
-    <path class="coral" transform="translate(222 70) rotate(-18)" d="M0 5Q0 1 4 1H13L17 6H36Q40 6 40 10V26Q40 30 36 30H4Q0 30 0 26Z"/>
     <path class="none" d="M226 247V241A7 7 0 0 1 240 241V247"/>
     <rect class="sun" x="220" y="246" width="26" height="20" rx="5"/>
     <circle cx="233" cy="256" r="1.5" fill="#2A2135" stroke="none"/>
+  </g>
+  <g transform="translate(246 80) rotate(-18) scale(0.2)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path class="zip" stroke-width="20" d="M-176-49H-140M-212 1H-140M-184 51H-140"/>
+    <g transform="skewX(-10)" stroke-width="16">
+      <path class="coral" d="M-78 99A30 30 0 0 1-108 69V-75A24 24 0 0 1-84-99H-32C-20-99-13-94-7-86L2-74C6-68 11-65 19-65H78A30 30 0 0 1 108-35V69A30 30 0 0 1 78 99Z"/>
+      <rect class="sun zip-line" x="-108" y="-29" width="216" height="128" rx="30"/>
+      <path class="zip" d="M-78 99A30 30 0 0 1-108 69V-75A24 24 0 0 1-84-99H-32C-20-99-13-94-7-86L2-74C6-68 11-65 19-65H78A30 30 0 0 1 108-35V69A30 30 0 0 1 78 99Z"/>
+      <circle class="zip-face" cx="2" cy="23" r="14" stroke="none"/>
+      <circle class="zip-face" cx="56" cy="23" r="14" stroke="none"/>
+      <path class="zip-line" stroke-width="13" d="M8 51Q29 71 50 51"/>
+    </g>
   </g>
 </svg>

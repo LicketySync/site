@@ -22,7 +22,7 @@ no cloud to trust and no server you didn't turn on.
 </div>
 </div>
 
-{{ <illustration src="home-devices.svg" alt="A laptop, a phone and a desktop computer, each showing the same folder, linked to each other directly by dotted lines, with a padlock on one line and a folder zipping along another." width={480} height={360} /> }}
+{{ <illustration src="home-devices.svg" alt="A laptop, a phone and a desktop computer, each showing the same folder, linked to each other directly by dotted lines, with a padlock on one line and Zippy, LicketySync’s smiling folder, zipping along another." width={480} height={360} /> }}
 
 </section>
 

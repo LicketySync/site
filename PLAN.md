@@ -65,22 +65,29 @@ A change to the site is published only after the owner has seen it.
   only), hole punching at the fourth "Who may help with a hole punch?" level
   (also any device yours knows of, and any public relay you've turned on), on
   computers coordinating punches for the devices of the person's own shared
-  folders, and using public relays; saying no opens the settings, and any of
-  these can be turned off; setup never suggests acting as a relay,
-  coordinating for anyone or helping run the public trackers. Say, where hole
-  punching is explained, that at that level every helper used, a stranger's
-  public relay among them, learns that two devices are connecting, when and
-  their addresses, and that a helper never carries file data. Never promise
-  that a punch works: it needs a helper both ends allow, and most home routers
-  let it through, not all. The narrower coordinating mode is not in the
-  specifications yet: write it as how setup will behave, in the future tense.
-  Call them "the recommended settings" on every page. Where coordinating is
-  explained (Setting up, Sharing, For IT and privacy reviewers), say that a
-  device your computer helps names your computer, by its address and network
-  ID, to its own folders' peers and in its invites, so strangers can learn
-  both and ask it for a punch. For IT and privacy reviewers says that these
-  defaults are decided but not yet in the specifications. Say which of these
-  arrive later.
+  folders, and using public relays; saying no opens the settings, each at its
+  default, with nothing on until they are confirmed, and any of these can be
+  turned off; a reset button puts every setting back to its default (for a
+  folder, the device's setting); a later version that adds a setting, or
+  changes a recommended setting so that it allows more, keeps that setting off
+  where it is at its default until the person answers, and one that allows
+  less applies at once; setup
+  never suggests acting as a relay, coordinating for anyone or helping run the
+  public trackers. Say, where hole punching is explained, that at that level
+  every helper used, a stranger's public relay among them, learns that two
+  devices are connecting, when and their addresses, and that a helper never
+  carries file data. Never promise that a punch works: it needs a helper both
+  ends allow, and most home routers let it through, not all. Call them "the
+  recommended settings" on every page. Where coordinating is explained
+  (Setting up, Sharing, How devices find each other, For IT and privacy
+  reviewers), say that a device your computer helps names your computer, by
+  its address and network ID, to the peers of its folders, and in its invites
+  only if the two share no folder, so strangers can learn both and ask it for
+  a punch; that a computer sharing a folder with it, whatever its mode, is
+  named only to the peers of the folders the two have open, never in an
+  invite (anyone who holds one of their keys is such a peer); and that a
+  computer helping only the devices of its own folders always shares one. Say
+  which of these arrive later.
 - **Sharing.** Files and their names are private by default: a folder syncs
   only with devices that hold one of its keys. The three keys, what each
   holder can do, and who can pass on which key. Sending a key safely (in
@@ -278,9 +285,17 @@ numbers:
   the existing files do. Ink drawn on a fill that does not change in dark
   (sunshine, coral, mint, sky) keeps its dark ink, so it never fades (the face
   in `lost-folder.svg`, the keyhole in `home-devices.svg`); only ink on the
-  page or on paper turns light. Check both. The one exception is `favicon.svg`
-  (and the logo, which is the same drawing): a coral tile with dark arrows,
-  fixed colours that read on light and dark alike, so it has no dark block.
+  page or on paper turns light. Check both. The one exception is the logo,
+  inline in `templates/base.html`, and `favicon.svg`, its simpler version for
+  small sizes: Zippy the Folder Buddy on a sky tile, in fixed colours that read
+  on light and dark alike, so they have no dark block.
+- **Zippy**, the folder from the logo, is the site's mascot and appears in a
+  few pictures (`home-devices.svg`, `how-it-works-folder.svg`,
+  `lost-folder.svg`): a coral back and a sunshine front, leaning forward, with
+  two eyes and a smile, drawn from the logo's shapes. Its outline turns light
+  in dark; its face, and the line between back and front, keep their dark ink.
+  Add it only where a friendly folder fits, small, never beside a risk and
+  never where it would change what a picture explains.
 - **Words stay out of the drawings** where they can, so they can be read,
   searched and translated. A drawing that needs a label repeats it in its alt
   text.
@@ -304,7 +319,7 @@ What each page needs:
 | Risks | One gentle opening picture (an umbrella: it's got your back), `risks-umbrella.svg` (done); an icon per group of risks (later) |
 | For IT and privacy reviewers | What talks to what: devices, the local network, public trackers, relays and coordinators, marked "off until you turn it on" where that is true, `for-reviewers-map.svg` (done) |
 | Questions and answers, Glossary | None needed |
-| Everywhere | The logo (inline in the header and footer, done), `favicon.svg` (done), `coming-soon.svg` (done), `lost-folder.svg` on the 404 page (done) |
+| Everywhere | The logo, Zippy (inline in the header and footer, done), `favicon.svg` (done), `coming-soon.svg` (done), `lost-folder.svg` on the 404 page (done) |
 
 ## Building blocks
 

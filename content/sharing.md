@@ -171,10 +171,11 @@ folder's keys can also find, every day, the addresses of the devices that
 offer it. And once you share a folder with someone, their devices count as
 devices you share a folder with: if they help with hole punches, your other
 folders may use them too, and with the recommended settings your computers
-will help theirs. When your computer helps a device, that device passes your
-computer's address and network ID on to the devices it shares folders with,
-and puts them in its invites. So people you don't know can learn them, and ask
-your computer for a punch.
+will help theirs. When your computer helps their device, that device passes
+your computer's address and network ID on to the other devices of the folders
+you share, never in an invite. So anyone who holds one of those folders' keys,
+people you don't know among them, can learn them and ask your computer for a
+punch.
 
 So give your devices names you're happy for strangers to see, and give
 strangers the read key, never the write key: whoever holds the write key can

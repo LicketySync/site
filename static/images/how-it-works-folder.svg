@@ -21,7 +21,14 @@
     .t2 { stroke: #14857E; }
     .t3 { stroke: #2A2135; }
     .fix { stroke: #2A2135; }
+    /* Zippy, the folder from the logo. Its outline turns light in dark, as
+       ink on the page does; its face, and the line between its back and
+       front, sit on fills that stay the same, so they keep dark ink. */
+    .zip { stroke: #2A2135; }
+    .zip-face { fill: #2A2135; }
+    .zip-line { stroke: #2A2135; }
     @media (prefers-color-scheme: dark) {
+      .zip { stroke: #F7EFE5; }
       .ink { stroke: #F7EFE5; }
       .paper { fill: #2D2536; }
       .blob { fill: #342A3F; }
@@ -71,5 +78,16 @@
     <g transform="translate(66 162) rotate(-24)"><path class="coral" d="M8 -4H40A4 4 0 0 1 44 0A4 4 0 0 1 40 4H38V11H31V4H28V9H22V4H8Z"/><circle class="coral" r="12"/><circle class="paper" cx="-3" r="4"/></g>
     <g transform="translate(350 44) rotate(-18)"><path class="sky" d="M8 -4H40A4 4 0 0 1 44 0A4 4 0 0 1 40 4H38V11H31V4H28V9H22V4H8Z"/><circle class="sky" r="12"/><circle class="paper" cx="-3" r="4"/></g>
     <g transform="translate(432 336) rotate(-8)"><path class="mint" d="M8 -4H40A4 4 0 0 1 44 0A4 4 0 0 1 40 4H38V11H31V4H28V9H22V4H8Z"/><circle class="mint" r="12"/><circle class="paper" cx="-3" r="4"/></g>
+  </g>
+  <g transform="translate(200 130) rotate(-35) scale(0.18)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path class="zip" stroke-width="20" d="M-176-49H-140M-212 1H-140M-184 51H-140"/>
+    <g transform="skewX(-10)" stroke-width="16">
+      <path class="coral" d="M-78 99A30 30 0 0 1-108 69V-75A24 24 0 0 1-84-99H-32C-20-99-13-94-7-86L2-74C6-68 11-65 19-65H78A30 30 0 0 1 108-35V69A30 30 0 0 1 78 99Z"/>
+      <rect class="sun zip-line" x="-108" y="-29" width="216" height="128" rx="30"/>
+      <path class="zip" d="M-78 99A30 30 0 0 1-108 69V-75A24 24 0 0 1-84-99H-32C-20-99-13-94-7-86L2-74C6-68 11-65 19-65H78A30 30 0 0 1 108-35V69A30 30 0 0 1 78 99Z"/>
+      <circle class="zip-face" cx="2" cy="23" r="14" stroke="none"/>
+      <circle class="zip-face" cx="56" cy="23" r="14" stroke="none"/>
+      <path class="zip-line" stroke-width="13" d="M8 51Q29 71 50 51"/>
+    </g>
   </g>
 </svg>

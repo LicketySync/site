@@ -63,9 +63,12 @@ punch through; what follows says what each shows if you take them.
   on the internet can reach it and learn that your device runs LicketySync,
   its network ID and roughly how many folders it holds.
 - **Your address**, to every device of your folders, to anyone who gets an
-  invite that carries it, to the helpers your device talks to and, if your
-  computer helps with hole punches, to everyone the devices it helps share a
-  folder or an invite with.
+  invite that carries it and to the helpers your device talks to. If your
+  computer helps with hole punches, a device it helps that shares a folder with
+  it passes your computer's address only to the other devices of the folders
+  you share, never in an invite, so anyone who holds one of those folders' keys
+  learns it; a device it helps that shares none can also pass it to everyone
+  it shares a folder or an invite with.
 - **Who talks to whom**, when and how much, to anyone watching the network.
   File sizes are blurred a little, but nothing hides how much moves, or when.
 - **Your device's network ID**, a name for it on the network that stays the

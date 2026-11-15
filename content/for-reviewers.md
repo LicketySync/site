@@ -9,8 +9,6 @@ manual, holds the numbers and mechanisms the other pages leave out, and cites
 the threat model's numbered requirements (TM-1 to TM-43) so you can look each
 one up. Nothing ships yet: this describes the design in the specifications on
 the core repository's main branch, and says where today's code still differs.
-One part is decided but not yet in the specifications: what setup turns on
-(see [What it contacts](#what-it-contacts)).
 
 {{ <illustration src="for-reviewers-map.svg" alt="Two devices joined directly by a line with a padlock on it, and a home router below linking them on the local network. Above them, three helpers, each with its switch off: public trackers, drawn as a ring of small computers; a relay, a box passing a sealed envelope along; and a helper computer that coordinates hole punches for others. Nothing is on before you answer setup, which will suggest turning on public trackers, relays and hole punching, and, on computers, coordinating punches for the devices you share a folder with." width={560} height={300} /> }}
 
@@ -60,12 +58,14 @@ connection learns ([What each party sees](#what-each-party-sees)).
 
 **What is on, before and after setup.** Nothing is on before the person answers
 setup. Setup will ask once and suggest the recommended settings below; saying
-no opens the settings screen. Setup never suggests acting as a relay for others
-or helping run the public trackers, and never suggests coordinating punches for
-devices the device shares no folder with. These defaults (nothing on before
-setup, the recommended settings, the fourth helper level and the narrower
-coordinating mode) are decided but not yet in the specifications, which still
-state the earlier defaults; a change to them is under way.
+no opens the settings screen with each setting at its default, and nothing is
+on until the person confirms it. Setup never suggests acting as a relay for
+others or helping run the public trackers, and never suggests coordinating
+punches for devices the device shares no folder with. A later release that
+adds a setting leaves it off until the person answers, and so does one that
+changes a recommended default so it allows more, wherever the setting is at
+default; a setting the person set stays as they set it, and a change that
+allows less applies at once (TM-25).
 
 {% <table_box label="Connection settings before setup, and the recommended settings"> %}
 
@@ -97,9 +97,13 @@ coordinating, or a public relay. With the recommended settings, every
 coordinator a device uses, a stranger's public relay among them, learns that
 two devices are connecting and when, their addresses and network IDs; none
 carries file data. A device that a computer helps names that computer, by its
-address and network ID, to its own folders' peers and in its invites, so
-strangers can learn both, and can ask that computer for a punch (TM-25,
-`keys.md` §6.3).
+address and network ID, to the peers of its folders whose settings allow it,
+and in invites to such folders that carry addresses, so strangers can learn
+both and ask that computer for a punch. A computer that shares a folder with
+it, whatever its mode, is named only to the peers of the folders the two have
+open, and never in an invite, though anyone who holds one of those folders'
+keys is such a peer; a computer coordinating only for the devices of its own
+folders always shares one (TM-25, `keys.md` §6.3).
 
 **Listening.** A device listens for other devices on its network port. The
 service also takes commands from its own command line and web interface, on a
@@ -188,7 +192,7 @@ and build provenance (TM-29).
   from the BIP39 list. A key carries no address unless the sender adds one, or,
   for invites to the browser version and one-time links for sending a file,
   always (TM-37); an invite with addresses also names the device's hole-punch
-  coordinators (TM-25). In a link the key sits after the `#`, which browsers
+  coordinators that share no folder with it (TM-25). In a link the key sits after the `#`, which browsers
   don't send to servers (TM-18). The app will show or export a key only on the
   person's explicit action, and the write key only after the system's own user
   check, or the key store's passphrase where there is none (TM-39).
@@ -358,18 +362,25 @@ From the phase after next (TM-25):
   no key to any folder. Setup will suggest the fourth level of "Who may help
   with a hole punch?", so a stranger's public relay can coordinate a folder's
   punches. A device a computer helps lists that computer, by its address and
-  network ID, to its folders' peers and in its invites with addresses, so
-  strangers can learn both and ask that computer for a punch.
+  network ID, to the peers of its folders whose settings allow it, and in
+  invites to such folders that carry addresses, so strangers can learn both
+  and ask that computer for a punch. A computer that shares a folder with it,
+  whatever its mode, is listed only to the peers of the folders the two have
+  open, never in an invite. A computer coordinating only for the devices of
+  its own folders always shares one, and joins only two devices that have the
+  same one of its folders open with it; anyone who holds one of that folder's
+  keys is such a peer.
 - **Who may help with a hole punch?** One of four levels, each including the
-  ones before: nobody; devices you share a folder with (where the
-  specifications start); also devices yours is connected to directly; also any
-  device yours knows of, and any public relay you've turned on. A punch serves
-  a folder only if both devices' settings for that folder allow it; on a
-  connection they don't allow, the folder is treated as paused.
+  ones before: nobody; devices you share a folder with; also devices yours is
+  connected to directly; also any device yours knows of, and any public relay
+  you've turned on. A punch serves a folder only if both devices' settings for
+  that folder allow it; on a connection they don't allow, the folder is
+  treated as paused.
 - **How the two find a coordinator.** The device that wants to be reachable
   keeps a standing connection with one to three coordinators its settings
   allow, and lists them only to the devices of its folders whose settings allow
-  them, and in invites to such folders that carry addresses; never in the DHT.
+  them, and, unless a coordinator is a peer of one of its folders, in invites
+  to such folders that carry addresses; never in the DHT.
   A device that wants to reach it tries at most three of them, two at a time.
 - **What a coordinator learns.** That two devices are connecting, when, their
   public addresses and network IDs, and which devices keep a standing

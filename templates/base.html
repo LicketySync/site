@@ -22,8 +22,11 @@
 {%- endfor %}
 </ul>
 {%- endset %}
+{#- The logo, Zippy the Folder Buddy, in fixed colours that read on the
+    light and the dark theme alike. `favicon.svg` is its simpler version for
+    small sizes. -#}
 {%- set logo -%}
-<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect class="logo-tile" x="2" y="2" width="36" height="36" rx="11"/><path class="logo-arrows" d="M10.6 16.6A10 10 0 0 1 29.4 16.6M31.1 11.9L29.4 16.6L25.1 14.1M29.4 23.4A10 10 0 0 1 10.6 23.4M8.9 28.1L10.6 23.4L14.9 25.9"/></svg>
+<svg viewBox="0 0 512 512" aria-hidden="true" focusable="false"><rect width="512" height="512" rx="116" fill="#9CC9FF"/><g transform="translate(257 261) scale(1.1) translate(-257 -261)" stroke="#2A2135" stroke-linecap="round" stroke-linejoin="round"><path fill="none" stroke-width="26" d="M128 212H164M92 262H164M120 312H164"/><g transform="translate(304 261) skewX(-10) translate(-304 -261)" stroke-width="16"><path fill="#FF7A5C" d="M226 360A30 30 0 0 1 196 330V186A24 24 0 0 1 220 162H272C284 162 291 167 297 175L306 187C310 193 315 196 323 196H382A30 30 0 0 1 412 226V330A30 30 0 0 1 382 360Z"/><rect x="196" y="232" width="216" height="128" rx="30" fill="#FFC94A"/><circle cx="306" cy="284" r="14" fill="#2A2135" stroke="none"/><circle cx="360" cy="284" r="14" fill="#2A2135" stroke="none"/><path fill="none" stroke-width="13" d="M312 312Q333 332 354 312"/></g></g></svg>
 {%- endset %}
 <header class="site-header">
 {% block ribbon -%}
