@@ -9,19 +9,19 @@ won't promise dates.
 
 ## Where things stand
 
-- **Now:** the design is written down in detail, though some parts, such as
-  public relays, Tor and the browser version, are still to be worked out. The
-  heart of it, the sync engine, is tested on many simulated devices. Nothing
-  syncs on a real disk or network yet.
-- **Next:** syncing between computers on the same network, from the command
-  line.
-- **Later:** finding each other across the internet, storage devices, apps for
-  computers and phones, linked devices, choosing what each device keeps, the
-  archive, the version that runs in your web browser, and public relays and
-  Tor. Then a careful testing pass before version 1.0, with no test versions
+- **Now:** syncing between computers on the same network, from the command
+  line, is being built. The design is written down in detail, though some
+  parts, such as public relays, Tor and the browser version, are still to be
+  worked out. The heart of it, the sync engine, is tested on many simulated
+  devices. Nothing syncs on a real disk or network yet.
+- **Next:** finding each other across the internet, and storage devices.
+- **Later:** apps for computers and phones, linked devices, choosing what each
+  device keeps, the archive, the version that runs in your web browser, and
+  public relays and Tor. Then a careful testing pass before version 1.0, with no test versions
   (betas) before it.
 
-Each feature below says whether it's coming next or later.
+Each feature below says whether it's being built now, coming next or coming
+later.
 
 ## Syncing
 
@@ -34,7 +34,7 @@ Every device that holds one of a folder's keys will keep its own copy, with
 changes travelling from device to device. No account, and nothing in between
 but a relay, when one is needed and relays are on.
 
-<p class="status">Coming next</p>
+<p class="status">Being built now</p>
 
 </div>
 <div class="card">
@@ -47,7 +47,7 @@ with no internet needed.
 LicketySync will keep track of where every file stands: in sync, or still on
 its way.
 
-<p class="status">Coming next</p>
+<p class="status">Being built now</p>
 
 </div>
 <div class="card">
@@ -61,7 +61,7 @@ relays. Setup will
 suggest all three, and each is your choice:
 [Setting up](@/setting-up.md#how-setup-will-ask) explains them.
 
-<p class="status">Coming later</p>
+<p class="status">Coming next, relays later</p>
 
 </div>
 <div class="card">
@@ -70,7 +70,7 @@ suggest all three, and each is your choice:
 
 An ignore file will list the things in a folder you'd rather not sync.
 
-<p class="status">Coming next</p>
+<p class="status">Being built now</p>
 
 </div>
 </div>
@@ -84,10 +84,10 @@ An ignore file will list the things in a folder you'd rather not sync.
 
 A write key to read and change everything, a read key to see everything and
 change nothing, and a sealed key to keep an encrypted copy without opening it
-(storage devices that use it come later). Whoever holds a key can pass on that
+(storage devices that use it come next). Whoever holds a key can pass on that
 key or a lower one.
 
-<p class="status">Coming next</p>
+<p class="status">Being built now</p>
 
 </div>
 <div class="card">
@@ -98,7 +98,7 @@ A key will travel as a link or a small file, from the command line. The write
 key can also be written down as 24 words, and showing it will ask for your
 device's own password, PIN or fingerprint.
 
-<p class="status">Coming next</p>
+<p class="status">Being built now</p>
 
 </div>
 <div class="card">
@@ -111,7 +111,7 @@ removed keeps the old folder and everything they had, any device still on the
 old folder keeps syncing with them, and storage devices fetch the new folder
 from scratch.
 
-<p class="status">Coming next</p>
+<p class="status">Being built now</p>
 
 </div>
 <div class="card">
@@ -124,7 +124,7 @@ key will see what any holder sees, such as which device changed each file and
 when, to the microsecond, and can pass it on for good.
 [Sharing](@/sharing.md#sharing-more-widely) has the rest.
 
-<p class="status">Coming later</p>
+<p class="status">Coming next</p>
 
 </div>
 </div>
@@ -141,7 +141,7 @@ when, to the microsecond, and can pass it on for good.
 When two people change the same file at once, both versions are kept, one as a
 conflict copy beside the file. Nothing is merged or lost.
 
-<p class="status">Coming next</p>
+<p class="status">Being built now</p>
 
 </div>
 <div class="card">
@@ -163,7 +163,7 @@ in this device's archive, 30 days unless you change it. Phones keep one too.
 If lots of files vanish from your disk at once, say from an unplugged drive,
 the folder will pause and ask you before telling your other devices.
 
-<p class="status">Coming next</p>
+<p class="status">Being built now</p>
 
 </div>
 </div>
@@ -183,7 +183,7 @@ and when and from which device each changes. Someone running it who knows some
 of the folder's files, or got files of their choosing into it, can in time test
 whether other files they have are in it.
 
-<p class="status">Coming later</p>
+<p class="status">Coming next</p>
 
 </div>
 <div class="card">
@@ -218,7 +218,7 @@ you share it with can tell which ones.
 First comes a program you run from the command line on your computers. It will
 export keys as links and files.
 
-<p class="status">Coming next</p>
+<p class="status">Being built now</p>
 
 </div>
 <div class="card">

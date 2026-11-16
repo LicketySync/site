@@ -123,12 +123,12 @@ already had.
 LicketySync is in development, and there's nothing to download yet. Here's
 where things stand:
 
-- **Now:** the design is written down in detail, and the heart of it is
-  tested on many simulated devices.
-- **Next:** syncing between computers on the same network, from the command
-  line.
-- **After that:** finding each other across the internet, apps for computers
-  and phones, and a version that runs in your web browser.
+- **Now:** syncing between computers on the same network, from the command
+  line, is being built. The design is written down in detail, and the heart of
+  it is tested on many simulated devices.
+- **Next:** finding each other across the internet, and storage devices.
+- **After that:** apps for computers and phones, and a version that runs in
+  your web browser.
 
 LicketySync is open source, under the Mozilla Public License 2.0. The code
 and the design specifications are on

@@ -108,7 +108,8 @@ the number of files, not with how often they change.
 ## Where it stands
 
 None of this ships yet: today LicketySync is a written design and a
-simulator that tests it on many simulated devices.
+simulator that tests it on many simulated devices, and syncing between
+computers on one network is being built.
 [Features](@/features.md#where-things-stand) has what's coming.
 
 {% <note> %}

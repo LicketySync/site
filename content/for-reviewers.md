@@ -141,7 +141,7 @@ On each device:
   of index a year, until someone deletes them. Every stored record is checked
   again each time its folder opens, so a store changed at rest can't make a device
   apply a change the write key didn't sign (TM-9). Today the index lives in
-  memory; from the next phase it is an SQLite database on disk.
+  memory; an SQLite database on disk is being built.
 - **Encrypted pieces of files** (chunks) that the device holds and serves to
   other devices of the folder. A storage device, which holds only the sealed
   key, keeps the folder as these pieces and its records, and can open neither.
@@ -150,8 +150,8 @@ On each device:
   XChaCha20-Poly1305 under a key held in the platform keystore (Keychain,
   Credential Manager, Secret Service, Android Keystore), or, where there is
   none, derived with Argon2id from a passphrase the person sets. A folder's key
-  is erased when the folder is unlinked (`keys.md` §8.2). It arrives with the
-  next phase; today the code stores no key on disk.
+  is erased when the folder is unlinked (`keys.md` §8.2). It is being built
+  now; today the code stores no key on disk.
 
 Exact paths on disk are not fixed yet. Secrets are held in memory in types that
 are wiped when dropped, and never written to logs; logs leave out folder IDs
@@ -200,7 +200,7 @@ and build provenance (TM-29).
   (`keys.md` §8.1): its network ID (the libp2p peer ID, which the transport
   authenticates) and its device ID (the hash of its device key, which signs
   only the handshake's device proof), both shown to whoever completes a
-  connection; and, from the phase after next, its DHT key, which signs only
+  connection; and, from the next phase, its DHT key, which signs only
   its address records in public trackers and is published in them, never
   shown at connection. The DHT node ID it persists and publishes there is
   stable too (TM-24).
@@ -286,7 +286,7 @@ In short:
   which folders, and not its name, which goes only to a device that opens a
   folder with it. As the network layer is built today, a device dialling an
   address also shows its network ID to whoever answers there, before checking
-  who answered; fixing that is next-phase work (§3.1).
+  who answered; fixing that is part of the phase now under way (§3.1).
 - **A network observer**: which addresses talk, when, for how long and how
   much, and the sizes of encrypted frames; not contents, names, keys, folder
   IDs or network IDs.
@@ -338,21 +338,21 @@ Pieces are cut at places derived from the folder's key, which stops a storage
 device cutting a file it already has and matching the piece sizes. But
 published attacks recover such keys from the piece sizes of files an attacker
 knows or chose, after which known files can be confirmed in that folder for as
-long as it exists (TM-14, `keys.md` §3.2). Which chunker the next phase adopts
-is still open; today's code cuts fixed-size pieces, whose sizes show only a
+long as it exists (TM-14, `keys.md` §3.2). Which chunker the phase now under way
+adopts is still open; today's code cuts fixed-size pieces, whose sizes show only a
 file's size.
 
 {% </more> %}
 
 ## Hole punching in detail {#hole-punching-in-detail}
 
-Hole punching arrives in the phase after next, and relays later still. A
+Hole punching arrives in the next phase, and relays later still. A
 coordinator carries only a punch's set-up, never files, and only a device that
 shares a folder with yours, or proves a key to one, can punch through to it.
 
 {% <more summary="How it works, its numbers and its stated residuals"> %}
 
-From the phase after next (TM-25):
+From the next phase (TM-25):
 
 - **Who coordinates.** Only a computer whose person turned on coordinating,
   never a phone; a computer that relays also coordinates, within its relay
@@ -532,7 +532,7 @@ The threat model states these as accepted, or as work still to do;
 - **Hole punching**: the residuals in
   [Hole punching in detail](#hole-punching-in-detail) (TM-25).
 - **WebSocket** is classical end to end today and can be forced by blocking UDP
-  and raw TCP; a fix is planned for the phase after next (TM-1). Circuits with
+  and raw TCP; a fix is planned for the next phase (TM-1). Circuits with
   a browser client at one end use classical Noise.
 - **Transport limits** on QUIC and TCP resources are required before 1.0
   (TM-22's residuals (a) to (c) and (h)).
@@ -551,7 +551,7 @@ devices, and the `keys`, `protocol`, `index` and `engine` crates exist; nothing
 syncs on a real disk or network yet. The index is in memory, files are cut into
 fixed-size pieces rather than at key-derived places, and the code still forgets
 deletions by the folder's own time and refuses devices whose clocks are more
-than a year apart. The next phase replaces those with the signed watermark this
+than a year apart. The phase now under way replaces those with the signed watermark this
 manual describes. Today's engine also holds at most 256 folders on a device and
 syncs at most 64 with any one device, and the space freed by dropped pieces can
 wait for the next round of syncing, an open question. The

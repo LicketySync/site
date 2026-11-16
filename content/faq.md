@@ -16,7 +16,7 @@ company cloud. More in [How it works](@/how-it-works.md).
 ### Can I download it yet?
 
 Not yet. The design is written down and tested on many simulated devices, and
-syncing between computers on one network comes next. There won't be test
+syncing between computers on one network is being built. There won't be test
 versions (betas) before version 1.0, and we won't promise dates.
 [Features](@/features.md#where-things-stand) shows the order things arrive in.
 

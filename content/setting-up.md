@@ -73,7 +73,8 @@ no internet needed.
   there can still tell which devices share a folder, without learning which.
 - {{ <lead_in text="The setting:" /> }} in the recommended settings. Each folder
   can change it.
-- {{ <lead_in text="When:" /> }} coming next, with syncing on a local network.
+- {{ <lead_in text="When:" /> }} being built now, with syncing on a local
+  network.
 
 {% <more summary="What the local network sees, in full"> %}
 
@@ -109,7 +110,7 @@ devices behind home routers get through.
 - {{ <lead_in text="The setting:" /> }} in the recommended settings, with hole
   punching. Each folder can change it, and hole punching works for a folder
   only while this is on.
-- {{ <lead_in text="When:" /> }} later, with hole punching.
+- {{ <lead_in text="When:" /> }} next, with hole punching.
 
 {% <more summary="What a device that connects to yours learns"> %}
 
@@ -139,7 +140,7 @@ when LicketySync stops.
   Never your files, without a key.
 - {{ <lead_in text="The setting:" /> }} in the recommended settings. It belongs
   to the whole device, not to one folder.
-- {{ <lead_in text="When:" /> }} later.
+- {{ <lead_in text="When:" /> }} next, with hole punching.
 
 More on [How devices find each other](@/finding-each-other.md#your-router-may-open-a-door).
 
@@ -173,7 +174,7 @@ the ones before it:
   holds a key to one, can punch through to you; anyone else gets no punch.
 - {{ <lead_in text="The setting:" /> }} hole punching is in the recommended
   settings, at the last choice. Each folder can change it.
-- {{ <lead_in text="When:" /> }} later.
+- {{ <lead_in text="When:" /> }} next.
 
 {% <more summary="What hole punching shows, in full"> %}
 
@@ -213,7 +214,7 @@ hold a folder's key can look up each other's addresses anywhere.
   and can tell that its entries on different days come from the same device.
 - {{ <lead_in text="The setting:" /> }} in the recommended settings, only to
   look things up and announce your device. Each folder can change it.
-- {{ <lead_in text="When:" /> }} later.
+- {{ <lead_in text="When:" /> }} next.
 
 {% <more summary="What else the directory shows"> %}
 
@@ -263,9 +264,10 @@ gives, costs and shows will be on this page once it's designed.
 ## Helping others
 
 Three settings let your device help other people's. They belong to the whole
-device, never to a folder, and all three come later. Acting as a relay and as a
-hole-punch coordinator are for computers only: a phone can be helped, but never
-helps. Of the three, the recommended settings will turn on only Act as a
+device, never to a folder. Acting as a hole-punch coordinator and helping run
+the public trackers come next; acting as a relay comes later. Acting as a relay
+and as a hole-punch coordinator are for computers only: a phone can be helped,
+but never helps. Of the three, the recommended settings will turn on only Act as a
 hole-punch coordinator, on computers, and only for the devices you share a
 folder with.
 

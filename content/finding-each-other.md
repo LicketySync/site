@@ -8,8 +8,8 @@ connection through. There are a few ways, from the plain (you're both on the
 same Wi-Fi) to the clever (hole punching), and each one shows a little to
 someone. Nothing is on until you've answered setup
 ([what it will suggest](#what-setup-will-suggest)). None of this ships yet: the
-local network comes next, public trackers and hole punching later, and relays
-after them.
+local network is being built now, public trackers and hole punching come next,
+and relays later.
 
 ## Whatever the way
 
@@ -41,7 +41,7 @@ after them.
   a folder opens.
 - **To whoever answers when your device calls an address** (one from a
   faked announcement, say): your device's network ID, though not that it
-  holds any folder. This is due to be fixed next.
+  holds any folder. This is being fixed now.
 - **To the network in between**: also how each connection is set up, and, on
   a network that only lets web traffic out, the name of the host it calls.
   Padding blurs the sizes of the encrypted pieces, but doesn't hide how many
@@ -49,7 +49,7 @@ after them.
 - **The quantum exception**: the fallback for locked-down networks, and the
   browser version's connections through a relay or a coordinator or to a
   computer's web-style listener, use encryption that isn't yet built to resist
-  a quantum computer; a fix for the fallback's outer layer comes later. Other
+  a quantum computer; a fix for the fallback's outer layer comes next. Other
   connections between computers are built to resist one.
   [Cryptography in brief](@/for-reviewers.md#cryptography-in-brief) names the
   protocols.

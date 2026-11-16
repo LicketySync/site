@@ -187,7 +187,7 @@ There's no taking a key back. Everyone with the same kind of key holds the
 very same key, so there's no shutting out one person while the others keep
 theirs, and taking back a key wouldn't take back the files they already
 have. So to remove someone, or a lost or stolen device, everyone else moves
-to a new folder with new keys. That comes next, from the command line, and it
+to a new folder with new keys. That is being built, from the command line, and it
 will go like this:
 
 {{ <illustration src="sharing-new-folder.svg" alt="An old folder with its old key left behind on the left, and a dotted arrow to a new folder on the right with a shiny new key and sparkles around it." width={440} height={220} /> }}

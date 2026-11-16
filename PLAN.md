@@ -261,12 +261,12 @@ Plain words for the site, from the specifications and the roadmap; check the
 plan before naming a phase on a page, and prefer "next" and "later" to phase
 numbers:
 
-- now: the design and its specifications, and a simulator that tests the
-  sync engine on many simulated devices; nothing to download;
-- next (phase 1): syncing between computers on one local network, from the
-  command line, which can export keys as key strings, links and files;
-- phase 2: hole punching, public trackers (the DHT) and storage devices (the
-  sealed key) in real use;
+- now (phase 1): syncing between computers on one local network, from the
+  command line, which can export keys as key strings, links and files; the
+  design and its specifications are written, and a simulator tests the sync
+  engine on many simulated devices; nothing to download;
+- next (phase 2): hole punching, public trackers (the DHT) and storage devices
+  (the sealed key) in real use;
 - phases 3 and 4: the apps for computers and phones, with keys shown as QR
   codes in the apps from phase 3;
 - phase 5: linked devices, choosing what to keep on a device, and the archive;
