@@ -18,7 +18,8 @@ company cloud. More in [How it works](@/how-it-works.md).
 Not yet. The design is written down and tested on many simulated devices, and
 syncing between computers on one network is being built. There won't be test
 versions (betas) before version 1.0, and we won't promise dates.
-[Features](@/features.md#where-things-stand) shows the order things arrive in.
+[What's ready and what's next](@/whats-next.md) shows the order things arrive
+in.
 
 ### Is there a cloud, or a server?
 
@@ -91,19 +92,24 @@ good. See [Sharing more widely](@/sharing.md#sharing-more-widely) and
 Both versions are kept: one as the file, and the other as a
 [conflict copy](@/glossary.md#conflict-copy) beside it. Nothing is merged and
 nothing is lost, and you delete the copy once you've sorted it out. See
-[When two changes collide](@/how-it-works.md#when-two-changes-collide).
+[Conflicts and the archive](@/conflicts-and-the-archive.md).
 
 ### I deleted a file by mistake. Can I get it back?
 
 Usually, yes. When a deletion reaches your other devices, each one moves its
-copy into its [archive](@/features.md#the-archive), where it waits 30 days
-unless you change it. So a file you delete on your laptop can still be found on
-your other devices.
+copy into its [archive](@/conflicts-and-the-archive.md#the-archive-keeps-what-was-replaced),
+where it waits 30 days unless you change it. So a file you delete on your
+laptop can still be found on your other devices.
+
+### Can I keep some files from syncing?
+
+Yes: list them in an ignore file, `.syncignore`, one pattern per line (the
+rules are the same as git's `.gitignore`). Your device will also have a list of its own. See
+[Choosing what syncs](@/choosing-what-syncs.md).
 
 ### Can a deleted file come back?
 
-Sometimes, yes. Devices forget old deletions a year or more after they arrive,
-sooner if a device with the write key has a wrong clock. After that, a device
+Sometimes, yes. Devices forget old deletions a year or more after they arrive. After that, a device
 that kept an old copy, one that was away all that time say, can bring the file
 back. It never costs you a file. See
 [Deleted files can come back](@/risks.md#deleted-files-can-come-back).
@@ -151,6 +157,13 @@ It might. LicketySync connects device to device, and some networks don't
 allow that. If your workplace has rules about tools like this,
 [For IT and privacy reviewers](@/for-reviewers.md) is written for the people
 who check them.
+
+### What if something goes wrong on my computer?
+
+LicketySync will keep syncing what it can, tell you once in plain words, try
+again by itself and show you the fix, with a page on this site for each
+problem. It never changes your system's settings by itself. See
+[When something goes wrong](@/when-something-goes-wrong.md).
 
 ### What's "hole punching"?
 

@@ -11,10 +11,10 @@ to the good stuff.
 [D](@/glossary.md#deletion-brake) ·
 [E](@/glossary.md#encryption) ·
 [F](@/glossary.md#folder) ·
-[H](@/glossary.md#hole-punching) ·
+[H](@/glossary.md#hidden-folder) ·
 [I](@/glossary.md#ignore-file) ·
 [K](@/glossary.md#key) ·
-[L](@/glossary.md#linked-devices) ·
+[L](@/glossary.md#licketysync-doctor) ·
 [N](@/glossary.md#network-id) ·
 [P](@/glossary.md#pause) ·
 [R](@/glossary.md#read-key) ·
@@ -36,7 +36,8 @@ usually your home router's.
 
 Where a device keeps the files that changes from other devices replaced or
 deleted, 30 days unless you change it, so you can get them back. Each device
-has its own. See [Features](@/features.md#the-archive).
+has its own. See
+[Conflicts and the archive](@/conflicts-and-the-archive.md#the-archive-keeps-what-was-replaced).
 
 ### Conflict copy
 
@@ -96,10 +97,16 @@ local network, or look it up in public trackers.
 
 ### Forgetting (old deletions)
 
-Devices remember deletions for a year or more after they arrive, sooner if a
-device with the write key has a wrong clock. Then a device with the write key
+Devices remember deletions for a year or more after they arrive. Then a device with the write key
 signs a short message, a watermark, and every device forgets them together. A
-device that kept an old copy can then bring a deleted file back.
+device that kept an old copy can then bring a deleted file back
+([the details](@/risks.md#deleted-files-can-come-back)).
+
+### Hidden folder
+
+The `.licketysync` folder at the top of each shared folder, where a device
+keeps the folder's marker, its settings for the folder, its archive and
+downloads in progress. It never syncs.
 
 ### Hole punching
 
@@ -117,7 +124,10 @@ addresses and network IDs, but no folder, key or file.
 
 ### Ignore file
 
-A list of the things in a folder that you'd rather not sync.
+A file named `.syncignore` that lists the things in a folder you'd rather not
+sync, one pattern per line (the rules are the same as git's `.gitignore`). It syncs with the folder, and
+each device also has a list of its own. See
+[Choosing what syncs](@/choosing-what-syncs.md).
 
 ### Index
 
@@ -149,6 +159,12 @@ device made each change, often tell.
 Where a device keeps its folders' keys, locked by your system's own keychain
 or, on a device without one, by a passphrase.
 
+### `licketysync doctor`
+
+A command that will look for problems on your device, such as a folder too big
+to watch, before they get in the way. See
+[When something goes wrong](@/when-something-goes-wrong.md).
+
 ### Linked devices
 
 Your own devices, joined so that a new one gets the keys of the folders you
@@ -170,6 +186,12 @@ that a device runs LicketySync. See
 A device's lasting identity: a number it shows to every device it connects
 to, the same across networks and folders, so a device yours has met can
 recognise it again. It isn't the [device ID](@/glossary.md#device-id).
+
+### Notice
+
+A short message about a problem on your device: what happened, what it means
+and how to fix it. There is one per problem, and it goes away by itself once
+the problem does.
 
 ### Pause
 
@@ -275,6 +297,13 @@ ordinary files. The device stops syncing that folder.
 
 A file's content, or its deletion, as one device saved it. Each device keeps
 only the latest versions of each file.
+
+### Watch limit
+
+The number of folders that Linux lets one person's programs watch for changes,
+all together. LicketySync checks it before it opens a folder, and checks the
+rest on a timer if it runs out. See
+[When something goes wrong](@/when-something-goes-wrong.md).
 
 ### Watermark
 

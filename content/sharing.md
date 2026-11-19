@@ -187,19 +187,19 @@ There's no taking a key back. Everyone with the same kind of key holds the
 very same key, so there's no shutting out one person while the others keep
 theirs, and taking back a key wouldn't take back the files they already
 have. So to remove someone, or a lost or stolen device, everyone else moves
-to a new folder with new keys. That is being built, from the command line, and it
-will go like this:
+to a new folder with new keys. That is being built, from the command line,
+and it will go like this:
 
 {{ <illustration src="sharing-new-folder.svg" alt="An old folder with its old key left behind on the left, and a dotted arrow to a new folder on the right with a shiny new key and sparkles around it." width={440} height={220} /> }}
 
 1. **Pause** the folder on every device that stays, so nothing more arrives.
    (If they're leaving on good terms, you can let everything finish syncing
    first.)
-2. **Check what changed** since you last trusted them. Nothing proves which
-   changes were theirs. Restoring what you want back from the archive comes
-   with the archive, later.
+2. **Check what changed** since you last trusted them, and restore what you
+   want from the [archive](@/conflicts-and-the-archive.md#the-archive-keeps-what-was-replaced).
+   Nothing proves which changes were theirs.
 3. **Unlink** the folder on every device that stays. It stops syncing and
-   keeps the files, and the archive once there is one, as ordinary files.
+   keeps the files, and the archive, as ordinary files.
 4. **Share again.** On one device, share that copy as a new folder, with
    brand-new keys.
 5. **Hand out the new key** yourself, the safe way. LicketySync won't send
@@ -216,8 +216,8 @@ What moving does not do:
 - Any device that misses the move keeps syncing with them.
 - Storage devices start the new folder from scratch, and keep the old one
   until it's unlinked there too.
-- The old folder's history doesn't move; its archive, once there is one, stays
-  on each device as ordinary files.
+- The old folder's history doesn't move; its archive stays on each device as
+  ordinary files.
 - Your devices keep their network IDs, the lasting IDs they go by, so the
   person you removed can still recognise them.
 

@@ -120,15 +120,11 @@ already had.
 
 ## Still being built
 
-LicketySync is in development, and there's nothing to download yet. Here's
-where things stand:
-
-- **Now:** syncing between computers on the same network, from the command
-  line, is being built. The design is written down in detail, and the heart of
-  it is tested on many simulated devices.
-- **Next:** finding each other across the internet, and storage devices.
-- **After that:** apps for computers and phones, and a version that runs in
-  your web browser.
+LicketySync is in development, and there's nothing to download yet. Syncing
+between computers on one network, from the command line, is being built now;
+finding each other across the internet comes next, then apps for computers
+and phones, and a version that runs in your web browser.
+[What's ready and what's next](@/whats-next.md) has the whole order.
 
 LicketySync is open source, under the Mozilla Public License 2.0. The code
 and the design specifications are on

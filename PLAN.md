@@ -24,14 +24,18 @@ the contents on Home. A new page goes into that list in its place.
 | 2 | Setting up | `setting-up.md` | What the guided setup will suggest, and each choice with what it gives you, what it costs, and what it shows to whom. | Someone setting it up (once there is something to set up) |
 | 3 | Sharing | `sharing.md` | Files and their names private by default; sharing with people; the three kinds of key; sharing more widely, when both sides use public trackers; removing someone means making new keys. | Anyone sharing a folder |
 | 4 | How devices find each other | `finding-each-other.md` | The local network, public trackers, relays and hole punching, explained simply, with what each one shows and to whom. | Anyone whose devices are not on one network, or who wonders what "hole punching" means |
-| 5 | Features | `features.md` | What it does, and what is coming, in plain words. | People comparing it with other tools |
-| 6 | Privacy | `privacy.md` | What stays private, what no peer-to-peer program can hide, and the privacy of this website. | Everyone, and privacy-minded readers above all |
-| 7 | Risks | `risks.md` | Where your risks are and how they show up, for an average user. Not a log of the decisions behind them. | Anyone about to trust it with their files |
-| 8 | For IT and privacy reviewers | `for-reviewers.md` | What it contacts, what it stores and where, the cryptography in brief, the threat model's link, the licences. | IT teams, compliance and privacy reviewers |
-| 9 | Questions and answers | `faq.md` | Short answers to common questions, each linking to the page with the details. | Everyone |
-| 10 | Glossary | `glossary.md` | Short definitions of the words the manual uses. | Everyone, looked up rather than read |
+| 5 | Choosing what syncs | `choosing-what-syncs.md` | Ignore files and their rules, what never syncs, what travels with a file, and choosing what each device keeps. | Anyone with files they'd rather not sync |
+| 6 | Conflicts and the archive | `conflicts-and-the-archive.md` | Conflict copies and which version is the file, an edit beating a delete, the archive, the deletion brake and deleted files coming back. | Anyone sharing a folder others change too |
+| 7 | When something goes wrong | `when-something-goes-wrong.md` | How problems on the device will be handled: notices, retries, the troubleshooting pages and `licketysync doctor`, with the inotify watch limit first. | Anyone whose device gets in the way |
+| 8 | Features | `features.md` | What it does, and what is coming, in plain words. | People comparing it with other tools |
+| 9 | What's ready and what's next | `whats-next.md` | What exists today and the steps ahead, in order, in plain words, with no dates. | Anyone wondering when they can use it |
+| 10 | Privacy | `privacy.md` | What stays private, what no peer-to-peer program can hide, and the privacy of this website. | Everyone, and privacy-minded readers above all |
+| 11 | Risks | `risks.md` | Where your risks are and how they show up, for an average user. Not a log of the decisions behind them. | Anyone about to trust it with their files |
+| 12 | For IT and privacy reviewers | `for-reviewers.md` | What it contacts, what it stores and where, the cryptography in brief, the threat model's link, the licences. | IT teams, compliance and privacy reviewers |
+| 13 | Questions and answers | `faq.md` | Short answers to common questions, each linking to the page with the details. | Everyone |
+| 14 | Glossary | `glossary.md` | Short definitions of the words the manual uses. | Everyone, looked up rather than read |
 
-Home and all ten pages are written, in the voice of the tone guide below.
+Home and all fourteen pages are written, in the voice of the tone guide below.
 A change to the site is published only after the owner has seen it.
 
 ### What each page covers
@@ -118,8 +122,7 @@ A change to the site is published only after the owner has seen it.
   addresses. What public trackers show is in the truth rule's example below.
   Removing someone, or a lost device: there is no taking a key back, so the
   people who stay move to a new folder with new keys; the steps, in plain
-  words, saying that restoring from the archive comes with the archive,
-  later. Say what it does not do (keys.md §7.4): the removed person keeps the
+  words. Say what it does not do (keys.md §7.4): the removed person keeps the
   old folder, its key and every file they already had, and a device that
   misses the move keeps syncing with them.
 - **How devices find each other.** On the local network. Through public
@@ -128,11 +131,35 @@ A change to the site is published only after the owner has seen it.
   note, then a direct line. Relays: a go-between that passes sealed envelopes
   it cannot open. For each, what it shows and to whom, and what is off until
   you turn it on.
+- **Choosing what syncs.** The ignore file, `.syncignore`: where it sits,
+  gitignore's rules with a few examples, that it syncs (so a write key holder
+  can change what syncs for everyone), the device's own list added to it, and
+  that a synced file that becomes ignored is kept everywhere. What never
+  syncs: the hidden `.licketysync` folder, a nested shared folder, a drive
+  mounted inside, symbolic links (skipped with a notice at first, synced as
+  links before 1.0) and names a system can't hold. What travels with a file
+  (the metadata policy). Choosing what each device keeps, later.
+- **Conflicts and the archive.** Two edits at once and the conflict copy
+  (the later modified time is the file, identical versions make no copy, how
+  a copy becomes an ordinary file); an edit beats a delete, with the rename
+  exception; the archive (30 days unless changed, each device its own, in the
+  hidden folder, not a backup); the deletion brake; deleted files coming back
+  after forgetting; how to have fewer surprises. All of it is being built now.
+- **When something goes wrong.** The plan's "When the device gets in the
+  way" in plain words: keep syncing, one plain notice per problem, retries,
+  nothing changed behind the person's back, one code and one page per
+  problem; `licketysync doctor`; the inotify watch limit as the first
+  example; the other problems and what LicketySync does about each. Say that
+  each Troubleshooting page (`/troubleshooting/<code>`) lands with the change
+  that detects its problem, so none is written before then.
 - **Features.** What it does, and what is on the way, grouped plainly:
   syncing, sharing, the three keys, storage devices, conflict copies, the
   archive, apps for computers and phones, the browser version, linked
   devices, choosing what to keep on a device. Say clearly which exist and
   which are coming; today none ships.
+- **What's ready and what's next.** The roadmap in plain words: what exists
+  today, then each step with what it brings and the check it ends with,
+  without phase numbers or dates.
 - **Privacy.** What stays private (file contents and names, from everyone
   without a read or write key), with this exception: someone holding only the
   sealed key who knows some of the folder's files can, in time, test whether
@@ -164,8 +191,9 @@ A change to the site is published only after the owner has seen it.
   file?", "Does my company's network block it?"), each answered in two or
   three sentences with a link.
 - **Glossary.** One or two sentences per word: archive, conflict copy,
-  device, folder, hole punching, hole-punch coordinator, key (write, read,
-  sealed), local network, peer to peer, public trackers (the DHT), relay,
+  deletion brake, device, folder, hidden folder, hole punching, hole-punch
+  coordinator, ignore file, key (write, read, sealed), `licketysync doctor`,
+  local network, notice, peer to peer, public trackers (the DHT), relay,
   storage device, sync.
 
 ### Later, once there is something to download
@@ -173,7 +201,10 @@ A change to the site is published only after the owner has seen it.
 Download, Screenshots (captured in CI from the real app), Releases, Compare,
 Limitations, Contribute: the pages the site's README listed before this plan.
 Each joins the reading order when it has something true to say. "Docs" is
-this manual.
+this manual. The Troubleshooting pages, one per problem code at
+`/troubleshooting/<code>` (`watch-limit` first), each land with the change
+that detects their problem, outside the reading order, linked from When
+something goes wrong.
 
 ## The tone guide
 
@@ -262,17 +293,25 @@ plan before naming a phase on a page, and prefer "next" and "later" to phase
 numbers:
 
 - now (phase 1): syncing between computers on one local network, from the
-  command line, which can export keys as key strings, links and files; the
-  design and its specifications are written, and a simulator tests the sync
-  engine on many simulated devices; nothing to download;
-- next (phase 2): hole punching, public trackers (the DHT) and storage devices
-  (the sealed key) in real use;
+  command line, which can export keys as key strings, links and files;
+  scanning and watching the disk; conflict copies, ignore files, the archive
+  (keeping replaced and deleted files 30 days) and the deletion brake on a
+  real disk; where each file stands; the guided setup; device problems
+  handled with notices, retries and `licketysync doctor`; the design and its
+  specifications are written, and a simulator tests the sync engine on many
+  simulated devices; nothing to download;
+- next (phase 2): hole punching, public trackers (the DHT), asking the router
+  to open a port, invites with addresses and storage devices (the sealed key)
+  in real use;
 - phases 3 and 4: the apps for computers and phones, with keys shown as QR
   codes in the apps from phase 3;
-- phase 5: linked devices, choosing what to keep on a device, and the archive;
-- phase 6: the browser version, at licketysync.app;
-- phase 7: public relays and Tor; then a manual testing pass before 1.0, with
-  no betas before it.
+- phase 5: linked devices, choosing what to keep on a device, more ways to
+  keep old versions, a weekly schedule, proxies and a background check of the
+  files on disk;
+- phase 6: the browser version, at licketysync.app, which needs only phase 2;
+- phase 7: public relays, Tor and the systems' own placeholders for files not
+  kept on a device; then a manual testing pass before 1.0, with no betas
+  before it.
 
 ## Illustrations
 
@@ -291,7 +330,7 @@ numbers:
   on light and dark alike, so they have no dark block.
 - **Zippy**, the folder from the logo, is the site's mascot and appears in a
   few pictures (`home-devices.svg`, `how-it-works-folder.svg`,
-  `lost-folder.svg`): a coral back and a sunshine front, leaning forward, with
+  `lost-folder.svg`, `whats-next-path.svg`): a coral back and a sunshine front, leaning forward, with
   two eyes and a smile, drawn from the logo's shapes. Its outline turns light
   in dark; its face, and the line between back and front, keep their dark ink.
   Add it only where a friendly folder fits, small, never beside a risk and
@@ -314,7 +353,11 @@ What each page needs:
 | Setting up | A device's settings passed to a folder that changes one, `setting-up-switches.svg` (done); one small icon per question: `setting-up-local-network.svg`, `setting-up-direct.svg`, `setting-up-router-port.svg`, `setting-up-hole-punch.svg`, `setting-up-trackers.svg`, `setting-up-relay.svg`, `setting-up-tor.svg` (done) |
 | Sharing | Handing over a key by QR code in person, `sharing-qr.svg` (done); the three keys (Home's, reused, done); a folder offered widely through public trackers, `sharing-widely.svg` (done); moving to a new folder with new keys, `sharing-new-folder.svg` (done) |
 | How devices find each other | Devices around a home router, `finding-local.svg` (done); public trackers as a directory spread across many computers, `finding-trackers.svg` (done); hole punching: two routers, a helper passing a note, then a direct line, `finding-hole-punch.svg` (done); a relay passing a sealed envelope, `finding-relay.svg` (done) |
+| Choosing what syncs | Files passing an ignore list on their way into a folder, one left outside, `choosing-ignore.svg` (done) |
+| Conflicts and the archive | The conflict copy (How it works', reused, done); a replaced file dropping into the archive, `conflicts-archive.svg` (done) |
+| When something goes wrong | A laptop showing one notice, a retry arrow and a page of steps, `problems-notice.svg` (done) |
 | Features | A small icon per feature: `features-conflict-copy.svg`, `features-archive.svg`, `features-storage-device.svg`, `features-apps.svg`, `features-browser.svg` (done) |
+| What's ready and what's next | A winding path of flags, the first ticked, Zippy walking on, sparkles at the end, `whats-next-path.svg` (done) |
 | Privacy | Who sees what: a key holder (open eye), a storage device (half-open eye: it sees the envelope, not the letter), a relay and a network watcher (closed eye on the contents, but they see who talks to whom), `privacy-eyes.svg` (done) |
 | Risks | One gentle opening picture (an umbrella: it's got your back), `risks-umbrella.svg` (done); an icon per group of risks (later) |
 | For IT and privacy reviewers | What talks to what: devices, the local network, public trackers, relays and coordinators, marked "off until you turn it on" where that is true, `for-reviewers-map.svg` (done) |
@@ -359,8 +402,8 @@ Text passed to a component (`alt`, `caption`, `text`, `label`, `summary`) is
 plain text and is not given curly quotes: type ’ for an apostrophe and “ ” for
 quotes yourself ("What’s next:").
 
-The ribbon on every page but Home points at Features ("See what's coming", in
-`templates/base.html`), and Home's main button at How it works ("See how it
+The ribbon on every page but Home points at What's ready and what's next
+("See what's coming", in `templates/base.html`), and Home's main button at How it works ("See how it
 works", in `content/_index.md`).
 
 HTML in Markdown works where a layout needs it (`<div class="cards">` with

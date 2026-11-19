@@ -48,27 +48,26 @@ A few things are private only up to a point:
 
 ## What no peer-to-peer program can hide
 
-Your devices talk to each other directly, so some things show. The
-recommended settings will turn on finding devices on your local network, an
-open port on your router (a numbered door that lets other devices reach
-yours), public trackers, hole punching (with any helper your device knows of),
-public relays and, on computers, helping the devices you share a folder with
-punch through; what follows says what each shows if you take them.
+Your devices talk to each other directly, so some things show. Here is what
+each of [the recommended settings](@/setting-up.md#how-setup-will-ask) shows
+if you take them.
 
 - **That you use it.** Anyone on your local network can see that your device
   runs LicketySync, and anyone who knows a folder can confirm it's offered
   there. Anyone there, even knowing nothing, can replay an announcement to
-  learn which devices answer it, and so which hold that folder.
-- **An open port.** While your router keeps a port open for your device, anyone
-  on the internet can reach it and learn that your device runs LicketySync,
-  its network ID and roughly how many folders it holds.
+  learn which devices answer it, and so that each holds a folder it named, but
+  not which.
+- **An open port.** While your router keeps a port (a numbered door that lets
+  other devices reach yours) open for your device, anyone on the internet can
+  reach it and learn that your device runs LicketySync, its network ID and
+  roughly how many folders it holds.
 - **Your address**, to every device of your folders, to anyone who gets an
   invite that carries it and to the helpers your device talks to. If your
-  computer helps with hole punches, a device it helps that shares a folder with
-  it passes your computer's address only to the other devices of the folders
-  you share, never in an invite, so anyone who holds one of those folders' keys
-  learns it; a device it helps that shares none can also pass it to everyone
-  it shares a folder or an invite with.
+  computer helps with hole punches, it is named only to the peers of the
+  folders it shares with the device it helps, and never in an invite. The one
+  exception is a computer that helps devices it shares no folder with (the
+  "anyone" mode, which setup never suggests): it is also named in their
+  invites ([who learns it](@/finding-each-other.md#hole-punching)).
 - **Who talks to whom**, when and how much, to anyone watching the network.
   File sizes are blurred a little, but nothing hides how much moves, or when.
 - **Your device's network ID**, a name for it on the network that stays the

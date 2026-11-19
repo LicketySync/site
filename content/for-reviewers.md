@@ -33,8 +33,10 @@ the core repository's main branch, and says where today's code still differs.
 address built into the programs, and it is empty today, because the code
 contacts nothing. A host is added only in the change that adds the feature
 which contacts it, and only for a feature that is off until the person turns it
-on; the multicast and broadcast addresses that local network discovery will use
-are to be listed there too, each with a note. A check in the build and in CI
+on. The list holds only addresses the code names: the multicast address
+224.0.0.251 joins it with the mDNS carrier's code, while broadcast addresses
+are worked out at run time and IPv6 ones (ff02::fb) are not checked, as TM-31
+notes. A check in the build and in CI
 fails on any hostname in the code's string literals that the list lacks. It
 catches accidents, not adversaries, and states its own limits; the reviewers of
 each change cover the rest (TM-31). Join links, which the programs read and
@@ -50,22 +52,18 @@ the first messages between two devices so they can connect directly).
 
 **The home router's port-mapping service** (Universal Plug and Play, NAT-PMP
 or PCP), when the person takes the recommended settings or turns it on. The
-device
-maps only its one listening port, for a bounded lease, and removes the mapping
-at exit (TM-26). While the port is open, anyone on the internet can reach it
-and learn that the device runs LicketySync, and what anyone who completes a
-connection learns ([What each party sees](#what-each-party-sees)).
+device maps only its one listening port, for a bounded lease, and removes the
+mapping at exit (TM-26). While the port is open, anyone on the internet can
+reach it and learn that the device runs LicketySync, and what anyone who
+completes a connection learns ([What each party sees](#what-each-party-sees)).
 
-**What is on, before and after setup.** Nothing is on before the person answers
-setup. Setup will ask once and suggest the recommended settings below; saying
-no opens the settings screen with each setting at its default, and nothing is
-on until the person confirms it. Setup never suggests acting as a relay for
-others or helping run the public trackers, and never suggests coordinating
-punches for devices the device shares no folder with. A later release that
-adds a setting leaves it off until the person answers, and so does one that
-changes a recommended default so it allows more, wherever the setting is at
-default; a setting the person set stays as they set it, and a change that
-allows less applies at once (TM-25).
+**What is on, before and after setup.** Nothing, before the person answers
+setup. Setup asks once and suggests the recommended settings below; saying no
+opens the settings with each at its default, and nothing is on until the person
+confirms them. A later release that adds a setting, or changes a recommended
+default so that it allows more, leaves that setting off wherever it is at its
+default until the person answers; a change that allows less applies at once
+(TM-25).
 
 {% <table_box label="Connection settings before setup, and the recommended settings"> %}
 
@@ -85,25 +83,11 @@ allows less applies at once (TM-25).
 
 {% </table_box> %}
 
-Finding devices on the local network, public trackers, direct connections, the
-"Who may help with a hole punch?" level, using public relays and, later, Tor
-are each a default for the whole device that each folder can override; asking
-the router to open a port and the ways of helping others are set for the whole
-device only. A new folder starts from
-the device-wide settings, and a connection serves a folder only as that
-folder's settings allow (TM-25). A hole punch needs a coordinator: a device the
-folder's "Who may help with a hole punch?" level allows, whose person turned on
-coordinating, or a public relay. With the recommended settings, every
-coordinator a device uses, a stranger's public relay among them, learns that
-two devices are connecting and when, their addresses and network IDs; none
-carries file data. A device that a computer helps names that computer, by its
-address and network ID, to the peers of its folders whose settings allow it,
-and in invites to such folders that carry addresses, so strangers can learn
-both and ask that computer for a punch. A computer that shares a folder with
-it, whatever its mode, is named only to the peers of the folders the two have
-open, and never in an invite, though anyone who holds one of those folders'
-keys is such a peer; a computer coordinating only for the devices of its own
-folders always shares one (TM-25, `keys.md` §6.3).
+The router's port and the ways of helping others are set for the whole device.
+Every other setting is a device-wide default that each folder can override, and
+a connection serves a folder only as that folder's settings allow (TM-25).
+[Hole punching in detail](#hole-punching-in-detail) says who coordinates, and
+what that shows.
 
 **Listening.** A device listens for other devices on its network port. The
 service also takes commands from its own command line and web interface, on a
@@ -123,25 +107,30 @@ On each device:
 - **The folder's files**, as ordinary files, on devices with the read or write
   key. Writes land in a temporary file beneath the folder, are checked against
   their signed record and are then renamed into place (TM-35). Every path goes
-  through one resolver that never follows a symlink (TM-4).
+  through one resolver that never follows a symlink and stays on the folder's
+  own mount (TM-4).
+- **The folder's hidden directory**, `.licketysync/` at its top, never synced:
+  a marker, the folder ID (never a key), this device's settings for the folder,
+  the archive unless it is pointed elsewhere, and temporary downloads. On
+  Linux and macOS only its user can open it.
 - **The archive**: files that changes from other devices replaced or deleted,
-  kept 30 days unless that device's person changes it (TM-35). Copies archived
-  because their versions became unreadable stay past that, even with the
-  archive off, until a version the device reads covers them. Each device keeps
-  its own archive, so a deleted file stays in other devices' archives as long
-  as their people choose. Unlinking a folder keeps its files and its archive as
-  ordinary files (`keys.md` §7.3).
-- **The index**: the latest versions of each file as signed records, typically
-  under 1 KB per file and at most about 2.3 KB for a small file many devices
-  wrote; deletion records, kept a year or more; and, for each device it synced
-  with in the last 90 days, where it stopped, about 60 bytes each and at most
-  4 096 per folder (`protocol.md` §9). Conflict copies are live files with
+  kept 30 days unless that device's person changes it (TM-35), up to a size
+  cap.
+  Copies archived because their versions became unreadable stay past that,
+  even with the archive off, until a version the device reads covers them.
+  Unlinking a folder keeps its files and its archive as ordinary files
+  (`keys.md` §7.3).
+- **The index**, in the app's data directory, never inside the synced folder:
+  an SQLite database of the latest versions of each file as signed records,
+  typically under 1 KB per file and at most about 2.3 KB for a small file many
+  devices wrote; deletion records, kept a year or more; and, for each device it
+  synced with in the last 90 days, where it stopped, about 60 bytes each and at
+  most 4 096 per folder (`protocol.md` §9). Conflict copies are live files with
   records of their own, so they add up: four machines that append to one 10 MB
   log at the same moment every hour leave about 26 000 copies and about 300 MB
   of index a year, until someone deletes them. Every stored record is checked
-  again each time its folder opens, so a store changed at rest can't make a device
-  apply a change the write key didn't sign (TM-9). Today the index lives in
-  memory; an SQLite database on disk is being built.
+  again each time its folder opens, so a store changed at rest can't make a
+  device apply a change the write key didn't sign (TM-9).
 - **Encrypted pieces of files** (chunks) that the device holds and serves to
   other devices of the folder. A storage device, which holds only the sealed
   key, keeps the folder as these pieces and its records, and can open neither.
@@ -150,8 +139,7 @@ On each device:
   XChaCha20-Poly1305 under a key held in the platform keystore (Keychain,
   Credential Manager, Secret Service, Android Keystore), or, where there is
   none, derived with Argon2id from a passphrase the person sets. A folder's key
-  is erased when the folder is unlinked (`keys.md` §8.2). It is being built
-  now; today the code stores no key on disk.
+  is erased when the folder is unlinked (`keys.md` §8.2).
 
 Exact paths on disk are not fixed yet. Secrets are held in memory in types that
 are wiped when dropped, and never written to logs; logs leave out folder IDs
@@ -188,26 +176,32 @@ and build provenance (TM-29).
   it; knowing a folder's ID isn't enough to connect or to learn whether a
   device holds it (TM-32). It does let its holder confirm the folder on a local
   network and find, through public trackers, the addresses that announce it.
+
+{% <more summary="Key strings, device identifiers and leaving someone behind"> %}
+
 - A key is written as text with a checksum, and the write key also as 24 words
   from the BIP39 list. A key carries no address unless the sender adds one, or,
   for invites to the browser version and one-time links for sending a file,
   always (TM-37); an invite with addresses also names the device's hole-punch
-  coordinators that share no folder with it (TM-25). In a link the key sits after the `#`, which browsers
-  don't send to servers (TM-18). The app will show or export a key only on the
-  person's explicit action, and the write key only after the system's own user
-  check, or the key store's passphrase where there is none (TM-39).
+  coordinators that share no folder with it (TM-25). In a link the key sits
+  after the `#`, which browsers don't send to servers (TM-18). The app will
+  show or export a key only on the person's explicit action, and the write key
+  only after the system's own user check, or the key store's passphrase where
+  there is none (TM-39).
 - A device has three lasting identifiers, fixed for the life of its seed
   (`keys.md` §8.1): its network ID (the libp2p peer ID, which the transport
   authenticates) and its device ID (the hash of its device key, which signs
   only the handshake's device proof), both shown to whoever completes a
-  connection; and, from the next phase, its DHT key, which signs only
-  its address records in public trackers and is published in them, never
-  shown at connection. The DHT node ID it persists and publishes there is
-  stable too (TM-24).
+  connection; and, from the next phase, its DHT key, which signs only its
+  address records in public trackers and is published in them, never shown at
+  connection. The DHT node ID it persists and publishes there is stable too
+  (TM-24).
 - Leaving someone behind, or a lost device, means the people who stay unlink
   the folder and share their copy again as a new folder with new keys, given
   to the others outside the app; nothing in the protocol supports it, and the
   person left behind keeps what they had (TM-42, `keys.md` §7.4).
+
+{% </more> %}
 
 ## Cryptography in brief
 
@@ -228,6 +222,8 @@ fixed lists the libp2p TLS stack offers, as TLS does.
 
 {% </table_box> %}
 
+{% <more summary="Downgrades, nonces, padding and quantum computers"> %}
+
 - Each transport offers exactly one security protocol, and the suite lists are
   bound into the handshake, so a downgrade within a transport fails (TM-1,
   TM-30). Blocking UDP and raw TCP can still force a device onto the WebSocket
@@ -246,6 +242,8 @@ fixed lists the libp2p TLS stack offers, as TLS does.
   device sees, but it could let anyone with a folder's verification key forge
   updates (TM-33).
 
+{% </more> %}
+
 ## What each party sees {#what-each-party-sees}
 
 The full list is
@@ -256,27 +254,30 @@ In short:
   the device ID its writer claims and when it was written, to the microsecond,
   offline edits included; every device's ID, name and reported key; which
   files each device keeps, through chunk requests; and roughly when deletions
-  were forgotten.
-  They can test whether a guessed file is in the folder.
+  were forgotten. They can test whether a guessed file is in the folder.
 - **Every device of a folder, whatever its key, and anyone who gets an invite
   with addresses**: the device's addresses, its network ID and the hole-punch
   coordinators it uses, through peer exchange (TM-25).
 - **A storage device**: see
   [What a storage device sees](#what-a-storage-device-sees).
-- **The local network**, once finding devices there is on, as setup will
-  suggest: that a device runs LicketySync and its port; a confirmation that a known folder is announced
-  there, or that a device already met is announcing. Anyone there, knowing
-  nothing, can replay a captured announcement from their own address and learn
-  from who dials back which devices hold the folder it names, along with their
-  network IDs. Announcements more than five minutes off the listener's clock
-  are ignored, and a listener that hears only such announcements from one
-  address raises "clock differs from LAN peers" (`keys.md` §2.2).
-- **Public trackers (the DHT)**, once on, as setup will suggest: which
-  addresses announce a folder's hash for the day. The hash changes daily and doesn't give away the folder,
-  but anyone who has had or seen a key can compute every day's hash. And anyone,
-  with no key, can follow one device across days and folders by its stable
-  address, or by the stable identifiers it publishes with its announcements:
-  the key that signs its address record and a persisted node ID (TM-24).
+- **The local network**, once finding devices there is on: that a device runs
+  LicketySync, its ports (the same default on every device, unless that one was
+  taken) and its number of folders, only as a bucket of 4, 8, 16, 32 or 64. A
+  beacon carries no minute (a listener tries the 11 minutes within 5 of its
+  own) and a fresh salt, so for anyone who knows no folder ID in it the
+  hashes link nothing; only the source address links one interface's beacons.
+  Someone who knows a folder ID can confirm the folder, see which address
+  announces it and read the announcer's clock to the minute. A device it has
+  met can tell its beacons. Anyone can replay a captured beacon to listeners
+  that missed the original, for up to 11 minutes, and learn from who dials back
+  which devices dial, not which folder (`keys.md` §2.2, TM-25).
+- **Public trackers (the DHT)**, once on: which addresses announce a folder's
+  hash for the day. The hash changes daily and doesn't give away the folder,
+  but anyone who has had or seen a key can compute every day's hash. And
+  anyone, with no key, can follow one device across days and folders by its
+  stable address, or by the stable identifiers it publishes with its
+  announcements: the key that signs its address record and a persisted node ID
+  (TM-24). The nodes a device asks see its address and the hashes it looks up.
 - **Anyone on the internet, while the router's port is open**: that the device
   runs LicketySync, by connecting to the port, and so what anyone who
   completes a connection learns (next).
@@ -305,8 +306,9 @@ whether other files they have are in it.
 
 {% <more summary="The full list"> %}
 
-It can't read contents, names, the folder's layout, dates, exact sizes, modes, the device IDs or counters inside
-records, or which records are deletions, short of the cases below. It sees:
+It can't read contents, names, the folder's layout, dates, exact sizes, modes,
+the device IDs or counters inside records, or which records are deletions,
+short of the cases below. It sees:
 
 - each record's file ID, a keyed tag that names no path, so how many files
   there are and how often each changes;
@@ -338,17 +340,17 @@ Pieces are cut at places derived from the folder's key, which stops a storage
 device cutting a file it already has and matching the piece sizes. But
 published attacks recover such keys from the piece sizes of files an attacker
 knows or chose, after which known files can be confirmed in that folder for as
-long as it exists (TM-14, `keys.md` §3.2). Which chunker the phase now under way
-adopts is still open; today's code cuts fixed-size pieces, whose sizes show only a
-file's size.
+long as it exists (TM-14, `keys.md` §3.2). Which keyed chunker the phase now
+under way adopts is still being researched; today's code cuts fixed-size
+pieces, whose sizes show only a file's size.
 
 {% </more> %}
 
 ## Hole punching in detail {#hole-punching-in-detail}
 
-Hole punching arrives in the next phase, and relays later still. A
-coordinator carries only a punch's set-up, never files, and only a device that
-shares a folder with yours, or proves a key to one, can punch through to it.
+Hole punching arrives in the next phase, and relays later still. A coordinator
+carries only a punch's set-up, never files, and only a device that shares a
+folder with yours, or proves a key to one, can punch through to it.
 
 {% <more summary="How it works, its numbers and its stated residuals"> %}
 
@@ -356,20 +358,20 @@ From the next phase (TM-25):
 
 - **Who coordinates.** Only a computer whose person turned on coordinating,
   never a phone; a computer that relays also coordinates, within its relay
-  limits. Coordinating will come in two modes: for the devices of the person's
-  own shared folders only, which setup will suggest on computers, and for
-  anyone who reaches the device, which it never suggests. A coordinator needs
-  no key to any folder. Setup will suggest the fourth level of "Who may help
-  with a hole punch?", so a stranger's public relay can coordinate a folder's
-  punches. A device a computer helps lists that computer, by its address and
-  network ID, to the peers of its folders whose settings allow it, and in
-  invites to such folders that carry addresses, so strangers can learn both
-  and ask that computer for a punch. A computer that shares a folder with it,
-  whatever its mode, is listed only to the peers of the folders the two have
-  open, never in an invite. A computer coordinating only for the devices of
-  its own folders always shares one, and joins only two devices that have the
-  same one of its folders open with it; anyone who holds one of that folder's
-  keys is such a peer.
+  limits. Coordinating comes in two modes: for the devices of the person's own
+  shared folders only, which setup will suggest on computers, and for anyone
+  who reaches the device, which it never suggests. A coordinator needs no key
+  to any folder. Setup will suggest the fourth level of "Who may help with a
+  hole punch?", so a stranger's public relay can coordinate a folder's punches.
+- **Who learns of a coordinator.** A device a computer helps names that
+  computer, by its address and network ID, to the peers of its folders whose
+  settings allow it, and in invites to such folders that carry addresses, so
+  strangers can learn both and ask that computer for a punch. A computer that
+  shares a folder with it, whatever its mode, is named only to the peers of
+  the folders the two have open, never in an invite, though anyone who holds
+  one of those folders' keys is such a peer. A computer coordinating only for
+  the devices of its own folders always shares one, and joins only two devices
+  that have the same one of its folders open with it (`keys.md` §6.3).
 - **Who may help with a hole punch?** One of four levels, each including the
   ones before: nobody; devices you share a folder with; also devices yours is
   connected to directly; also any device yours knows of, and any public relay
@@ -378,15 +380,12 @@ From the next phase (TM-25):
   treated as paused.
 - **How the two find a coordinator.** The device that wants to be reachable
   keeps a standing connection with one to three coordinators its settings
-  allow, and lists them only to the devices of its folders whose settings allow
-  them, and, unless a coordinator is a peer of one of its folders, in invites
-  to such folders that carry addresses; never in the DHT.
-  A device that wants to reach it tries at most three of them, two at a time.
+  allow, and lists them as above; never in the DHT. A device that wants to
+  reach it tries at most three of them, two at a time.
 - **What a coordinator learns.** That two devices are connecting, when, their
   public addresses and network IDs, and which devices keep a standing
-  connection with it. It passes at most 64 KiB and 60 seconds of set-up for
-  each punch, takes requests only over direct connections, and never carries
-  the sync protocol, so it never becomes a relay.
+  connection with it. It takes requests only over direct connections, and
+  never carries the sync protocol, so it never becomes a relay.
 - **Limits, by side.** On the coordinator: at most 64 KiB and 60 seconds for
   each punch, at most 64 punches at once and 120 opened in any minute, so about
   7.5 MiB a minute over a long run and at most about 11.5 MiB in any one
@@ -399,17 +398,17 @@ From the next phase (TM-25):
   online and which device it is. A person left behind still qualifies through
   the old folder until it is unlinked, with their key or through the per-peer
   record kept for up to 90 days, and through any other folder they share.
-- **Stated residuals.** A punch tries only a few public addresses, but can reach
-  a private network behind a translator whose prefix or mapping the device
-  can't learn, or a public-looking network reached by a non-default route, as
-  with a split-tunnel VPN. A device yours admitted, or that admitted yours, can
-  make it send punch attempts to up to 8 public addresses of its choosing, its
-  own network's among them, at most 20 attempts and 160 short bursts a minute.
-  A requester your device refuses that knows its network ID and coordinators
-  can keep it from being reached through those coordinators for as long as it
-  keeps asking; its other connections are unaffected. A coordinator that
-  ignores its own caps can make the device run at most 6 admission handshakes
-  a minute through it.
+- **Stated residuals.** A punch tries only a few public addresses, but can
+  reach a private network behind a translator whose prefix or mapping the
+  device can't learn, or a public-looking network reached by a non-default
+  route, as with a split-tunnel VPN. A device yours admitted, or that admitted
+  yours, can make it send punch attempts to up to 8 public addresses of its
+  choosing, its own network's among them, at most 20 attempts and 160 short
+  bursts a minute. A requester your device refuses that knows its network ID
+  and coordinators can keep it from being reached through those coordinators
+  for as long as it keeps asking; its other connections are unaffected. A
+  coordinator that ignores its own caps can make the device run at most 6
+  admission handshakes a minute through it.
 
 **Relays**, from the last phase before 1.0, are public only: any computer whose
 person turned relaying on, never a phone, treated as a stranger by every
@@ -442,18 +441,14 @@ a watermark, a short note a device with the write key signs (TM-40, TM-43):
   its own clock says, and ignores them if they are sent again. Storage devices
   read no watermark: they forget only what a clean-up from a device with the
   write key names.
-- Forgetting comes a year or more after a deletion arrived, sooner where that
-  device's clock is wrong, and nothing promises when. A late deletion holds
-  back the forgetting of later ones until it has been held a year. A write key
-  holder who keeps signing deletions just past the last watermark, or a storage
-  or read-only device that is a write key device's only link and passes
-  deletions on slowly, or someone on the network who cuts a device off and lets
-  deletions through late, can hold forgetting back without bound. That costs
-  storage, never a file.
-- Once nobody deletes any more, devices stop signing, so the last year's
-  watermarks, and the clean-ups that tell storage devices to forget deletions
-  already forgotten, stay on every device until the next deletion brings a new
-  watermark.
+- Nothing promises when. A late deletion holds back the forgetting of later
+  ones until it has been held a year. A write key holder who keeps signing
+  deletions just past the last watermark, a storage or read-only device that is
+  a write key device's only link and passes deletions on slowly, or someone on
+  the network who cuts a device off and lets deletions through late, can hold
+  forgetting back without bound. Once nobody deletes any more, the last year's
+  watermarks and clean-ups stay on every device until the next deletion brings
+  a new watermark.
 - What it costs: deleting a folder of 100 000 files sends about 3.4 MB of
   clean-up notes, 34 bytes per file, kept a year or more on each device that
   can read the folder. Each device with the write key can sign one watermark a
@@ -472,18 +467,17 @@ most deletions forgotten early, whose files come back.
 
 {% <more summary="Each case"> %}
 
-No ordering decision depends on a clock: versions are ordered by version
-vectors, and no device or version is refused for its clock (TM-40). A device's
-clock enters the index in two places only: the counter of each version it
-writes, which follows its clock or runs just above the greatest counter it has
-seen; and, on a device with the write key, when each deletion reached it, for
-the watermark. One door-keeping check reads the clock: listeners ignore LAN
-announcements more than five minutes off their own clock, though the device
-can still connect by address or through peers. Everything else the clock
-serves is advisory, such as lease lengths, protocol timeouts and the daily
-hash for public trackers. That hash is looked up for the day before and the
-day after too, so a device whose clock is more than a day off can't find
-others, or be found, through public trackers (`keys.md` §2.2).
+Versions are ordered by version vectors, and no device or version is refused
+for its clock (TM-40). A device's clock enters the index in two places only:
+the counter of each version it writes, which follows its clock or runs just
+above the greatest counter it has seen; and, on a device with the write key,
+when each deletion reached it, for the watermark. One door-keeping check reads
+the clock: listeners ignore LAN announcements more than five minutes off their
+own clock, though the device can still connect by address or through peers.
+Everything else the clock serves is advisory, such as lease lengths, protocol
+timeouts and the daily hash for public trackers, which is looked up for the day
+before and the day after too, so a device whose clock is more than a day off
+can't find others, or be found, through public trackers (`keys.md` §2.2).
 
 - **The worst case.** A device with the write key whose clock jumps a year or
   more ahead signs a watermark at the greatest counter it holds, so every
@@ -532,10 +526,10 @@ The threat model states these as accepted, or as work still to do;
 - **Hole punching**: the residuals in
   [Hole punching in detail](#hole-punching-in-detail) (TM-25).
 - **WebSocket** is classical end to end today and can be forced by blocking UDP
-  and raw TCP; a fix is planned for the next phase (TM-1). Circuits with
-  a browser client at one end use classical Noise.
-- **Transport limits** on QUIC and TCP resources are required before 1.0
-  (TM-22's residuals (a) to (c) and (h)).
+  and raw TCP; a fix for its outer layer is planned for the next phase (TM-1).
+  Circuits with a browser client at one end use classical Noise.
+- **Transport limits** on QUIC and TCP resources are required before 1.0, and
+  are being built now (TM-22's residuals (a) to (c), (h) and (i)).
 - **The browser version** trusts licketysync.app at each load; a broken-into
   host can serve a changed version to those it expects won't check, and keys
   taken stay usable until the folders move. A signed manifest and verifying
@@ -547,14 +541,14 @@ The threat model states these as accepted, or as work still to do;
 ## Where today's code differs
 
 The specifications, a simulator that runs the sync engine on many simulated
-devices, and the `keys`, `protocol`, `index` and `engine` crates exist; nothing
-syncs on a real disk or network yet. The index is in memory, files are cut into
-fixed-size pieces rather than at key-derived places, and the code still forgets
-deletions by the folder's own time and refuses devices whose clocks are more
-than a year apart. The phase now under way replaces those with the signed watermark this
-manual describes. Today's engine also holds at most 256 folders on a device and
-syncs at most 64 with any one device, and the space freed by dropped pieces can
-wait for the next round of syncing, an open question. The
+devices, and the `keys`, `protocol`, `index`, `engine` and `net` crates exist,
+with an SQLite store for the index (in the `daemon` crate) and the one path resolver for the disk (in the `fs` crate);
+nothing syncs on a real disk or network yet, and no key is stored on disk.
+Deletions are already forgotten by the signed watermark, with no clock rule.
+Files are still cut into fixed-size pieces rather than at key-derived places.
+Today's engine holds at most 256 folders on a device and syncs at most 64 with
+any one device, and the space freed by dropped pieces can wait for the next
+round of syncing, an open question. The
 [changelog](https://github.com/LicketySync/core/blob/main/CHANGELOG.md) records
 each change.
 

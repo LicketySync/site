@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 220" width="560" height="220">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .sky { fill: #9CC9FF; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
+    .t2 { stroke: #14857E; }
+    /* Marks drawn on a fill that stays the same in dark keep dark ink. */
+    .fix { stroke: #2A2135; }
+    /* Zippy, the folder from the logo. Its outline turns light in dark, as
+       ink on the page does; its face, and the line between its back and
+       front, sit on fills that stay the same, so they keep dark ink. */
+    .zip { stroke: #2A2135; }
+    .zip-face { fill: #2A2135; }
+    .zip-line { stroke: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .zip { stroke: #F7EFE5; }
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .t2 { stroke: #7ED9CF; }
+    }
+  </style>
+  <ellipse class="blob" cx="280" cy="196" rx="264" ry="16"/>
+  <circle class="mint" cx="40" cy="52" r="5"/>
+  <circle class="coral" cx="470" cy="160" r="5"/>
+  <!-- The path, from where things stand to version 1.0. -->
+  <path class="trail t2" d="M24 176C84 176 104 130 164 130S244 160 304 152S384 100 434 98S500 70 528 64"/>
+  <!-- Done: a ticked flag. -->
+  <g class="ink">
+    <path class="none" d="M164 130V76"/>
+    <path class="mint" d="M164 78L204 90L164 104Z"/>
+  </g>
+  <g class="ink thin">
+    <path class="none fix" d="M171 91L176 96L185 86"/>
+  </g>
+  <!-- Now: Zippy on its way to the next flag. -->
+  <g class="ink">
+    <path class="none" d="M304 152V98"/>
+    <path class="sun" d="M304 100L344 112L304 126Z"/>
+    <path class="none" d="M374 118V70"/>
+    <path class="paper" d="M374 72L408 82L374 94Z"/>
+    <path class="none" d="M434 98V50"/>
+    <path class="paper" d="M434 52L468 62L434 74Z"/>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M212 112H198M214 126H202M218 98H206"/>
+    <path class="none" d="M234 141L229 152H223M254 141L259 151L265 149"/>
+  </g>
+  <g transform="translate(244 116) rotate(-6) scale(0.26)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="skewX(-10)" stroke-width="15">
+      <path class="coral" d="M-78 99A30 30 0 0 1-108 69V-75A24 24 0 0 1-84-99H-32C-20-99-13-94-7-86L2-74C6-68 11-65 19-65H78A30 30 0 0 1 108-35V69A30 30 0 0 1 78 99Z"/>
+      <rect class="sun zip-line" x="-108" y="-29" width="216" height="128" rx="30"/>
+      <path class="zip" d="M-78 99A30 30 0 0 1-108 69V-75A24 24 0 0 1-84-99H-32C-20-99-13-94-7-86L2-74C6-68 11-65 19-65H78A30 30 0 0 1 108-35V69A30 30 0 0 1 78 99Z"/>
+      <circle class="zip-face" cx="2" cy="23" r="16" stroke="none"/>
+      <circle class="zip-face" cx="56" cy="23" r="16" stroke="none"/>
+      <path class="zip-line" stroke-width="13" d="M8 56Q29 72 50 56"/>
+    </g>
+  </g>
+  <!-- Version 1.0: a burst of sparkles. -->
+  <g class="sun">
+    <path transform="translate(528 52) scale(1.4)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path transform="translate(504 30) scale(0.7)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path transform="translate(546 88) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+  <circle class="sky" cx="500" cy="64" r="4"/>
+  <circle class="mint" cx="548" cy="30" r="4"/>
+</svg>

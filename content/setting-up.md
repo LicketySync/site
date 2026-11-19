@@ -67,8 +67,8 @@ no internet needed.
 - {{ <lead_in text="What you get:" /> }} devices on one network find each other
   without anyone typing anything in.
 - {{ <lead_in text="What it costs and shows:" /> }} anyone on that network, a
-  café's say, can see that your device runs LicketySync and how many folders
-  it offers. Anyone who has had or seen one of a folder's keys can tell that
+  café's say, can see that your device runs LicketySync and roughly how many
+  folders it offers (in steps). Anyone who has had or seen one of a folder's keys can tell that
   the folder is there, and which devices on the network hold it. Anyone else
   there can still tell which devices share a folder, without learning which.
 - {{ <lead_in text="The setting:" /> }} in the recommended settings. Each folder
@@ -83,8 +83,8 @@ port it listens on. Its announcements are scrambled afresh each time, with one
 scrambled code for each folder, so on their own they name neither your folders
 nor your device. Anyone who knows a folder can recognise its code; anyone your
 device has connected to before can recognise your device; and anyone on the
-network can replay an announcement and see which devices answer, and so which
-of them hold that folder, without learning which folder it is.
+network can replay an announcement and see which devices answer, and so that
+each holds a folder it named, without learning which folder it is.
 
 {% </more> %}
 

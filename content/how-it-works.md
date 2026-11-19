@@ -51,8 +51,7 @@ Nothing like this is on until you answer setup, which will suggest using both
 A storage device still sees the folder's shape, such as how many files there
 are and roughly how big. It can also hold changes back, or offer old
 versions again, which can bring back a deleted file once devices forget the
-deletion: a year or more after it, sooner if a device with the write key has a
-wrong clock.
+deletion, a year or more after it.
 [Risks](@/risks.md#storage-devices-see-the-shape-of-your-folder) has the rest.
 
 ## When two changes collide
@@ -64,53 +63,29 @@ nothing is thrown away.
 
 {{ <illustration src="how-it-works-conflict.svg" alt="Two versions of the same document side by side in a folder, one plain and one with a small tag marking it as the conflict copy." width={360} height={220} /> }}
 
-{% <more summary="How a collision is settled"> %}
-
-- Every device shows the same thing: the version with the later modification
-  time is the file, and the other is the copy.
-- If both versions turn out to be identical, the file shows once, and no copy
-  is made.
-- Once someone saves the file again, the conflict copy becomes an ordinary
-  file. It stays until you delete it.
-- An edit beats a delete. If one device deletes a folder while another saves
-  a new file in it before hearing about the delete, the new file stays. The
-  main exception: a file renamed inside that folder, whose new name hadn't
-  reached the deleting device yet, can go with the folder, into the archive.
-
-{% </more> %}
-
-## The archive has your back
-
 When a change from another device replaces or deletes a file on yours, the
-old version goes to the folder's **archive** on your device, so a mistake on
-one device doesn't have to cost you the file. It keeps files 30 days unless
-you change that, and you'll be able to turn it off.
-
-There's a **deletion brake**, too: if a lot of files vanish from your own
-disk at once, say a drive comes unplugged, the folder will pause and send no
-deletions to your other devices until you say you meant it.
-
-The archive limits what's lost, but it can't stop someone with the write key
-from deleting on purpose, and the deletion brake doesn't hold back deletions
-from other devices. [Risks](@/risks.md#deleted-files-can-come-back) also explains
-when a deleted file can come back.
+old version goes to the folder's **archive** on your device, 30 days unless
+you change that. And if a lot of files vanish from your own disk at once, say
+a drive comes unplugged, a **deletion brake** pauses the folder until you say
+you meant it. [Conflicts and the archive](@/conflicts-and-the-archive.md)
+has the whole story.
 
 {% <more summary="What each device keeps"> %}
 
 For each file, a device keeps only its latest version, as one small signed
 entry in the folder's list of files, and for each deleted file a small entry
-for a year or more, sooner if a device with the write key has a wrong clock.
-Older versions live in the archives, not in the list, so the list grows with
-the number of files, not with how often they change.
+for a year or more ([Risks](@/risks.md#deleted-files-can-come-back) has the
+detail). Older versions live in the archives, not in the list, so the list
+grows with the number of files, not with how often they change.
 
 {% </more> %}
 
 ## Where it stands
 
-None of this ships yet: today LicketySync is a written design and a
-simulator that tests it on many simulated devices, and syncing between
-computers on one network is being built.
-[Features](@/features.md#where-things-stand) has what's coming.
+None of this ships yet: today LicketySync is a written design, a simulator
+that tests it on many simulated devices and the first building blocks, and
+syncing between computers on one network is being built.
+[What's ready and what's next](@/whats-next.md) has the order things come in.
 
 {% <note> %}
 **For the curious.** The protocol's

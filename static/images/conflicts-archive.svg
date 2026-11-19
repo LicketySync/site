@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 220" width="440" height="220">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .old { fill: #EDE3D6; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
+    .t1 { stroke: #E8553D; }
+    .t2 { stroke: #14857E; }
+    /* Lines drawn on a fill that stays the same in dark keep dark ink. */
+    .fix { stroke: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .screen { fill: #24344A; }
+      .old { fill: #4A3F57; }
+      .t1 { stroke: #FF8E77; }
+      .t2 { stroke: #7ED9CF; }
+    }
+  </style>
+  <ellipse class="blob" cx="220" cy="198" rx="204" ry="15"/>
+  <circle class="mint" cx="22" cy="40" r="5"/>
+  <circle class="coral" cx="250" cy="182" r="5"/>
+  <g class="sun">
+    <path transform="translate(244 32) scale(0.8)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path transform="translate(424 168) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+  <!-- A laptop, where a new version arrives. -->
+  <g class="ink">
+    <rect class="paper" x="38" y="44" width="172" height="112" rx="10"/>
+    <rect class="paper" x="22" y="156" width="204" height="16" rx="8"/>
+  </g>
+  <rect class="screen" x="50" y="56" width="148" height="88" rx="4"/>
+  <path class="trail t2" d="M64 70Q76 62 90 72"/>
+  <g class="ink">
+    <rect class="mint" x="98" y="64" width="54" height="70" rx="6"/>
+  </g>
+  <g class="ink thin">
+    <path class="none fix" d="M108 82H142M108 96H142M108 110H130"/>
+  </g>
+  <!-- The old version drops into the archive. -->
+  <path class="trail t1" d="M200 92Q252 54 300 76T356 104"/>
+  <g class="ink" transform="rotate(18 264 94)">
+    <rect class="old" x="244" y="68" width="40" height="52" rx="5"/>
+  </g>
+  <g class="ink thin" transform="rotate(18 264 94)">
+    <path class="none" d="M252 82H276M252 94H276M252 106H268"/>
+  </g>
+  <g class="ink">
+    <rect class="coral" x="306" y="122" width="100" height="64" rx="8"/>
+    <rect class="sun" x="298" y="108" width="116" height="20" rx="6"/>
+  </g>
+  <g class="ink thin">
+    <rect class="paper fix" x="340" y="144" width="32" height="10" rx="5"/>
+    <circle class="paper" cx="408" cy="98" r="16"/>
+    <path class="none" d="M408 89V98L415 102"/>
+  </g>
+</svg>

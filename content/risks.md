@@ -35,31 +35,17 @@ over a channel you already trust
 ([Sending a key safely](@/sharing.md#sending-a-key-safely)). To move,
 follow [Removing someone](@/sharing.md#removing-someone).
 
-{% <more summary="What a key lets its holder do, and what moving costs"> %}
+{% <more summary="What a key gives away, and what a lost device costs"> %}
 
 - Nothing records who holds a key. The write key can give out any of the three
   keys, the read key the read and sealed keys, and the sealed key only itself.
-- Changes made on a device that holds only the read key stay on it: every other
-  device rejects a change the write key didn’t sign.
 - Any key gives away the folder’s ID, a code that names the folder. With it,
   someone can check whether the folder is on a local network they join, and
   find, through public trackers, the addresses of the devices that offer it.
-- An invite that carries your addresses gives them away, along with the
-  hole-punch coordinators your device uses that share no folder with it (the
-  helpers that introduce two devices so they can connect directly). Invites
-  for the browser version, and one-time links for sending a file, will always
-  carry them.
-- The write key can also be shown as 24 words that look just like a
-  cryptocurrency wallet’s recovery phrase, so programs that hunt for wallet
-  phrases will take them too. Keep them as secret as a wallet phrase, and type
-  them nowhere else.
 - Whoever has a lost or stolen device can read the files it held, and, past its
   key store’s protection (your system’s keychain, or a passphrase), use every
-  folder key it held, for good. They get no other folder’s keys. Any program
-  running as you, malware included, can read what you can, keys too.
-- Moving to a new folder, step by step, and what it doesn’t do, are in
-  [Removing someone](@/sharing.md#removing-someone). Do it for every folder a
-  lost device held. Restoring from the archive comes with the archive, later.
+  folder key it held, for good. Any program running as you, malware included,
+  can read what you can, keys too. Move every folder a lost device held.
 - A device that misses the move keeps syncing with them, and until your device
   unlinks the old folder, they can still reach it through hole punches.
 
@@ -74,7 +60,8 @@ keeps what it already had, archive included.
 
 {{ <lead_in text="How much it matters:" /> }} someone with a read key could see
 that you edit late at night. {{ <lead_in text="What to do:" /> }} keep files
-whose timing you want private in a folder of their own.
+whose timing you want private in a folder of their own, on your own devices,
+and give your devices names you don't mind others seeing.
 
 {% <more summary="More of what they see"> %}
 
@@ -84,12 +71,9 @@ whose timing you want private in a folder of their own.
   roughly when deletions were forgotten.
 - A change names a device, never a person, and a write key holder can sign a
   change in any device’s name, so nothing shows who made a change.
-- Each device keeps its own archive, for as long as its person chooses, so a
-  file you change or delete stays in the archive of every other device that
-  had it. On a device that unlinks the folder, its files stay as ordinary
-  files.
-- Keep keys to a private folder on your own devices only, and give your devices
-  names you don’t mind others seeing.
+- A file you change or delete stays in the archive of every other device that
+  had it, for as long as its person chooses, and on a device that unlinks the
+  folder, as ordinary files.
 
 {% </more> %}
 
@@ -132,6 +116,7 @@ write key only to people you'd trust with every file.
   be shared again as a new one.
 - Make every device forget every deletion at once, which brings deleted files
   back wherever a copy survives.
+- Change the folder's ignore file, and so what syncs for everyone.
 - Sign changes that no release can read, which moves those files into each
   device’s archive with a warning ([Rarer things](#rarer-things)).
 
@@ -155,17 +140,17 @@ returns after a year away.
 
 Each device with the write key counts the year by its own calendar, from when
 the deletion reached it, then signs a short note, and every device that gets
-the note forgets the same deletions. Storage devices can bring such a file back
-too. A returning file comes back as itself, or as a conflict copy beside a
-newer file of the same name. A file you deleted on a device that then stayed
-offline for more than a year comes back on that device when it reconnects, if
-forgetting has passed its deletion by then. A deletion that arrives late holds
-back the forgetting of later ones, and someone who wants deletions kept can
-hold forgetting back, which costs only storage. A clock that jumps ahead can
-come from a mistyped year, a machine whose clock is wrong when it starts or
-someone with no key who fakes the time a device takes from the network; nothing
-guards against it. The mechanism, and what it costs, is in
-[Forgetting deletions in detail](@/for-reviewers.md#forgetting-deletions-in-detail).
+the note forgets the same deletions. A returning file comes back as itself, or
+as a conflict copy beside a newer file of the same name; storage devices can
+bring one back too, and so can a device where you deleted it and that then
+stayed offline for over a year. A deletion that arrives late holds back the
+forgetting of later ones, and someone who wants deletions kept can hold
+forgetting back, which costs only storage. A clock that jumps ahead can come
+from a mistyped year, a machine whose clock is wrong when it starts or someone
+with no key who fakes the time a device takes from the network; nothing guards
+against it.
+[Forgetting deletions in detail](@/for-reviewers.md#forgetting-deletions-in-detail)
+has the rest.
 
 {% </more> %}
 
@@ -204,8 +189,8 @@ browser extensions will be able to check.
 
 Anyone watching the network sees which addresses talk, and if you take the
 recommended settings, anyone on your local network, or who reaches the port
-your router opens, can see that your device runs LicketySync, and anyone who has had or
-seen a folder's key can find the addresses that offer it.
+your router opens, can see that your device runs LicketySync, and anyone who
+has had or seen a folder's key can find the addresses that offer it.
 [Privacy](@/privacy.md#what-no-peer-to-peer-program-can-hide) says what else
 shows, and [How devices find each other](@/finding-each-other.md) what each way
 of connecting gives away.
@@ -213,48 +198,21 @@ of connecting gives away.
 ## Rarer things
 
 Two edits made at once leave a conflict copy, and copies can pile up where many
-devices write one file.
-
-{% <more summary="Conflict copies"> %}
-
-When two devices change a file before either sees the other’s change, both
-versions are kept: one as the file, the other as a conflict copy beside it.
-Nothing is merged, and an edit beats a delete. An edit made while a newer
-version is still downloading is a conflict too. Saving the file again turns
-each copy into an ordinary file, which stays until someone deletes it; a log
-that four machines add to at the same moment every hour can leave about 26 000
-copies a year. Each version remembers only the 32 devices that wrote the file
-last, so a device away while more than 32 others changed it comes back with a
-conflict copy. Only the latest versions are kept for syncing; older ones
-survive only in the archive. {{ <lead_in text="What to do:" /> }} settle and
-delete conflict copies, and give each machine its own file to write
-([When two changes collide](@/how-it-works.md#when-two-changes-collide)).
-
-{% </more> %}
+devices write one file: [Conflicts and the archive](@/conflicts-and-the-archive.md)
+says how to settle them.
 
 Relays and hole-punch coordinators, the helpers setup will suggest using, see
 both devices' addresses, never your files.
 
 {% <more summary="What helpers see, and what hole punching costs"> %}
 
-- A relay passes the encrypted traffic between two devices that can’t reach
-  each other. It sees how much they send, and can slow, drop or cut the
-  connection. Every relay is treated as a stranger’s, your devices use relays
-  only once you turn them on, and setup will never make your device a relay
-  for others.
-- A hole-punch coordinator passes the first few messages of a punch, never
-  your files; one that lies only makes the punch fail. Punches need a helper: a
-  computer whose person turned on helping others with them (a relay also
-  helps), and that the folder's “Who may help with a hole punch?” setting
-  allows. Setup will suggest the widest setting, so a stranger's public relay
-  can help, and on computers it will suggest helping the devices you share a
-  folder with, never anyone else; the devices it helps then pass your
-  computer's address and network ID on to the other devices of the folders
-  you share with them, never in an invite. Every helper used learns that your
-  two devices are connecting and when, and their addresses, never file data.
-- The devices you share folders with learn which coordinators your device
-  uses, and anyone who gets an invite with your addresses learns those that
-  share no folder with it.
+- A relay sees how much two devices send, and can slow, drop or cut the
+  connection. A coordinator that lies only makes a punch fail.
+- With the recommended settings, a stranger’s public relay can coordinate,
+  and learns that your two devices are connecting and when, and their
+  addresses. And the devices your computer helps pass its address and network
+  ID on to the other devices of the folders you share
+  ([Hole punching](@/finding-each-other.md#hole-punching) has more).
 - A person you left behind can still punch through to your device until the old
   folder is unlinked on it, or while they share another folder with it.
 - In a few unusual setups a punch can reach a private network; a device yours
@@ -275,12 +233,12 @@ encryption, which a future quantum computer could open.
 
 {% <more summary="Older encryption"> %}
 
-It is a web-style connection (WebSocket), and anyone who blocks the other ways
-between two devices can force them onto it. A recording of it would show a
-future quantum computer what a storage device sees, never your files or their
-names. A connection through a relay or a hole-punch coordinator with the
-browser version at one end has the same weakness, and could show the folder’s
-ID. A fix for the web-style connection is planned.
+Anyone who blocks the other ways between two devices can force them onto a
+web-style connection (WebSocket). A recording of it would show a future
+quantum computer what a storage device sees, never your files or their names.
+A connection through a relay or a hole-punch coordinator with the browser
+version at one end has the same weakness, and could show the folder’s ID. A
+fix for the web-style connection is planned.
 
 {% </more> %}
 
@@ -289,20 +247,18 @@ files, though it can't read or sign anything.
 
 {% <more summary="What a storage device can do"> %}
 
-- Go offline, or serve slowly.
-- Show an out-of-date copy to a device on its first sync, until that device
-  meets an up-to-date one.
+- Go offline, serve slowly or show an out-of-date copy to a device on its
+  first sync, until that device meets an up-to-date one.
 - Bring back a file whose deletion was forgotten, or slow forgetting down if
   it’s a device’s only link to the others.
 - Make a folder deletion take a renamed file, by holding back its new name.
 - Keep old copies until a device with the write key meets it and tidies up;
   its status will show how many extra versions it holds.
-- Send another storage device old versions it kept, which that one keeps too,
-  or an old deletion, which makes it drop a file that came back, until a device
-  with the write key meets it. Anyone with the read key can do the same.
-- Send an old broken change again, which makes a file that came back leave the
-  disks of the devices that read the folder, into their archives, with a
-  warning.
+- Send another storage device old copies, which it keeps too, or an old
+  deletion, which makes it drop a file that came back, until a device with the
+  write key meets it. Anyone with the read key can do the same.
+- Send an old broken change again, which moves a file that came back into the
+  archives of the devices that read the folder, with a warning.
 
 None of it loses a file while the archive is on.
 {{ <lead_in text="What to do:" /> }} let a device with the write key meet each
@@ -319,12 +275,11 @@ It happens when such a version, from a newer release or a write key holder,
 replaces every version of the file your device has; on a computer the warning
 will also show in the status bar and as a notification. The archived copy is
 kept until it’s fixed, past the archive’s usual time and even with the archive
-off: until a save from a device that had the old version, or an update that
-reads the change. An edit made elsewhere brings the file back, but leaves the
-warning. Once you save on that device, the copy goes when the archive’s time is
-up, at once with the archive off, so restore from it first. A device with only
-the read key can’t save, and waits for one with the write key. A change of a
-kind no release knows stays beside the file for good.
+off: until the file is saved again on a device that had the old version, or
+your device is updated to a release that reads the change. Once you save on
+that device, the copy goes when the archive’s time is up, at once with the
+archive off, so restore from it first. A device with only the read key can’t
+save, and waits for one with the write key.
 {{ <lead_in text="What to do:" /> }} keep every device on the same release,
 restore what you want from the archive and save the file again from a device
 with the write key.
@@ -340,9 +295,8 @@ old one goes to the archive.
   clones of one disk image.
 - A device restored from a backup while its clock reads earlier than its last
   change before the backup.
-- A folder deleted on one device that also takes a file it hadn’t received yet,
-  usually after a rename inside it, when the old name’s removal arrived before
-  the new name.
+- A folder deleted on one device that also takes a file it hadn’t received
+  yet, usually after a rename inside it.
 
 {{ <lead_in text="What to do:" /> }} never run two machines from one copy of a
 device’s data, check a restored device’s clock and let it sync before anyone
@@ -356,15 +310,12 @@ heard on the local network or found through public trackers.
 {% <more summary="Clock edge cases"> %}
 
 - A write key device whose clock runs fast forgets deletions early, by as much
-  as it gained. A clock off by the same amount all year counts the year right,
-  and one set back forgets late.
+  as it gained. A clock off by the same amount all year counts the year right.
 - A device whose clock reads far behind, and that has seen little of the
   folder, has its own deletions undone.
-- A device whose announcements on the local network are more than a few
-  minutes off is ignored there, though it can still connect by address or
-  through other devices.
-- A device whose clock is more than a day off can't find others, or be found,
-  through public trackers.
+- A device more than a few minutes off is ignored on the local network, and
+  one more than a day off can't find others, or be found, through public
+  trackers. It can still connect by address or through other devices.
 - A version’s time is its writer’s clock reading, so a wrong clock shows wrong
   times for its own versions only.
 
@@ -406,8 +357,6 @@ And a few small things you might notice, none of which loses a file.
 ## Where the details live
 
 The [threat model](https://github.com/LicketySync/core/blob/main/spec/threat-model.md)
-has these risks in full, and the
-[changelog](https://github.com/LicketySync/core/blob/main/CHANGELOG.md) the
-limits of today's engine;
+has these risks in full, and
 [For IT and privacy reviewers](@/for-reviewers.md#the-main-residual-risks)
 explains them precisely. This page changes when the design does.

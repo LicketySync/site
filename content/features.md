@@ -1,27 +1,12 @@
 +++
 title = "Features"
-description = "What LicketySync will do, and in what order, in plain words."
+description = "What LicketySync will do, in plain words, and whether each part is being built now or comes later."
 +++
 
 Nothing on this page ships yet: LicketySync is still being built, and there's
-nothing to download. Here's what it will do, and roughly in what order. We
-won't promise dates.
-
-## Where things stand
-
-- **Now:** syncing between computers on the same network, from the command
-  line, is being built. The design is written down in detail, though some
-  parts, such as public relays, Tor and the browser version, are still to be
-  worked out. The heart of it, the sync engine, is tested on many simulated
-  devices. Nothing syncs on a real disk or network yet.
-- **Next:** finding each other across the internet, and storage devices.
-- **Later:** apps for computers and phones, linked devices, choosing what each
-  device keeps, the archive, the version that runs in your web browser, and
-  public relays and Tor. Then a careful testing pass before version 1.0, with no test versions
-  (betas) before it.
-
-Each feature below says whether it's being built now, coming next or coming
-later.
+nothing to download. Here's what it will do. Each feature says whether it's
+being built now, coming next or coming later;
+[What's ready and what's next](@/whats-next.md) has the order, without dates.
 
 ## Syncing
 
@@ -68,7 +53,8 @@ suggest all three, and each is your choice:
 
 ### Leave things out
 
-An ignore file will list the things in a folder you'd rather not sync.
+An ignore file will list the things in a folder you'd rather not sync, with
+the same rules as git's: [Choosing what syncs](@/choosing-what-syncs.md).
 
 <p class="status">Being built now</p>
 
@@ -139,7 +125,8 @@ when, to the microsecond, and can pass it on for good.
 ### Conflict copies
 
 When two people change the same file at once, both versions are kept, one as a
-conflict copy beside the file. Nothing is merged or lost.
+[conflict copy](@/conflicts-and-the-archive.md) beside the file. Nothing is
+merged or lost.
 
 <p class="status">Being built now</p>
 
@@ -152,8 +139,9 @@ conflict copy beside the file. Nothing is merged or lost.
 
 When a change from another device replaces or deletes a file, the old one waits
 in this device's archive, 30 days unless you change it. Phones keep one too.
+Other ways to keep old versions come later.
 
-<p class="status">Coming later</p>
+<p class="status">Being built now</p>
 
 </div>
 <div class="card">
@@ -200,8 +188,9 @@ device will send it the keys of the folders you pick.
 
 ### Choose what each device keeps
 
-You'll be able to keep only some of a folder's files on a device. The devices
-you share it with can tell which ones.
+You'll be able to keep only some of a folder's files on a device, and fetch
+the others when you need them. The devices you share it with can tell which
+ones ([more](@/choosing-what-syncs.md#choosing-what-each-device-keeps)).
 
 <p class="status">Coming later</p>
 
@@ -261,8 +250,9 @@ These are how LicketySync is designed, so every feature above has them.
 - **Nothing to sign up for.** The programs you install have no server of their
   own to call: no account, no telemetry (reports about how you use it), no
   update checks.
-- **Plain notices.** When something goes wrong, the device will say what and
-  why, instead of quietly dropping it.
+- **Plain notices.** When something goes wrong, the device will say once what
+  happened, why and how to fix it
+  ([When something goes wrong](@/when-something-goes-wrong.md)).
 - **Open source.** The code and the design specifications are on
   [GitHub](https://github.com/LicketySync), under the Mozilla Public License
   2.0.

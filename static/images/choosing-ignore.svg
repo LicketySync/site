@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 220" width="440" height="220">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .sky { fill: #9CC9FF; }
+    .none { fill: none; }
+    .trail { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0.5 12; }
+    .t1 { stroke: #E8553D; }
+    .t2 { stroke: #14857E; }
+    /* Lines drawn on a fill that stays the same in dark keep dark ink. */
+    .fix { stroke: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .t1 { stroke: #FF8E77; }
+      .t2 { stroke: #7ED9CF; }
+    }
+  </style>
+  <ellipse class="blob" cx="220" cy="200" rx="204" ry="14"/>
+  <circle class="mint" cx="270" cy="24" r="5"/>
+  <circle class="coral" cx="424" cy="44" r="5"/>
+  <g class="sun">
+    <path transform="translate(150 30) scale(0.7)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path transform="translate(270 186) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+  <!-- Two files pass behind the ignore list into the folder; the third stops. -->
+  <path class="trail t2" d="M74 52Q140 40 200 66T322 102"/>
+  <path class="trail t2" d="M86 106Q150 112 210 104T300 126"/>
+  <path class="trail t1" d="M80 162Q124 160 166 150"/>
+  <g class="ink">
+    <g transform="rotate(-6 50 50)"><rect class="sky" x="32" y="28" width="36" height="44" rx="5"/></g>
+    <g transform="rotate(5 64 106)"><rect class="mint" x="46" y="84" width="36" height="44" rx="5"/></g>
+    <g transform="rotate(-8 56 162)"><rect class="coral" x="38" y="140" width="36" height="44" rx="5"/></g>
+  </g>
+  <g class="ink thin">
+    <g transform="rotate(-6 50 50)"><path class="none fix" d="M40 42H60M40 52H56"/></g>
+    <g transform="rotate(5 64 106)"><path class="none fix" d="M54 98H74M54 108H70"/></g>
+    <g transform="rotate(-8 56 162)"><path class="none fix" d="M47 153L65 171M65 153L47 171"/></g>
+    <path class="none" d="M176 136L184 130M176 154L186 156"/>
+  </g>
+  <!-- The ignore list, standing like a gate. -->
+  <g class="ink">
+    <path class="none" d="M218 128V184M204 184H232"/>
+    <rect class="paper" x="188" y="44" width="60" height="84" rx="6"/>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M200 64H236M200 80H236M200 96H226M200 112H236"/>
+  </g>
+  <!-- The folder, with the two files inside. -->
+  <g class="ink">
+    <path class="sun" d="M300 84Q300 72 312 72H352L364 86H408Q420 86 420 98V170Q420 182 408 182H312Q300 182 300 170Z"/>
+    <g transform="rotate(-8 344 108)"><rect class="sky" x="326" y="86" width="36" height="46" rx="5"/></g>
+    <g transform="rotate(6 384 108)"><rect class="mint" x="366" y="86" width="36" height="46" rx="5"/></g>
+    <path class="sun" d="M300 120H420V170Q420 182 408 182H312Q300 182 300 170Z"/>
+  </g>
+</svg>

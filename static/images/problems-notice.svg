@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="400" height="220">
+  <style>
+    .ink { stroke: #2A2135; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke-width: 3; }
+    .paper { fill: #FFFFFF; }
+    .blob { fill: #FFE3C4; }
+    .screen { fill: #E3F0FF; }
+    .sun { fill: #FFC94A; }
+    .coral { fill: #FF7A5C; }
+    .mint { fill: #8EDCC8; }
+    .none { fill: none; }
+    .line { fill: none; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    .t2 { stroke: #14857E; }
+    /* Marks drawn on a fill that stays the same in dark keep dark ink. */
+    .fix { stroke: #2A2135; }
+    .fixdot { fill: #2A2135; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F7EFE5; }
+      .paper { fill: #2D2536; }
+      .blob { fill: #342A3F; }
+      .screen { fill: #24344A; }
+      .t2 { stroke: #7ED9CF; }
+    }
+  </style>
+  <ellipse class="blob" cx="200" cy="198" rx="186" ry="15"/>
+  <circle class="mint" cx="22" cy="36" r="5"/>
+  <circle class="coral" cx="384" cy="120" r="5"/>
+  <g class="sun">
+    <path transform="translate(282 28) scale(0.8)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+    <path transform="translate(24 150) scale(0.6)" d="M0-12Q2.5-2.5 12 0Q2.5 2.5 0 12Q-2.5 2.5-12 0Q-2.5-2.5 0-12Z"/>
+  </g>
+  <!-- A laptop showing one notice. -->
+  <g class="ink">
+    <rect class="paper" x="52" y="32" width="196" height="122" rx="10"/>
+    <rect class="paper" x="36" y="154" width="228" height="16" rx="8"/>
+  </g>
+  <rect class="screen" x="64" y="44" width="172" height="98" rx="4"/>
+  <g class="ink">
+    <rect class="sun" x="80" y="56" width="140" height="72" rx="12"/>
+    <circle class="coral" cx="106" cy="92" r="15"/>
+  </g>
+  <g class="ink thin">
+    <path class="none fix" d="M132 78H204M132 92H196M132 106H182"/>
+    <path class="none fix" d="M106 84V93"/>
+  </g>
+  <circle class="fixdot" cx="106" cy="100" r="2.5"/>
+  <!-- Trying again, by itself. -->
+  <path class="line t2" d="M330 44A26 26 0 1 1 302 34"/>
+  <path class="line t2" d="M300 24L304 36L292 41"/>
+  <!-- The page with the steps to fix it. -->
+  <g class="ink">
+    <path class="paper" d="M286 100H332L348 116V182H286Z"/>
+    <path class="none" d="M332 100V116H348"/>
+  </g>
+  <g class="ink thin">
+    <path class="none" d="M296 128H334M296 142H330M296 156H318"/>
+    <circle class="mint" cx="334" cy="166" r="10"/>
+    <path class="none fix" d="M329 166L333 170L340 162"/>
+  </g>
+</svg>

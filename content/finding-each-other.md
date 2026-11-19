@@ -68,15 +68,15 @@ spots a folder of its own connects.
 {{ <illustration src="finding-local.svg" alt="A home router with Wi-Fi waves in the middle, and a laptop, a phone and a desktop computer around it, each sending out little ripples as it announces itself." width={440} height={260} /> }}
 
 - **Anyone on the network** sees that your device runs LicketySync, its
-  address and how many folders it announces, and can tell the announcements
-  all come from one device.
+  address and roughly how many folders it announces (in steps: 4, 8, 16, 32
+  or 64), and can tell the announcements all come from one device.
 - **Anyone who knows a folder** (anyone who has ever had or seen one of its
   keys) can confirm the folder is here.
 - **Anyone your device has connected to before** can tell it's your device
   announcing.
 - **Anyone who records an announcement and plays it back** can see which
-  devices answer, and so which ones share that folder, with their network
-  IDs. They can tell which folder only if they know it.
+  devices answer, and so that each of them holds a folder it named. They can
+  tell which folder only if they know it.
 
 LicketySync trusts no network, not even your home one: it treats every
 network like a café's.
