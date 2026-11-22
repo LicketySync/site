@@ -41,7 +41,7 @@ jobs:
       # Pinned so a new Zola release cannot change the build unseen.
       # Dependabot updates the action's SHA but not the Zola version;
       # bump that by hand.
-      - uses: taiki-e/install-action@c509219cf42fba86913069efd0ade2458c59337b # v2.90.1
+      - uses: taiki-e/install-action@4a76afe23f9e08d2d9550fb56e556444e8611d21 # v2.90.4
         with:
           tool: zola@0.23.6
           fallback: none
